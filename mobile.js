@@ -632,7 +632,7 @@
           <button class="tn13-final-cta" type="button" data-book><span>Записаться</span><span>→</span></button>
           <div class="tn13-final-secondary-row"><a class="tn13-final-secondary" href="#tn13Visit" aria-disabled="true" target="_blank" rel="noopener"><svg class="tn50-brand-svg" aria-hidden="true"><use href="#stl-icon-whatsapp"/></svg>Мессенджер</a><a class="tn13-final-secondary" href="#tn13Visit" aria-disabled="true"><svg aria-hidden="true"><use href="#stl-icon-phone"/></svg>Позвонить</a><a class="tn13-final-secondary" href="${YANDEX}" target="_blank" rel="noopener">Яндекс Карты</a></div>
         </div>
-        <iframe class="tn13-map" loading="lazy" src="about:blank" title="Карта BOSHKI PROJECT"></iframe>
+        <iframe class="tn13-map" loading="lazy" src="https://yandex.com/map-widget/v1/?mode=search&oid=35082945166&ol=biz" title="Карта BOSHKI PROJECT"></iframe>
         <div class="tn13-final-facts"><span><strong>—</strong><small>график</small></span><span><strong>—</strong><small>рейтинг</small></span><span><strong>30</strong><small>услуг</small></span></div>
       </div>
     </section>
@@ -1173,8 +1173,8 @@ const GALLERY={
 };
 const PORTFOLIO=[
   {
-    "src": "galery1.webp",
-    "alt": "BOSHKI PROJECT — работы и пространство"
+    "src": "galery00009.webp",
+    "alt": "Маникюр BOSHKI PROJECT"
   },
   {
     "src": "galery00007.webp",
@@ -1339,16 +1339,16 @@ function resetViewerTransform(){viewerScale=1;viewerX=0;viewerY=0;pinchStart=0;p
 function paintViewer(){const it=viewerItems[viewerIndex];if(!it)return;vImg.src=it.src;vImg.alt=it.alt||'';vCount.textContent=`${String(viewerIndex+1).padStart(2,'0')} из ${String(viewerItems.length).padStart(2,'0')}`;resetViewerTransform();vPrev.hidden=viewerItems.length<2;vNext.hidden=viewerItems.length<2;}
 function openViewer(items,index=0,source='gallery'){viewerItems=Array.isArray(items)?items:[];if(!viewerItems.length)return;viewer.dataset.source=source;const galleryButton=viewer.querySelector('.tn22-view-gallery');if(galleryButton)galleryButton.hidden=source!=='portfolio';viewerIndex=Math.max(0,Math.min(index,viewerItems.length-1));paintViewer();viewer.classList.add('open');document.body.style.overflow='hidden'}
 function closeViewer(){viewer.classList.remove('open');resetViewerTransform();if(!$('#tn13Gallery').classList.contains('open')&&!masterPage.classList.contains('open'))document.body.style.overflow=''}
-vPrev.onclick=()=>{viewerIndex=(viewerIndex-1+viewerItems.length)%viewerItems.length;paintViewer()};vNext.onclick=()=>{viewerIndex=(viewerIndex+1)%viewerItems.length;paintViewer()};viewer.querySelector('.tn22-view-close').onclick=closeViewer;viewer.querySelector('.tn22-view-gallery').onclick=()=>{closeViewer();openGallery('Салон')};viewer.addEventListener('click',e=>{if(e.target===viewer)closeViewer()});
+vPrev.onclick=()=>{viewerIndex=(viewerIndex-1+viewerItems.length)%viewerItems.length;paintViewer()};vNext.onclick=()=>{viewerIndex=(viewerIndex+1)%viewerItems.length;paintViewer()};viewer.querySelector('.tn22-view-close').onclick=closeViewer;viewer.querySelector('.tn22-view-gallery').onclick=()=>{closeViewer();openGallery('Маникюр')};viewer.addEventListener('click',e=>{if(e.target===viewer)closeViewer()});
 vCanvas.addEventListener('touchstart',e=>{if(e.touches.length===2){e.preventDefault();gestureHadPinch=true;pinchStart=pinchDist(e);pinchBaseScale=viewerScale}else if(e.touches.length===1){sx=e.touches[0].clientX;sy=e.touches[0].clientY;panStartX=viewerX;panStartY=viewerY}},{passive:false});
 vCanvas.addEventListener('touchmove',e=>{if(e.touches.length===2&&pinchStart){e.preventDefault();viewerScale=Math.max(1,Math.min(4,pinchBaseScale*(pinchDist(e)/pinchStart)));if(viewerScale<=1.01){viewerScale=1;viewerX=0;viewerY=0}applyViewerTransform()}else if(e.touches.length===1&&viewerScale>1){e.preventDefault();viewerX=panStartX+(e.touches[0].clientX-sx);viewerY=panStartY+(e.touches[0].clientY-sy);applyViewerTransform()}},{passive:false});
 vCanvas.addEventListener('touchend',e=>{if(e.touches.length<2)pinchStart=0;if(e.touches.length===0){if(!gestureHadPinch&&viewerScale===1&&viewerItems.length>1&&e.changedTouches.length){const dx=e.changedTouches[0].clientX-sx,dy=e.changedTouches[0].clientY-sy;if(Math.abs(dx)>45&&Math.abs(dx)>Math.abs(dy)*1.15)(dx<0?vNext:vPrev).click()}gestureHadPinch=false;if(viewerScale<=1.01)resetViewerTransform()}},{passive:false});
 
 // GALLERY
-const gallery=$('#tn13Gallery');let galleryCat='Салон';
+const gallery=$('#tn13Gallery');let galleryCat='Маникюр';
 function renderGallery(){const items=GALLERY[galleryCat]||[];gallery.innerHTML=`<div class="tn22-gallery"><div class="tn22-gallery-top"><button class="tn22-gallery-back" type="button">←</button><div class="tn22-gallery-title"><strong>Галерея</strong><span>BOSHKI PROJECT</span></div><div></div></div><div class="tn22-gallery-tabs">${Object.keys(GALLERY).map(c=>`<button class="tn22-gallery-tab${c===galleryCat?' active':''}" type="button" data-gcat="${c}">${c}</button>`).join('')}</div><div class="tn22-gallery-grid${galleryCat==='Салон'?' salon':''}">${items.length?items.map((x,i)=>`<button class="tn22-gallery-tile" type="button" data-gi="${i}"><img loading="lazy" decoding="async" src="${x.src}" alt="${x.alt}"></button>`).join(''):'<div class="tn23-gallery-empty">Фото ресниц пока не добавлены</div>'}</div></div>`;gallery.querySelector('.tn22-gallery-back').onclick=closeGallery;gallery.querySelectorAll('[data-gcat]').forEach(b=>b.onclick=()=>{galleryCat=b.dataset.gcat;renderGallery()});gallery.querySelectorAll('[data-gi]').forEach(b=>b.onclick=e=>{e.preventDefault();e.stopPropagation();openViewer(items,+b.dataset.gi,'gallery')});}
 let galleryCloseTimer=0;
-function openGallery(cat='Салон'){clearTimeout(galleryCloseTimer);galleryCat=Object.prototype.hasOwnProperty.call(GALLERY,cat)?cat:'Салон';renderGallery();gallery.classList.remove('closing');gallery.scrollTop=0;requestAnimationFrame(()=>gallery.classList.add('open'))}
+function openGallery(cat='Маникюр'){clearTimeout(galleryCloseTimer);galleryCat=Object.prototype.hasOwnProperty.call(GALLERY,cat)?cat:'Маникюр';renderGallery();gallery.classList.remove('closing');gallery.scrollTop=0;requestAnimationFrame(()=>gallery.classList.add('open'))}
 function closeGallery(){if(!gallery.classList.contains('open'))return;clearTimeout(galleryCloseTimer);gallery.classList.remove('open');gallery.classList.add('closing');galleryCloseTimer=setTimeout(()=>gallery.classList.remove('closing'),520)}
 
 const sectionItems=[['tn13Portfolio','Портфолио'],['tn13Services','Услуги'],...(MASTERS.length?[['tn13Team','Команда']]:[]),['tn13Reviews','Отзывы'],['tn13Visit','Визит']];const sectionIds=sectionItems.map(x=>x[0]);const sectionNav=document.createElement('nav');sectionNav.className='tn23-section-nav';sectionNav.setAttribute('aria-hidden','true');sectionNav.innerHTML=sectionItems.map((x,i)=>`<button type="button" data-section="${x[0]}" class="${i===0?'active':''}">${x[1]}</button>`).join('');hero.insertAdjacentElement('afterend',sectionNav);
@@ -1361,7 +1361,7 @@ function updateSectionNav(){navRaf=0;const heroPassed=hero.getBoundingClientRect
 window.addEventListener('scroll',()=>{if(!navRaf)navRaf=requestAnimationFrame(updateSectionNav)},{passive:true});window.addEventListener('resize',updateSectionNav,{passive:true});requestAnimationFrame(updateSectionNav);
 
 // PORTFOLIO
-const port=$('#tn13Portfolio');port.innerHTML=`<div class="tn22-port"><p class="tn22-kicker">Портфолио</p><h2>Наши работы</h2><div class="tn22-port-grid">${PORTFOLIO.map((x,i)=>`<button class="tn22-photo" type="button" data-pi="${i}"><img loading="lazy" decoding="async" src="${x.src}" alt="${x.alt}"></button>`).join('')}</div><button class="tn22-port-all" type="button">Смотреть все работы <span>→</span></button></div>`;port.querySelectorAll('[data-pi]').forEach(b=>b.onclick=()=>openViewer(PORTFOLIO,+b.dataset.pi,'portfolio'));port.querySelector('.tn22-port-all').onclick=()=>openGallery('Салон');
+const port=$('#tn13Portfolio');port.innerHTML=`<div class="tn22-port"><p class="tn22-kicker">Портфолио</p><h2>Наши работы</h2><div class="tn22-port-grid">${PORTFOLIO.map((x,i)=>`<button class="tn22-photo" type="button" data-pi="${i}"><img loading="lazy" decoding="async" src="${x.src}" alt="${x.alt}"></button>`).join('')}</div><button class="tn22-port-all" type="button">Смотреть все работы <span>→</span></button></div>`;port.querySelectorAll('[data-pi]').forEach(b=>b.onclick=()=>openViewer(PORTFOLIO,+b.dataset.pi,'portfolio'));port.querySelector('.tn22-port-all').onclick=()=>openGallery('Маникюр');
 
 // SERVICES
 const serv=$('#tn13Services');let serviceCat='Окрашивание волос',servicesExpanded=false;
@@ -1369,7 +1369,7 @@ const SERVICE_CATS=['Окрашивание волос',...[...new Set(SERVICES.
 serv.innerHTML=`<div class="tn31-services"><p class="tn22-kicker">Услуги</p><h2>Наши услуги</h2><div class="tn31-cats-wrap"><div class="tn31-cats"></div></div><div class="tn31-service-list"></div><button class="tn31-service-more" type="button"><span class="tn31-more-text"></span><span aria-hidden="true">↓</span></button></div>`;
 const scats=serv.querySelector('.tn31-cats'),slist=serv.querySelector('.tn31-service-list'),sMore=serv.querySelector('.tn31-service-more');
 function splitServiceTitle(raw){const parts=String(raw).split(' — ');const main=parts.shift()||raw;let detail=parts.join(' — ');if(!detail&&main.length>48){const m=main.match(/^(.*?)(\s\([^)]{5,}\)|\sBrazilian Blowout)$/i);if(m)return {main:m[1],detail:m[2].trim()}}return {main,detail}}
-function serviceLine(s){const t=splitServiceTitle(s.title);return `<div class="tn31-service-row"><div class="tn31-service-copy"><div class="tn31-service-name">${t.main}</div>${t.detail?`<span class="tn31-service-detail">${t.detail}</span>`:''}</div><div class="tn31-service-side"><button class="tn31-service-book" type="button" data-book-service>Записаться →</button></div></div>`}
+function serviceLine(s){const t=splitServiceTitle(s.title);const detail=[t.detail,s.desc].filter(Boolean).join(' · ');return `<div class="tn31-service-row"><div class="tn31-service-copy"><div class="tn31-service-name">${t.main}</div>${detail?`<span class="tn31-service-detail">${detail}</span>`:''}</div><div class="tn31-service-side"><div class="tn31-service-price">${s.price||'—'}</div><button class="tn31-service-book" type="button" data-book-service>Записаться →</button></div></div>`}
 function serviceWord(n){const n10=n%10,n100=n%100;if(n10===1&&n100!==11)return 'услугу';if(n10>=2&&n10<=4&&(n100<12||n100>14))return 'услуги';return 'услуг'}
 function revealCat(btn){const left=btn.offsetLeft-22,right=left+btn.offsetWidth+44;if(left<scats.scrollLeft)scats.scrollTo({left:Math.max(0,left),behavior:'smooth'});else if(right>scats.scrollLeft+scats.clientWidth)scats.scrollTo({left:right-scats.clientWidth,behavior:'smooth'})}
 function renderServices(){scats.innerHTML=SERVICE_CATS.map(c=>`<button class="tn31-cat${c===serviceCat?' active':''}" type="button" data-scat="${c}">${c}</button>`).join('');scats.querySelectorAll('[data-scat]').forEach(b=>b.onclick=()=>{serviceCat=b.dataset.scat;servicesExpanded=false;renderServices();requestAnimationFrame(()=>revealCat(scats.querySelector(`[data-scat="${serviceCat}"]`)))});const arr=SERVICES.filter(s=>s.cat===serviceCat),shown=servicesExpanded?arr:arr.slice(0,7),remaining=Math.max(0,arr.length-7);slist.innerHTML=shown.map(serviceLine).join('');slist.querySelectorAll('[data-book-service]').forEach(b=>b.onclick=book);sMore.hidden=arr.length<=7;sMore.querySelector('.tn31-more-text').textContent=servicesExpanded?'Свернуть':`Показать ещё ${remaining} ${serviceWord(remaining)}`;sMore.querySelector('span:last-child').textContent=servicesExpanded?'↑':'↓'}
@@ -1416,9 +1416,9 @@ const iconPhone=`<span class="tn22-contact-icon"><svg viewBox="0 0 24 24" aria-h
 const iconMessage=`<span class="tn22-contact-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5.5h14v10H9l-4 3v-13Z"/></svg></span>`;
 const iconClock=`<span class="tn22-contact-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3.2 1.8"/></svg></span>`;
 const statusClock=`<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3.2 1.8"/></svg>`;
-visit.innerHTML=`<div class="tn22-visit"><div class="tn22-visit-head"><p class="tn22-kicker">Контакты</p><span class="tn22-status" id="tn22Status">${statusClock}<span class="tn22-status-text"></span></span></div><h2>Ждём вас</h2><div class="tn22-contact-grid"><a class="tn22-contact" href="https://yandex.ru/maps/org/boshki_prodzhekt/35082945166/" target="_blank" rel="noopener">${iconPin}<span><strong>ул. Аргишти, 7/10, Ереван</strong><span>ул. Аргишти, 7/10</span></span></a><a class="tn22-contact" href="tel:+37477116819">${iconPhone}<span><strong>+374 77 116819</strong><span>Нажмите, чтобы позвонить</span></span></a><a class="tn22-contact" href="https://wa.me/37477116819?text=%D0%9E%D0%B1%D1%80%D0%B0%D1%89%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%B8%D0%B7%20%D0%AF%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%20%D0%9A%D0%B0%D1%80%D1%82%0A%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9C%D0%B5%D0%BD%D1%8F%20%D0%B7%D0%B0%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D0%BE%D0%B2%D0%B0%D0%BB%D0%BE%20%D0%B2%D0%B0%D1%88%D0%B5%20%D0%BF%D1%80%D0%B5%D0%B4%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5" target="_blank" rel="noopener">${iconMessage}<span><strong>Telegram</strong><span>Написать в салон</span></span></a><div class="tn22-contact">${iconClock}<span><strong>График работы</strong><span>10:00–21:00</span></span></div></div><div class="tn22-mapwrap"><div class="tn22-map-skeleton">Загружаем карту…</div><iframe title="Карта BOSHKI PROJECT" loading="lazy" src="about:blank"></iframe></div><div class="tn22-visit-actions"><a class="tn22-visit-btn tn22-call" href="tel:+37477116819">Позвонить</a><a class="tn22-visit-btn tn22-route" href="https://yandex.ru/maps/org/boshki_prodzhekt/35082945166/" target="_blank" rel="noopener">Построить маршрут</a></div><a class="tn22-footer" href="https://tanem.ru/" target="_blank" rel="noopener"><strong>TANEM.ru</strong><span>Цифровой офис для салонов красоты</span></a></div>`;
+visit.innerHTML=`<div class="tn22-visit"><div class="tn22-visit-head"><p class="tn22-kicker">Контакты</p><span class="tn22-status" id="tn22Status">${statusClock}<span class="tn22-status-text"></span></span></div><h2>Ждём вас</h2><div class="tn22-contact-grid"><a class="tn22-contact" href="https://yandex.ru/maps/org/boshki_prodzhekt/35082945166/" target="_blank" rel="noopener">${iconPin}<span><strong>ул. Аргишти, 7/10, Ереван</strong><span>ул. Аргишти, 7/10</span></span></a><a class="tn22-contact" href="tel:+37477116819">${iconPhone}<span><strong>+374 77 116819</strong><span>Нажмите, чтобы позвонить</span></span></a><a class="tn22-contact" href="https://wa.me/37477116819?text=%D0%9E%D0%B1%D1%80%D0%B0%D1%89%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%B8%D0%B7%20%D0%AF%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%20%D0%9A%D0%B0%D1%80%D1%82%0A%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9C%D0%B5%D0%BD%D1%8F%20%D0%B7%D0%B0%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D0%BE%D0%B2%D0%B0%D0%BB%D0%BE%20%D0%B2%D0%B0%D1%88%D0%B5%20%D0%BF%D1%80%D0%B5%D0%B4%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5" target="_blank" rel="noopener">${iconMessage}<span><strong>Telegram</strong><span>Написать в салон</span></span></a><div class="tn22-contact">${iconClock}<span><strong>График работы</strong><span id="tn22ContactHours">—</span></span></div></div><div class="tn22-mapwrap"><div class="tn22-map-skeleton">Загружаем карту…</div><iframe title="Карта BOSHKI PROJECT" loading="lazy" src="https://yandex.com/map-widget/v1/?mode=search&oid=35082945166&ol=biz"></iframe></div><div class="tn22-visit-actions"><a class="tn22-visit-btn tn22-call" href="tel:+37477116819">Позвонить</a><a class="tn22-visit-btn tn22-route" href="https://yandex.ru/maps/org/boshki_prodzhekt/35082945166/" target="_blank" rel="noopener">Построить маршрут</a></div><a class="tn22-footer" href="https://tanem.ru/" target="_blank" rel="noopener"><strong>TANEM.ru</strong><span>Цифровой офис для салонов красоты</span></a></div>`;
 const map=visit.querySelector('.tn22-mapwrap'),iframe=map.querySelector('iframe');iframe.addEventListener('load',()=>map.classList.add('loaded'));setTimeout(()=>map.classList.add('loaded'),5000);
-function status(){const now=new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Yerevan',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).format(new Date());const open=now>='10:00'&&now<'21:00';const el=visit.querySelector('#tn22Status'),txt=el&&el.querySelector('.tn22-status-text');if(txt)txt.textContent=open?'Открыто':'Закрыто';if(el)el.className='tn22-status '+(open?'open':'closed');const hs=hero.querySelector('.tn50-hero-status');if(hs){const main=hs.querySelector('.tn50-hero-status-main'),sub=hs.querySelector('.tn50-hero-status-sub');if(main)main.textContent=open?'Открыто':'Закрыто';if(sub)sub.textContent='10:00–21:00';hs.classList.toggle('open',open);hs.classList.toggle('closed',!open)}}status();window.setInterval(status,60000);
+function status(){const lang=(document.body.dataset.brLang||document.documentElement.lang||'en').toLowerCase();const copy=lang==='ru'?{open:'Открыто',closed:'Закрыто',until:'до 21:00',opens:'откроется в 10:00'}:lang==='hy'?{open:'Բաց է',closed:'Փակ է',until:'մինչև 21:00',opens:'բացվում է 10:00'}:{open:'Open',closed:'Closed',until:'until 21:00',opens:'opens 10:00'};const now=new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Yerevan',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).format(new Date());const open=now>='10:00'&&now<'21:00';const primary=open?copy.open:copy.closed,detail=open?copy.until:copy.opens;const el=visit.querySelector('#tn22Status'),txt=el&&el.querySelector('.tn22-status-text');if(txt)txt.textContent=primary+' · '+detail;if(el)el.className='tn22-status '+(open?'open':'closed');const hs=hero.querySelector('.tn50-hero-status');if(hs){const main=hs.querySelector('.tn50-hero-status-main'),sub=hs.querySelector('.tn50-hero-status-sub');if(main)main.textContent=primary;if(sub)sub.textContent=detail;hs.classList.toggle('open',open);hs.classList.toggle('closed',!open)}const contactHours=visit.querySelector('#tn22ContactHours');if(contactHours)contactHours.textContent=detail}status();window.setInterval(status,60000);window.addEventListener('boshki:languagechange',status);
 
 // STICKY
 const sticky=$('#tn13Sticky');if(sticky){sticky.innerHTML=`<strong>Доступно ${SERVICES.length} услуг</strong><button type="button">Записаться</button>`;sticky.querySelector('button').onclick=book}
@@ -2147,8 +2147,8 @@ services.insertAdjacentElement('afterend',about);
   'use strict';
   if(!window.matchMedia || !window.matchMedia('(max-width:1023px)').matches || window.matchMedia('(min-width:768px) and (hover:hover) and (pointer:fine)').matches) return;
 
-  var STORAGE_KEY='salon-template-language';
-  var currentLang='hy';
+  var STORAGE_KEY='boshki-project-language-v2';
+  var currentLang='en';
   var root=null;
 
   var meta={
@@ -2297,7 +2297,7 @@ services.insertAdjacentElement('afterend',about);
     ['Нажмите, чтобы позвонить','Սեղմեք զանգահարելու համար','Tap to call'],
     ['Написать в салон','Գրել սրահին','Message the salon'],
     ['График работы','Աշխատանքային ժամեր','Opening hours'],
-    ['10:00–21:00','Կավելացվի','To be added'],
+    ['10:00–21:00','10:00–21:00','10:00–21:00'],
     ['Загружаем карту…','Քարտեզը բեռնվում է…','Loading map…'],
     ['Позвонить','Զանգահարել','Call'],
     ['Построить маршрут','Ստանալ երթուղին','Get directions'],
@@ -2306,8 +2306,8 @@ services.insertAdjacentElement('afterend',about);
     ['График работы','Աշխատանքային ժամեր','Opening hours'],
     ['Открыто','Բաց է','Open'],
     ['Закрыто','Փակ է','Closed'],
-    ['10:00–21:00','Կավելացվի','To be added'],
-    ['10:00–21:00','Կավելացվի','To be added'],
+    ['10:00–21:00','10:00–21:00','10:00–21:00'],
+    ['10:00–21:00','10:00–21:00','10:00–21:00'],
     ['О нас','Մեր մասին','About us'],
     ['Салон красоты в городе','Գեղեցկության սրահ Քաղաքում','Beauty salon in City'],
     ['BOSHKI PROJECT — салон красоты.','BOSHKI PROJECT — գեղեցկության սրահ Քաղաքում։','BOSHKI PROJECT — a beauty salon in City.'],
@@ -2371,13 +2371,7 @@ services.insertAdjacentElement('afterend',about);
   function detect(){
     var saved=getSaved();
     if(saved) return saved;
-    var list=(navigator.languages&&navigator.languages.length?navigator.languages:[navigator.language||'']).map(function(x){return String(x).toLowerCase();});
-    for(var i=0;i<list.length;i++){
-      if(list[i].indexOf('hy')===0) return 'hy';
-      if(list[i].indexOf('ru')===0) return 'ru';
-      if(list[i].indexOf('en')===0) return 'en';
-    }
-    return 'hy';
+    return 'en';
   }
 
   function save(lang){
@@ -2562,10 +2556,11 @@ services.insertAdjacentElement('afterend',about);
     applySpecials();
     updateMeta();
     document.body.dataset.brLang=currentLang;
+    window.dispatchEvent(new CustomEvent('boshki:languagechange',{detail:{lang:currentLang}}));
   }
 
   function setLanguage(lang,userChoice){
-    if(!/^(hy|ru|en)$/.test(lang)) lang='hy';
+    if(!/^(hy|ru|en)$/.test(lang)) lang='en';
     currentLang=lang;
     if(userChoice) save(lang);
     applyLanguage();
@@ -2604,3 +2599,6 @@ services.insertAdjacentElement('afterend',about);
 
   start();
 })();
+
+/* boshki-cold-neutral-20260924 */
+(function(){if(document.getElementById('boshki-cold-neutral-20260924'))return;const style=document.createElement('style');style.id='boshki-cold-neutral-20260924';style.textContent="\n@media(max-width:1023px){\n:root{--boshki-white:#fafaf9;--boshki-soft:#f2f2f0;--boshki-menu:#f5f5f3;--boshki-ink:#181818;--boshki-dark:#242424;--boshki-mid:#e8e8e6}\nhtml,body,#salon-mobile{background:var(--boshki-white)!important;color:var(--boshki-ink)!important}\n#salon-mobile .tn13-hero,.tn22-card{background:var(--boshki-white)!important}\n.tn22-top{background:var(--boshki-menu)!important;border-bottom:1px solid rgba(24,24,24,.06)!important}\n.tn22-navpop{background:rgba(245,245,243,.98)!important;border-color:rgba(24,24,24,.10)!important;box-shadow:0 18px 44px rgba(0,0,0,.10)!important}\n.tn22-navpop a{border-color:rgba(24,24,24,.08)!important;color:var(--boshki-ink)!important}\nbody[data-br-lang=\"en\"] #salon-mobile .tn22-navpop{width:236px!important;padding:8px 13px!important;grid-auto-rows:44px!important}\nbody[data-br-lang=\"en\"] #salon-mobile .tn22-navpop a{min-height:44px!important;height:44px!important;display:flex!important;align-items:center!important;margin:0!important;padding:0 4px!important}\n.tn23-section-nav{background:rgba(245,245,243,.96)!important;border-color:rgba(24,24,24,.09)!important;box-shadow:0 8px 26px rgba(0,0,0,.06)!important}\n.tn22-cta{position:relative!important;overflow:hidden!important;background:var(--boshki-ink)!important;border-color:var(--boshki-ink)!important;color:#fff!important;box-shadow:0 10px 25px rgba(0,0,0,.14)!important}\n.tn22-cta:after{content:\"\"!important;position:absolute!important;top:-35%!important;bottom:-35%!important;left:-42%!important;width:30%!important;background:linear-gradient(100deg,transparent,rgba(255,255,255,.38),transparent)!important;transform:skewX(-20deg)!important;animation:boshkiBookSheen 4.4s ease-in-out infinite!important;pointer-events:none!important}\n@keyframes boshkiBookSheen{0%,66%{left:-42%;opacity:0}72%{opacity:1}90%{left:126%;opacity:1}91%,100%{left:126%;opacity:0}}\n.tn22-worklink{background:var(--boshki-mid)!important;border-color:#d2d2cf!important;color:var(--boshki-ink)!important;box-shadow:none!important}\n.tn50-hero-status.open .tn50-hero-status-main{color:#2f7d46!important}.tn50-hero-status.closed .tn50-hero-status-main{color:#c54b55!important}\n#tn13Portfolio{background:var(--boshki-white)!important;color:var(--boshki-ink)!important}\n#tn13Gallery,#tn13Gallery .tn22-gallery{background:var(--boshki-soft)!important;color:var(--boshki-ink)!important}\n#tn13Gallery .tn22-gallery-tabs{background:var(--boshki-soft)!important;border-color:rgba(24,24,24,.12)!important}\n#tn13Gallery .tn22-gallery-tab{color:#595959!important}#tn13Gallery .tn22-gallery-tab.active{background:var(--boshki-ink)!important;color:#fff!important}\n#tn13Services,#tn13Team,#tn13Visit{background:var(--boshki-dark)!important;color:#f7f7f6!important;border-color:rgba(255,255,255,.08)!important}\n#tn13Services .tn31-cat.active{background:#f3f3f1!important;border-color:#f3f3f1!important;color:#181818!important}\n#tn13Services .tn31-service-name,#tn13Services .tn31-service-price,#tn13Services h2,#tn13Team h2,#tn13Visit h2{color:#f7f7f6!important}\n#tn13Services .tn31-service-detail,#tn13Services .tn31-service-book,#tn13Services .tn22-kicker,#tn13Team .tn22-kicker,#tn13Visit .tn22-kicker{color:#bdbdbb!important}\n#tn13Services .tn31-service-list,#tn13Services .tn31-service-row{border-color:rgba(255,255,255,.14)!important}\n#tn13Team .tn22-master-circle{background:linear-gradient(145deg,#3a3a3a,#202020)!important;color:#e5e5e5!important;border-color:rgba(255,255,255,.10)!important}\n#tn13Reviews{background:var(--boshki-soft)!important;color:var(--boshki-ink)!important}\n#tn13Reviews .tn30-review-card{background:#fafafa!important;border-color:rgba(24,24,24,.12)!important}\n#tn13Reviews .tn30-review-avatar{background:#dededc!important;color:#404040!important}#tn13Reviews .tn30-stars{color:#444!important}\n#tn13Visit .tn22-contact{background:rgba(255,255,255,.06)!important;border-color:rgba(255,255,255,.13)!important;color:#f7f7f6!important}\n#tn13Visit .tn22-contact-icon{background:rgba(255,255,255,.08)!important;border-color:rgba(255,255,255,.08)!important}\n#tn13Visit .tn22-contact-icon svg{stroke:#ededeb!important}#tn13Visit .tn22-contact strong{color:#f7f7f6!important}#tn13Visit .tn22-contact>span:last-child>span{color:#bebebb!important}\n#tn13Visit .tn22-status.open{background:#203b2a!important;border-color:#315b40!important;color:#8fd0a1!important}#tn13Visit .tn22-status.closed{background:#46292e!important;border-color:#63383f!important;color:#ef9ea7!important}\n#tn13Visit .tn22-mapwrap{background:#333!important;border:1px solid rgba(255,255,255,.10)!important}#tn13Visit .tn22-route{background:#ededeb!important;color:#202020!important}#tn13Visit .tn22-footer{background:#181818!important}\n#tn38About .tn42-card{box-shadow:0 26px 58px rgba(0,0,0,.13),0 7px 20px rgba(0,0,0,.07)!important;border-color:rgba(24,24,24,.08)!important}\n#tn38About .tn42-photo img{object-position:center 38%!important}\n.tn22-gallery-title span,.tn42-kicker,.tn22-kicker{color:#696969}\n}\n@media(prefers-reduced-motion:reduce){.tn22-cta:after{animation:none!important}}\n";document.head.appendChild(style);})();
