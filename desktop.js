@@ -4,20 +4,597 @@
   const desktopDevice=window.__BR_DESKTOP_DEVICE__===true || (!('__BR_DESKTOP_DEVICE__' in window) && !!window.matchMedia && window.matchMedia('(hover:hover) and (pointer:fine)').matches);
   if(!desktopDevice) return;
 
-  const B=window.BOSHKI_DATA;
-  const PHONE=B.phone;
-  const ADDRESS=B.address;
-  const YANDEX_RU=B.yandex;
-  const ROUTE=YANDEX_RU;
-  const WHATSAPP_URL=B.whatsapp;
-  const YANDEX_REVIEWS=B.reviewsUrl;
-  const DESKTOP_REAL_REVIEWS=B.reviews.slice(0,9);
-  const PORTFOLIO=B.portfolio;
-  const DESKTOP_GALLERY_GROUPS=B.imageGroups;
+  const PHONE="+37477116819";
+  const ADDRESS="ул. Аргишти, 7/10, Ереван";
+  const YANDEX_RU="https://yandex.ru/maps/org/boshki_prodzhekt/35082945166/";
+  const ROUTE="https://yandex.ru/maps/org/boshki_prodzhekt/35082945166/";
+  const WHATSAPP_URL="https://wa.me/37477116819?text=%D0%9E%D0%B1%D1%80%D0%B0%D1%89%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%B8%D0%B7%20%D0%AF%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%20%D0%9A%D0%B0%D1%80%D1%82%0A%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9C%D0%B5%D0%BD%D1%8F%20%D0%B7%D0%B0%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D0%BE%D0%B2%D0%B0%D0%BB%D0%BE%20%D0%B2%D0%B0%D1%88%D0%B5%20%D0%BF%D1%80%D0%B5%D0%B4%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5";
+  const YANDEX_REVIEWS="https://yandex.com/maps/org/boshki_project/35082945166/reviews/";
+  const DESKTOP_REAL_REVIEWS=[["Hartman Alpenfeld","highly recommend! good value for money."],["Артем Ш.","Incredible place with amazing people!"],["Nina B.","The best hair salon in all of Yerevan"]];
+  const PORTFOLIO=[
+  {
+    "src": "galery1.webp",
+    "alt": "BOSHKI PROJECT — работы и пространство"
+  },
+  {
+    "src": "galery00007.webp",
+    "alt": "BOSHKI PROJECT — работы и пространство"
+  },
+  {
+    "src": "galery00001.webp",
+    "alt": "BOSHKI PROJECT — работы и пространство"
+  },
+  {
+    "src": "galery00008.webp",
+    "alt": "BOSHKI PROJECT — работы и пространство"
+  },
+  {
+    "src": "galery00010.webp",
+    "alt": "BOSHKI PROJECT — работы и пространство"
+  },
+  {
+    "src": "galery00011.webp",
+    "alt": "BOSHKI PROJECT — работы и пространство"
+  },
+  {
+    "src": "galery00017.webp",
+    "alt": "BOSHKI PROJECT — работы и пространство"
+  }
+];
+  const DESKTOP_GALLERY_GROUPS={
+  "Салон": [
+    {
+      "src": "galery1.webp",
+      "alt": "Интерьер и атмосфера BOSHKI PROJECT"
+    },
+    {
+      "src": "galery00003.webp",
+      "alt": "Интерьер и атмосфера BOSHKI PROJECT"
+    },
+    {
+      "src": "galery00004.webp",
+      "alt": "Интерьер и атмосфера BOSHKI PROJECT"
+    },
+    {
+      "src": "galery00005.webp",
+      "alt": "Интерьер и атмосфера BOSHKI PROJECT"
+    },
+    {
+      "src": "galery00006.webp",
+      "alt": "Интерьер и атмосфера BOSHKI PROJECT"
+    },
+    {
+      "src": "galery00014.webp",
+      "alt": "Интерьер и атмосфера BOSHKI PROJECT"
+    },
+    {
+      "src": "galery00018.webp",
+      "alt": "Интерьер и атмосфера BOSHKI PROJECT"
+    },
+    {
+      "src": "galery00021.webp",
+      "alt": "Интерьер и атмосфера BOSHKI PROJECT"
+    }
+  ],
+  "Маникюр": [
+    {
+      "src": "galery00001.webp",
+      "alt": "Маникюр BOSHKI PROJECT"
+    },
+    {
+      "src": "galery00009.webp",
+      "alt": "Маникюр BOSHKI PROJECT"
+    },
+    {
+      "src": "galery00017.webp",
+      "alt": "Маникюр BOSHKI PROJECT"
+    },
+    {
+      "src": "galery00027.webp",
+      "alt": "Маникюр BOSHKI PROJECT"
+    },
+    {
+      "src": "galery00028.webp",
+      "alt": "Маникюр BOSHKI PROJECT"
+    },
+    {
+      "src": "galery00029.webp",
+      "alt": "Маникюр BOSHKI PROJECT"
+    }
+  ],
+  "Окрашивание": [
+    {
+      "src": "galery00007.webp",
+      "alt": "Окрашивание волос BOSHKI PROJECT"
+    },
+    {
+      "src": "galery00015.webp",
+      "alt": "Окрашивание волос BOSHKI PROJECT"
+    }
+  ],
+  "Стрижки": [
+    {
+      "src": "galery00002.webp",
+      "alt": "Стрижка BOSHKI PROJECT"
+    },
+    {
+      "src": "galery00019.webp",
+      "alt": "Стрижка BOSHKI PROJECT"
+    },
+    {
+      "src": "galery00023.webp",
+      "alt": "Стрижка BOSHKI PROJECT"
+    },
+    {
+      "src": "galery00025.webp",
+      "alt": "Стрижка BOSHKI PROJECT"
+    }
+  ],
+  "Пирсинг": [
+    {
+      "src": "galery00011.webp",
+      "alt": "Пирсинг BOSHKI PROJECT"
+    },
+    {
+      "src": "galery00016.webp",
+      "alt": "Пирсинг BOSHKI PROJECT"
+    },
+    {
+      "src": "galery00024.webp",
+      "alt": "Пирсинг BOSHKI PROJECT"
+    },
+    {
+      "src": "galery00020.webp",
+      "alt": "Пирсинг и украшения BOSHKI PROJECT"
+    }
+  ],
+  "Татуировка": [
+    {
+      "src": "galery00008.webp",
+      "alt": "Татуировка BOSHKI PROJECT"
+    },
+    {
+      "src": "galery00012.webp",
+      "alt": "Татуировка BOSHKI PROJECT"
+    },
+    {
+      "src": "galery00013.webp",
+      "alt": "Татуировка BOSHKI PROJECT"
+    },
+    {
+      "src": "galery00022.webp",
+      "alt": "Татуировка BOSHKI PROJECT"
+    },
+    {
+      "src": "galery00026.webp",
+      "alt": "Татуировка BOSHKI PROJECT"
+    }
+  ],
+  "Макияж": [
+    {
+      "src": "galery00010.webp",
+      "alt": "Макияж BOSHKI PROJECT"
+    }
+  ]
+};
   const DESKTOP_GALLERY=Object.values(DESKTOP_GALLERY_GROUPS).flat().map(x=>x.src);
-  const SERVICE_DATA=Object.fromEntries([...new Set(B.services.map(x=>x.category))].map(cat=>[cat,B.services.filter(x=>x.category===cat).map(x=>[x.ru,x.price.toLocaleString('ru-RU')+' ֏'+(x.duration?' · '+x.duration:''),'',[],''])]));
+  const SERVICE_DATA={
+  "Окрашивание волос": [
+    [
+      "Тотал блонд",
+      "50 000 ֏",
+      "4 ч",
+      [],
+      ""
+    ],
+    [
+      "Осветление корней + тонирование",
+      "25 000 ֏",
+      "3 ч",
+      [],
+      ""
+    ],
+    [
+      "Выход из цвета (деколоризация)",
+      "40 000 ֏",
+      "5 ч",
+      [],
+      ""
+    ],
+    [
+      "Аиртач + мелирование",
+      "60 000 ֏",
+      "5 ч",
+      [],
+      ""
+    ],
+    [
+      "Контуринг + тонирование",
+      "40 000 ֏",
+      "4 ч",
+      [],
+      ""
+    ],
+    [
+      "Однотонное окрашивание",
+      "20 000 ֏",
+      "4 ч",
+      [],
+      ""
+    ],
+    [
+      "Консультация по креативному окрашиванию",
+      "50 000 ֏",
+      "",
+      [],
+      ""
+    ],
+    [
+      "Консультация по окрашиванию (бесплатно)",
+      "10 ֏",
+      "",
+      [],
+      ""
+    ]
+  ],
+  "Пирсинг": [
+    [
+      "Пирсинг",
+      "18 000 ֏",
+      "",
+      [],
+      ""
+    ],
+    [
+      "Консультация по пирсингу (бесплатно)",
+      "10 ֏",
+      "",
+      [],
+      ""
+    ],
+    [
+      "Микродермал",
+      "40 000 ֏",
+      "",
+      [],
+      ""
+    ],
+    [
+      "Восстановление прокола",
+      "6 000 ֏",
+      "",
+      [],
+      ""
+    ],
+    [
+      "Процедура по уходу",
+      "5 000 ֏",
+      "",
+      [],
+      ""
+    ],
+    [
+      "Тоннели",
+      "18 000 ֏",
+      "",
+      [],
+      ""
+    ],
+    [
+      "Интимный пирсинг",
+      "30 000 ֏",
+      "1 ч",
+      [],
+      ""
+    ],
+    [
+      "Индастриал",
+      "28 000 ֏",
+      "",
+      [],
+      ""
+    ]
+  ],
+  "Макияж": [
+    [
+      "Макияж",
+      "15 000 ֏",
+      "",
+      [],
+      ""
+    ],
+    [
+      "Свадебный образ",
+      "30 000 ֏",
+      "1 ч",
+      [],
+      ""
+    ],
+    [
+      "Репетиция свадебного образа",
+      "20 000 ֏",
+      "",
+      [],
+      ""
+    ],
+    [
+      "Обучение макияжу для себя",
+      "60 000 ֏",
+      "",
+      [],
+      ""
+    ],
+    [
+      "Креативный макияж",
+      "30 000 ֏",
+      "",
+      [],
+      ""
+    ],
+    [
+      "Полный образ: макияж + укладка",
+      "20 000 ֏",
+      "",
+      [],
+      ""
+    ],
+    [
+      "Вечерний макияж",
+      "20 000 ֏",
+      "",
+      [],
+      ""
+    ]
+  ],
+  "Стрижки": [
+    [
+      "Стрижка чёлки",
+      "5 000 ֏",
+      "30 мин",
+      [],
+      ""
+    ],
+    [
+      "Женская стрижка — 1,5 ч",
+      "15 000 ֏",
+      "1,5 ч",
+      [],
+      ""
+    ],
+    [
+      "Мужская стрижка — 1,5 ч",
+      "15 000 ֏",
+      "1,5 ч",
+      [],
+      ""
+    ],
+    [
+      "Мужская стрижка — 2 ч",
+      "20 000 ֏",
+      "2 ч",
+      [],
+      ""
+    ],
+    [
+      "Женская стрижка — 2 ч",
+      "20 000 ֏",
+      "2 ч",
+      [],
+      ""
+    ],
+    [
+      "Консультация по стрижке (бесплатно)",
+      "10 ֏",
+      "",
+      [],
+      ""
+    ]
+  ],
+  "Коррекция бровей": [
+    [
+      "Осветление бровей",
+      "10 000 ֏",
+      "1 ч",
+      [],
+      ""
+    ],
+    [
+      "Коррекция бровей",
+      "5 000 ֏",
+      "",
+      [],
+      ""
+    ],
+    [
+      "Skinny-брови",
+      "8 000 ֏",
+      "",
+      [],
+      ""
+    ],
+    [
+      "Долговременная укладка бровей",
+      "20 000 ֏",
+      "",
+      [],
+      ""
+    ],
+    [
+      "Консультация по бровям (бесплатно)",
+      "10 ֏",
+      "",
+      [],
+      ""
+    ]
+  ],
+  "Маникюр": [
+    [
+      "Маникюр без покрытия",
+      "10 000 ֏",
+      "",
+      [],
+      ""
+    ],
+    [
+      "Маникюр с дизайном",
+      "17 000 ֏",
+      "",
+      [],
+      ""
+    ],
+    [
+      "Когти (Claws)",
+      "26 000 ֏",
+      "2 ч",
+      [],
+      ""
+    ],
+    [
+      "Наращивание с однотонным покрытием",
+      "23 000 ֏",
+      "",
+      [],
+      ""
+    ],
+    [
+      "Наращивание с дизайном",
+      "26 000 ֏",
+      "",
+      [],
+      ""
+    ]
+  ],
+  "Уход за волосами": [
+    [
+      "Уход OI Davines",
+      "20 000 ֏",
+      "",
+      [],
+      ""
+    ],
+    [
+      "Уход K18",
+      "20 000 ֏",
+      "",
+      [],
+      ""
+    ],
+    [
+      "Уход Londa Lightplex",
+      "15 000 ֏",
+      "",
+      [],
+      ""
+    ],
+    [
+      "Davines Nourishing Keratin Wonder",
+      "20 000 ֏",
+      "",
+      [],
+      ""
+    ]
+  ],
+  "Биозавивка": [
+    [
+      "Биозавивка",
+      "60 000 ֏",
+      "4 ч",
+      [],
+      ""
+    ],
+    [
+      "Консультация по биозавивке (бесплатно)",
+      "10 ֏",
+      "1 ч",
+      [],
+      ""
+    ]
+  ],
+  "Мужской маникюр": [
+    [
+      "Мужской маникюр без покрытия",
+      "12 000 ֏",
+      "",
+      [],
+      ""
+    ],
+    [
+      "Мужской маникюр с покрытием",
+      "15 000 ֏",
+      "",
+      [],
+      ""
+    ]
+  ],
+  "Педикюр": [
+    [
+      "Педикюр",
+      "12 000 ֏",
+      "",
+      [],
+      ""
+    ],
+    [
+      "Педикюр с покрытием гель-лак",
+      "18 000 ֏",
+      "",
+      [],
+      ""
+    ]
+  ],
+  "Татуировка": [
+    [
+      "Татуировка",
+      "100 000 ֏",
+      "",
+      [],
+      ""
+    ],
+    [
+      "Консультация по тату (бесплатно)",
+      "10 ֏",
+      "1 ч",
+      [],
+      ""
+    ]
+  ],
+  "Причёски": [
+    [
+      "Укладка по кудрявому методу",
+      "10 000 ֏",
+      "30 мин",
+      [],
+      ""
+    ],
+    [
+      "Укладка локонами",
+      "7 000 ֏",
+      "30 мин",
+      [],
+      ""
+    ]
+  ],
+  "Ламинирование ресниц": [
+    [
+      "Ламинирование и окрашивание ресниц",
+      "20 000 ֏",
+      "",
+      [],
+      ""
+    ]
+  ],
+  "Мужской педикюр": [
+    [
+      "Мужской педикюр",
+      "13 000 ֏",
+      "",
+      [],
+      ""
+    ]
+  ]
+};
   const SERVICE_CATEGORIES=Object.keys(SERVICE_DATA);
-  const TEAM_MASTERS=B.team;
+  const TEAM_MASTERS=[];
   const TEAM_AVATAR='<svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="23" r="11" fill="currentColor"></circle><path d="M12 56c2.7-11.4 10-17 20-17s17.3 5.6 20 17" fill="currentColor"></path></svg>';
 
   const font=document.createElement('link');
@@ -1564,7 +2141,7 @@
     opacity:.92!important;
     filter:none!important;
     transform:none!important;
-    background-image:none!important;
+    background-image:url('master.webp')!important;
     background-repeat:no-repeat!important;
     background-size:1648px auto!important;
     background-position:left bottom!important;
@@ -3572,7 +4149,7 @@
 }
 
 @media(min-width:768px){
-  /* Center kicker against the actual BOSHKI PROJECT text box, not the whole left column. */
+  /* Center kicker against the actual НАЗВАНИЕ САЛОНА text box, not the whole left column. */
   #salonDesktopTop .std-logo{
     font-size:clamp(59.52px,4.9755vw,81.84px)!important;
   }
@@ -7047,7 +7624,8 @@ html,body,#salon-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:none
   root.innerHTML=`
     <header class="std-header">
       <a class="std-header-brand" href="#salonDesktopTop" aria-label="BOSHKI PROJECT">
-        <img class="boshki-header-logo" src="logo.webp" alt="BOSHKI PROJECT" decoding="async">
+        <span class="std-header-brand-main">BOSHKI PROJECT</span>
+        <span class="std-header-brand-sub">BEAUTY STUDIO</span>
       </a>
       <div class="std-lang-switch std-lang-switch-under-brand" role="group" aria-label="Language"><button type="button" data-desktop-lang="ru">RU</button><span class="sep">|</span><button type="button" data-desktop-lang="en">EN</button><span class="sep">|</span><button type="button" data-desktop-lang="hy">HY</button></div>
       <nav class="std-nav" aria-label="Основная навигация">
@@ -7059,9 +7637,9 @@ html,body,#salon-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:none
       </nav>
       <div class="std-header-right">
         <div class="std-lang-switch std-lang-switch-placeholder" aria-hidden="true"></div>
-        <a class="std-phone" href="tel:${B.phoneDial}" aria-label="Позвонить в BOSHKI PROJECT">
+        <a class="std-phone" href="#salonDesktopContacts" aria-disabled="true" aria-label="Позвонить в BOSHKI PROJECT">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.83 16.57a1 1 0 0 0 1.21-.3l.36-.47A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.47.35a1 1 0 0 0-.29 1.23 14 14 0 0 0 6.39 6.39Z" fill="currentColor"/></svg>
-          <span>${B.phone}</span>
+          <span>+374 77 116819</span>
         </a>
         <button class="std-header-book" id="stdHeaderBookBtn" type="button">Записаться</button>
       </div>
@@ -7075,7 +7653,7 @@ html,body,#salon-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:none
           <h1 class="std-logo">BOSHKI PROJECT</h1>
           <div class="std-logo-sub">BEAUTY STUDIO</div>
 
-          <p class="std-tagline">BOSHKI PROJECT — пространство, в котором встречаются стрижки, сложное окрашивание, маникюр, макияж, пирсинг и татуировка. Авторские работы, индустриальная эстетика и собственный характер.</p>
+          <p class="std-tagline">Описание салона.</p>
 
           <div class="std-meta">
             <div class="std-meta-item">
@@ -7091,7 +7669,7 @@ html,body,#salon-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:none
               <span class="std-meta-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24"><path d="M12 21s6-5.2 6-11a6 6 0 1 0-12 0c0 5.8 6 11 6 11Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="12" cy="10" r="2.1" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
               </span>
-              <span class="std-meta-text std-address">Ереван,<br>ул. Аргишти, 7/10, Ереван</span>
+              <span class="std-meta-text std-address">Ереван,<br>ул. Аргишти, 7/10</span>
             </a>
           </div>
 
@@ -7120,7 +7698,7 @@ html,body,#salon-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:none
         <div class="std-portfolio-head">
           <p class="std-portfolio-kicker">Портфолио</p>
           <h2 class="std-portfolio-title" id="salonDesktopPortfolioTitle">Наши работы</h2>
-          <p class="std-portfolio-copy">Фотографии и работы салона будут добавлены при заполнении шаблона.</p>
+          <p class="std-portfolio-copy">Работы, детали и атмосфера BOSHKI PROJECT.</p>
         </div>
         <div class="std-portfolio-grid">
           ${PORTFOLIO.map((item,i)=>`<button class="std-work" type="button" data-portfolio-index="${i}" aria-label="Открыть фотографию"><img src="${item.src}" alt="${item.alt}" loading="${i<4?'eager':'lazy'}"></button>`).join('')}
@@ -7142,16 +7720,16 @@ html,body,#salon-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:none
                 </span>
                 <span class="dct-service-sticky-copy">
                   <b id="stdStickyServiceStatus">Закрыто</b>
-                  <small id="stdStickyServiceStatusSub">Ежедневно 10:00–21:00</small>
+                  <small id="stdStickyServiceStatusSub">10:00–21:00</small>
                 </span>
               </div>
-              <a class="dct-service-sticky-row dct-service-sticky-route" href="${B.yandex}" target="_blank" rel="noopener" aria-label="Построить маршрут в Яндекс Карты">
+              <a class="dct-service-sticky-row dct-service-sticky-route" href="#salonDesktopContacts" aria-disabled="true" aria-label="Построить маршрут в Яндекс Карты">
                 <span class="dct-service-sticky-icon" aria-hidden="true">
                   <svg viewBox="0 0 24 24"><path d="M19 10c0 5.2-7 10-7 10s-7-4.8-7-10a7 7 0 1 1 14 0Z"></path><circle cx="12" cy="10" r="2.2"></circle></svg>
                 </span>
                 <span class="dct-service-sticky-copy">
-                  <b>Ереван</b>
-                  <small>ул. Аргишти, 7/10, Ереван</small>
+                  <b>Город</b>
+                  <small>ул. Аргишти, 7/10</small>
                 </span>
               </a>
             </div>
@@ -7195,8 +7773,8 @@ html,body,#salon-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:none
           <div class="mct-about-card">
             <div class="mct-about-portrait-wrap">
               <figure class="mct-about-portrait">
-                <img src="galery00005.webp" alt="Интерьер BOSHKI PROJECT" loading="lazy">
-                <div class="dct-about-rating"><span class="dct-about-rating-star">★</span><strong>${B.rating}</strong><span>рейтинг салона</span></div>
+                <img src="master.webp" alt="BOSHKI PROJECT" loading="lazy">
+                <div class="dct-about-rating"><span class="dct-about-rating-star">★</span><strong>5.0</strong><span>рейтинг салона</span></div>
               </figure>
             </div>
             <div class="mct-about-copy">
@@ -7204,9 +7782,9 @@ html,body,#salon-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:none
               <p class="dct-about-copy">BOSHKI PROJECT — пространство, в котором встречаются стрижки, сложное окрашивание, маникюр, макияж, пирсинг и татуировка. Авторские работы, индустриальная эстетика и собственный характер.</p>
               <div class="dct-about-amenities">
                 <div class="dct-about-amenities-grid">
-                  <article><strong>Разные направления</strong><span>Стрижки, окрашивание, ногти, макияж, пирсинг и тату.</span></article>
-                  <article><strong>Атмосфера</strong><span>Необычный интерьер и творческое пространство.</span></article>
-                  <article><strong>Прямая запись</strong><span>Связь по телефону или WhatsApp или Telegram без лишних шагов.</span></article>
+                  <article><strong>Разные направления</strong><span>Маникюр, волосы, брови и косметология.</span></article>
+                  <article><strong>Комфорт</strong><span>Спокойная атмосфера и внимание к каждому гостю.</span></article>
+                  <article><strong>Прямая запись</strong><span>Связь по телефону или Мессенджер без лишних шагов.</span></article>
                 </div>
               </div>
             </div>
@@ -7235,9 +7813,9 @@ html,body,#salon-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:none
         <p class="std-reviews-kicker">Отзывы</p>
         <h2 class="std-reviews-title" id="stdReviewsTitle">Что говорят о нас</h2>
         <div class="std-reviews-score">
-          <strong>${B.rating}</strong>
-          <div class="std-reviews-stars" aria-label="5 звёзд">★★★★★</div>
-          <div class="std-reviews-count">${B.reviewsCount} отзывов · Яндекс Карты</div>
+          <strong>—</strong>
+          <div class="std-reviews-stars" aria-label="5 звёзд">☆☆☆☆☆</div>
+          <div class="std-reviews-count">Отзывы на Яндекс Карты</div>
         </div>
       </div>
 
@@ -7245,13 +7823,13 @@ html,body,#salon-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:none
         <div class="std-reviews-loop">
           <div class="std-reviews-set">
             ${DESKTOP_REAL_REVIEWS.map(r=>`
-              <a class="std-review-card" href="${B.reviewsUrl}" target="_blank" rel="noopener">
+              <a class="std-review-card" href="#salonDesktopReviews" target="_blank" rel="noopener">
                 <div class="std-review-head">
                   <span class="std-review-avatar">${([...(String(r[0]).trim())][0]||'S').toUpperCase()}</span>
                   <span>
                     <strong class="std-review-name">${r[0]}</strong>
                     <span class="std-review-meta">Яндекс Карты</span>
-                    <span class="std-review-stars">★★★★★</span>
+                    <span class="std-review-stars">☆☆☆☆☆</span>
                   </span>
                 </div>
                 <p class="std-review-text">${r[1]}</p>
@@ -7261,13 +7839,13 @@ html,body,#salon-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:none
           </div>
           <div class="std-reviews-set" aria-hidden="true">
             ${DESKTOP_REAL_REVIEWS.map(r=>`
-              <a class="std-review-card" href="${B.reviewsUrl}" target="_blank" rel="noopener" tabindex="-1">
+              <a class="std-review-card" href="#salonDesktopReviews" target="_blank" rel="noopener" tabindex="-1">
                 <div class="std-review-head">
                   <span class="std-review-avatar">${([...(String(r[0]).trim())][0]||'S').toUpperCase()}</span>
                   <span>
                     <strong class="std-review-name">${r[0]}</strong>
                     <span class="std-review-meta">Яндекс Карты</span>
-                    <span class="std-review-stars">★★★★★</span>
+                    <span class="std-review-stars">☆☆☆☆☆</span>
                   </span>
                 </div>
                 <p class="std-review-text">${r[1]}</p>
@@ -7298,18 +7876,40 @@ html,body,#salon-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:none
 
         <div class="std-contact-body">
           <div class="std-contact-list">
-            <a class="std-contact-card" href="${B.yandex}" target="_blank" rel="noopener"><span class="std-contact-card-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s6.5-5.4 6.5-11a6.5 6.5 0 1 0-13 0c0 5.6 6.5 11 6.5 11Z"></path><circle cx="12" cy="10" r="2.2"></circle></svg></span><span class="std-contact-card-copy"><strong class="std-contact-card-title">${B.address}</strong><span class="std-contact-card-sub">Открыть на Яндекс Картах</span></span></a>
-            <a class="std-contact-card" href="tel:${B.phoneDial}"><span class="std-contact-card-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4h3l1.3 4-2 1.5c1 2 2.6 3.6 4.6 4.6l1.5-2L19 13.5v3c0 1.1-.9 2-2 2C10.4 18.5 5.5 13.6 5.5 7A2 2 0 0 1 7 4Z"></path></svg></span><span class="std-contact-card-copy"><strong class="std-contact-card-title">${B.phone}</strong><span class="std-contact-card-sub">Нажмите, чтобы позвонить</span></span></a>
-            <a class="std-contact-card" href="${B.whatsapp}" target="_blank" rel="noopener"><span class="std-contact-card-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5.5h14v10H9l-4 3v-13Z"></path></svg></span><span class="std-contact-card-copy"><strong class="std-contact-card-title">WhatsApp</strong><span class="std-contact-card-sub">Написать в салон</span></span></a>
-            <a class="std-contact-card" href="${B.telegram}" target="_blank" rel="noopener"><span class="std-contact-card-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12 21 4l-5.5 17-4-6-7.5-3Z"></path></svg></span><span class="std-contact-card-copy"><strong class="std-contact-card-title">Telegram</strong><span class="std-contact-card-sub">Написать в салон</span></span></a>
-            <div class="std-contact-card static"><span class="std-contact-card-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"></circle><path d="M12 7.5V12l3.2 1.8"></path></svg></span><span class="std-contact-card-copy"><strong class="std-contact-card-title">График работы</strong><span class="std-contact-card-sub">Ежедневно 10:00–21:00</span></span></div>
+            <a class="std-contact-card" href="#salonDesktopContacts" aria-disabled="true">
+              <span class="std-contact-card-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s6.5-5.4 6.5-11a6.5 6.5 0 1 0-13 0c0 5.6 6.5 11 6.5 11Z"></path><circle cx="12" cy="10" r="2.2"></circle></svg>
+              </span>
+              <span class="std-contact-card-copy"><strong class="std-contact-card-title">ул. Аргишти, 7/10, Ереван</strong><span class="std-contact-card-sub">ул. Аргишти, 7/10</span></span>
+            </a>
+
+            <a class="std-contact-card" href="#salonDesktopContacts" aria-disabled="true">
+              <span class="std-contact-card-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4h3l1.3 4-2 1.5c1 2 2.6 3.6 4.6 4.6l1.5-2L19 13.5v3c0 1.1-.9 2-2 2C10.4 18.5 5.5 13.6 5.5 7A2 2 0 0 1 7 4Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <span class="std-contact-card-copy"><strong class="std-contact-card-title">+374 77 116819</strong><span class="std-contact-card-sub">Контакт будет добавлен</span></span>
+            </a>
+
+            <a class="std-contact-card" href="#salonDesktopContacts" aria-disabled="true">
+              <span class="std-contact-card-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5.5h14v10H9l-4 3v-13Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M8.5 9.2c.8 2.2 2.1 3.5 4.3 4.3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+              </span>
+              <span class="std-contact-card-copy"><strong class="std-contact-card-title">Мессенджер</strong><span class="std-contact-card-sub">Контакт будет добавлен</span></span>
+            </a>
+
+            <div class="std-contact-card static">
+              <span class="std-contact-card-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"></circle><path d="M12 7.5V12l3.2 1.8"></path></svg>
+              </span>
+              <span class="std-contact-card-copy"><strong class="std-contact-card-title">График работы</strong><span class="std-contact-card-sub">10:00–21:00</span></span>
+            </div>
           </div>
 
           <div class="std-contact-right">
-            <div class="std-contact-map"><iframe title="Карта салона" loading="eager" src="https://yandex.com/map-widget/v1/?ll=44.503842%2C40.169201&amp;z=17&amp;pt=44.503842%2C40.169201%2Cpm2rdm"></iframe></div>
+            <div class="std-contact-map"><iframe title="Карта салона" loading="eager" src="about:blank"></iframe></div>
             <div class="std-contact-actions">
-              <a class="std-contact-action-btn std-contact-call" href="tel:${B.phoneDial}">Позвонить</a>
-              <a class="std-contact-action-btn std-contact-route" href="${B.yandex}" target="_blank" rel="noopener">Построить маршрут</a>
+              <a class="std-contact-action-btn std-contact-call" href="#salonDesktopContacts" aria-disabled="true">Позвонить</a>
+              <a class="std-contact-action-btn std-contact-route" href="#salonDesktopContacts" aria-disabled="true">Построить маршрут</a>
             </div>
           </div>
         </div>
@@ -7327,7 +7927,7 @@ html,body,#salon-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:none
       <div class="std-master-page-panel">
         <div class="std-master-page-top">
           <button class="std-master-page-close" id="stdMasterPageClose" type="button" aria-label="Закрыть">←</button>
-          <span>BOSHKI PROJECT</span>
+          <span>НАЗВАНИЕ САЛОНА</span>
           <i aria-hidden="true"></i>
         </div>
         <div class="std-master-page-content" id="stdMasterPageContent"></div>
@@ -7340,9 +7940,9 @@ html,body,#salon-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:none
         <button class="std-book-close" id="stdBookClose" type="button" aria-label="Закрыть">×</button>
         <p class="std-services-kicker">Запись</p><h3>Как вам удобнее записаться?</h3><p>Выберите удобный способ связи.</p>
         <div class="std-book-options">
-          <a href="tel:${B.phoneDial}"><span>Телефон</span><span>${B.phone} →</span></a>
-          <a href="${B.whatsapp}" target="_blank" rel="noopener"><span>WhatsApp</span><span>Написать →</span></a><a href="${B.telegram}" target="_blank" rel="noopener"><span>Telegram</span><span>Написать →</span></a>
-          <a href="${B.yandex}" target="_blank" rel="noopener"><span>Яндекс Карты</span><span>Маршрут →</span></a>
+          <a href="#visit" aria-disabled="true"><span>Телефон</span><span>+374 77 116819 →</span></a>
+          <a href="#salonDesktopContacts" aria-disabled="true"><span>Мессенджер</span><span>Будет добавлен →</span></a>
+          <a href="#salonDesktopContacts" aria-disabled="true"><span>Яндекс Карты</span><span>Будет добавлено →</span></a>
         </div>
       </div>
     </div>
@@ -7372,7 +7972,6 @@ html,body,#salon-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:none
     </div>
   `;
   document.body.appendChild(root);
-  if(!B.team.length){root.dataset.emptyTeam='1'; root.querySelector('.std-nav a[href="#salonDesktopTeam"]')?.remove();}
   const revealDesktopRoot=()=>requestAnimationFrame(()=>root.classList.add('desktop-ready'));
   if(document.documentElement.classList.contains('br-booting')){
     window.addEventListener('br:intro-done',revealDesktopRoot,{once:true});
@@ -7424,7 +8023,7 @@ html,body,#salon-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:none
   const galleryImage=document.getElementById('stdGalleryImage');
   const galleryCount=document.getElementById('stdGalleryCount');
   const galleryViewAll=document.getElementById('stdViewGallery');
-  let galleryCategory='Салон';
+  let galleryCategory='Ногти';
   let galleryItems=PORTFOLIO.slice();
   let galleryIndex=0;
   let galleryScale=1,galleryX=0,galleryY=0;
@@ -7496,8 +8095,8 @@ html,body,#salon-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:none
       openDesktopViewer(items,Number(btn.dataset.galleryItem)||0,'gallery');
     });
   }
-  function openDesktopGalleryBrowser(cat='Салон'){
-    galleryCategory=Object.prototype.hasOwnProperty.call(DESKTOP_GALLERY_GROUPS,cat)?cat:'Салон';
+  function openDesktopGalleryBrowser(cat='Ногти'){
+    galleryCategory=Object.prototype.hasOwnProperty.call(DESKTOP_GALLERY_GROUPS,cat)?cat:'Ногти';
     renderDesktopGalleryBrowser();
     galleryBrowser.classList.add('open');
     galleryBrowser.scrollTop=0;
@@ -7511,14 +8110,14 @@ html,body,#salon-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:none
   document.querySelectorAll('.std-work').forEach(btn=>{
     btn.addEventListener('click',()=>openDesktopViewer(PORTFOLIO,Number(btn.dataset.portfolioIndex)||0,'portfolio'));
   });
-  document.getElementById('stdOpenGallery').addEventListener('click',()=>openDesktopGalleryBrowser('Салон'));
-  document.getElementById('stdStickyGalleryOpen')?.addEventListener('click',()=>openDesktopGalleryBrowser('Салон'));
-  if(heroVideo)heroVideo.addEventListener('click',()=>openDesktopGalleryBrowser('Салон'));
+  document.getElementById('stdOpenGallery').addEventListener('click',()=>openDesktopGalleryBrowser('Ногти'));
+  document.getElementById('stdStickyGalleryOpen')?.addEventListener('click',()=>openDesktopGalleryBrowser('Ногти'));
+  if(heroVideo)heroVideo.addEventListener('click',()=>openDesktopGalleryBrowser('Ногти'));
   document.getElementById('stdGalleryBrowserBack').addEventListener('click',closeDesktopGalleryBrowser);
   document.getElementById('stdGalleryClose').addEventListener('click',closeDesktopViewer);
   document.getElementById('stdGalleryPrev').addEventListener('click',()=>moveDesktopGallery(-1));
   document.getElementById('stdGalleryNext').addEventListener('click',()=>moveDesktopGallery(1));
-  galleryViewAll.addEventListener('click',()=>{closeDesktopViewer();openDesktopGalleryBrowser('Салон')});
+  galleryViewAll.addEventListener('click',()=>{closeDesktopViewer();openDesktopGalleryBrowser('Ногти')});
   gallery.addEventListener('click',e=>{if(e.target===gallery)closeDesktopViewer()});
 
   galleryStage.addEventListener('wheel',e=>{
@@ -7904,7 +8503,7 @@ html,body,#salon-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:none
     }
   }
   function paintDesktopMaster(master){
-    masterPageContent.innerHTML='<div class="std-master-profile"><div class="std-master-avatar">'+TEAM_AVATAR+'</div><h2>'+master.name+'</h2><p>'+master.role+'</p><div class="std-master-profile-rating"><b>★★★★★</b> · BOSHKI PROJECT</div><div class="std-master-profile-cats">'+(master.cats||[]).map(cat=>'<span>'+cat+'</span>').join('')+'</div></div><div class="std-master-tabs">'+['Профиль','Услуги','Портфолио','Отзывы'].map(tab=>'<button type="button" data-master-tab="'+tab+'" class="'+(tab===activeDesktopMasterTab?'active':'')+'">'+tab+'</button>').join('')+'</div><div class="std-master-tab-content"></div>';
+    masterPageContent.innerHTML='<div class="std-master-profile"><div class="std-master-avatar">'+TEAM_AVATAR+'</div><h2>'+master.name+'</h2><p>'+master.role+'</p><div class="std-master-profile-rating"><b>☆☆☆☆☆</b> · BOSHKI PROJECT</div><div class="std-master-profile-cats">'+(master.cats||[]).map(cat=>'<span>'+cat+'</span>').join('')+'</div></div><div class="std-master-tabs">'+['Профиль','Услуги','Портфолио','Отзывы'].map(tab=>'<button type="button" data-master-tab="'+tab+'" class="'+(tab===activeDesktopMasterTab?'active':'')+'">'+tab+'</button>').join('')+'</div><div class="std-master-tab-content"></div>';
     masterPageContent.querySelectorAll('[data-master-tab]').forEach(btn=>btn.onclick=()=>{
       activeDesktopMasterTab=btn.dataset.masterTab;
       masterPageContent.querySelectorAll('[data-master-tab]').forEach(x=>x.classList.toggle('active',x===btn));
@@ -7934,11 +8533,88 @@ html,body,#salon-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:none
   masterPageBook.addEventListener('click',()=>{closeDesktopMaster();openDesktopBooking()});
   document.addEventListener('keydown',e=>{if(e.key==='Escape'&&masterOverlay.classList.contains('open'))closeDesktopMaster()});
 
-  const DESKTOP_LANG_STORAGE='boshki-project-language';
+  const DESKTOP_LANG_STORAGE='salon-template-language';
   const DESKTOP_I18N_ROWS=[
+    ["Ереван,","Երևան,","Yerevan,"],
+    ["ул. Аргишти, 7/10","Արգիշտի փողոց 7/10","Argishti Street 7/10"],
+    ["ул. Аргишти, 7/10, Ереван","Արգիշտի փողոց 7/10, Երևան","Argishti Street 7/10, Yerevan"],
+    ["BOSHKI PROJECT — пространство, в котором встречаются стрижки, сложное окрашивание, маникюр, макияж, пирсинг и татуировка. Авторские работы, индустриальная эстетика и собственный характер.","BOSHKI PROJECT-ը մեկ վայրում միավորում է սանրվածքը, ստեղծագործական ներկումը, մատնահարդարումը, դիմահարդարումը, պիրսինգը և դաջվածքը։","BOSHKI PROJECT brings haircuts, creative color, nail art, makeup, piercing and tattoos together in one distinctive space."],
+    ["10:00–21:00","10:00–21:00","10:00–21:00"],
+    ["Яндекс Карты","Yandex Maps","Yandex Maps"],
+    ["Окрашивание волос","Մազերի ներկում","Hair coloring"],
+    ["Пирсинг","Պիրսինգ","Piercing"],
+    ["Макияж","Դիմահարդարում","Makeup"],
+    ["Стрижки","Սանրվածքներ","Haircuts"],
+    ["Коррекция бровей","Հոնքերի ձևավորում","Brow shaping"],
+    ["Маникюр","Մատնահարդարում","Manicure"],
+    ["Уход за волосами","Մազերի խնամք","Hair care"],
+    ["Биозавивка","Բիոգանգրացում","Bioperm"],
+    ["Мужской маникюр","Տղամարդու մատնահարդարում","Men's manicure"],
+    ["Педикюр","Պեդիկյուր","Pedicure"],
+    ["Татуировка","Դաջվածք","Tattoo"],
+    ["Причёски","Վարսահարդարում","Hairstyling"],
+    ["Ламинирование ресниц","Թարթիչների լամինացիա","Lash lamination"],
+    ["Мужской педикюр","Տղամարդու պեդիկյուր","Men's pedicure"],
+    ["Окрашивание","Ներկում","Coloring"],
+    ["Салон","Սրահ","Salon"],
+    ["Тотал блонд","Ամբողջական բլոնդ","Total Blonde"],
+    ["Осветление корней + тонирование","Արմատների բացեցում և տոնավորում","Root Lightening + Toning"],
+    ["Выход из цвета (деколоризация)","Գույնի հեռացում (դեկոլորացիա)","Color Out (Decolorization)"],
+    ["Аиртач + мелирование","AirTouch և մելիավորում","Air Touch and Highlights"],
+    ["Контуринг + тонирование","Կոնտուրինգ և տոնավորում","Contouring + Toning"],
+    ["Однотонное окрашивание","Միագույն ներկում","All-Over Color"],
+    ["Консультация по креативному окрашиванию","Կրեատիվ ներկման խորհրդատվություն","Creative coloring consultation"],
+    ["Консультация по окрашиванию (бесплатно)","Ներկման անվճար խորհրդատվություն","Coloring consultation (free)"],
+    ["Пирсинг","Պիրսինգ","Piercing"],
+    ["Консультация по пирсингу (бесплатно)","Պիրսինգի անվճար խորհրդատվություն","Piercing consultation (free)"],
+    ["Микродермал","Միկրոդերմալ","Microdermal"],
+    ["Восстановление прокола","Պիրսինգի անցքի վերականգնում","Puncture repair"],
+    ["Процедура по уходу","Խնամքի պրոցեդուրա","Care procedure"],
+    ["Тоннели","Թունելներ","Tunnels"],
+    ["Интимный пирсинг","Ինտիմ պիրսինգ","Intimate piercing"],
+    ["Индастриал","Ինդաստրիալ","Industrial"],
+    ["Макияж","Դիմահարդարում","Makeup"],
+    ["Свадебный образ","Հարսանեկան կերպար","Wedding look"],
+    ["Репетиция свадебного образа","Հարսանեկան կերպարի փորձարկում","Wedding look trial"],
+    ["Обучение макияжу для себя","Ինքնուրույն դիմահարդարման դասընթաց","Makeup lessons for personal use"],
+    ["Креативный макияж","Կրեատիվ դիմահարդարում","Creative makeup"],
+    ["Полный образ: макияж + укладка","Ամբողջական կերպար՝ դիմահարդարում և վարսահարդարում","Full look: makeup + styling"],
+    ["Вечерний макияж","Երեկոյան դիմահարդարում","Evening makeup"],
+    ["Стрижка чёлки","Ճակատային մազափնջի կտրում","Bangs / Fringe cut"],
+    ["Женская стрижка — 1,5 ч","Կանացի սանրվածք (1.5 ժ)","Women's haircut (1.5 h)"],
+    ["Мужская стрижка — 1,5 ч","Տղամարդու սանրվածք (1.5 ժ)","Men's haircut (1.5 h)"],
+    ["Мужская стрижка — 2 ч","Տղամարդու սանրվածք (2 ժ)","Men's haircut (2 h)"],
+    ["Женская стрижка — 2 ч","Կանացի սանրվածք (2 ժ)","Women's haircut (2 h)"],
+    ["Консультация по стрижке (бесплатно)","Սանրվածքի անվճար խորհրդատվություն","Haircut consultation (free)"],
+    ["Осветление бровей","Հոնքերի բացեցում","Eyebrow lightening"],
+    ["Коррекция бровей","Հոնքերի ձևավորում","Eyebrow shaping"],
+    ["Skinny-брови","Բարակ հոնքեր","Skinny brows"],
+    ["Долговременная укладка бровей","Հոնքերի երկարատև հարդարում","Long-lasting brow styling"],
+    ["Консультация по бровям (бесплатно)","Հոնքերի անվճար խորհրդատվություն","Brow consultation (free)"],
+    ["Маникюр без покрытия","Մատնահարդարում առանց ծածկույթի","Manicure without coating"],
+    ["Маникюр с дизайном","Մատնահարդարում դիզայնով","Manicure with nail art"],
+    ["Когти (Claws)","Երկար սրածայր եղունգներ","Claws"],
+    ["Наращивание с однотонным покрытием","Եղունգների երկարացում միագույն ծածկույթով","Nail extensions with solid color"],
+    ["Наращивание с дизайном","Եղունգների երկարացում դիզայնով","Nail extensions with design"],
+    ["Уход OI Davines","OI Davines մազերի խնամք","OI Davines treatment"],
+    ["Уход K18","K18 մազերի խնամք","K18 treatment"],
+    ["Уход Londa Lightplex","Londa Lightplex մազերի խնամք","Londa Lightplex treatment"],
+    ["Davines Nourishing Keratin Wonder","Davines Nourishing Keratin Wonder","Davines Nourishing Keratin Wonder"],
+    ["Биозавивка","Բիոգանգրացում","Bioperm"],
+    ["Консультация по биозавивке (бесплатно)","Բիոգանգրացման անվճար խորհրդատվություն","Bioperm consultation (free)"],
+    ["Мужской маникюр без покрытия","Տղամարդու մատնահարդարում առանց ծածկույթի","Men's manicure without coating"],
+    ["Мужской маникюр с покрытием","Տղամարդու մատնահարդարում ծածկույթով","Men's manicure with polish"],
+    ["Педикюр","Պեդիկյուր","Pedicure"],
+    ["Педикюр с покрытием гель-лак","Պեդիկյուր գել-լաքով","Pedicure with gel polish"],
+    ["Татуировка","Դաջվածք","Tattoo"],
+    ["Консультация по тату (бесплатно)","Դաջվածքի անվճար խորհրդատվություն","Tattoo consultation (free)"],
+    ["Укладка по кудрявому методу","Գանգուր մազերի հարդարում","Curly method styling"],
+    ["Укладка локонами","Լոկոններով հարդարում","Blow Dry / Waving"],
+    ["Ламинирование и окрашивание ресниц","Թարթիչների լամինացիա և ներկում","Lash lamination and tint"],
+    ["Мужской педикюр","Տղամարդու պեդիկյուր","Men's pedicure"],
     ['Услуги','Ծառայություններ','Services'],['Наши работы','Մեր աշխատանքները','Our work'],['О нас','Մեր մասին','About us'],
     ['Отзывы','Կարծիքներ','Reviews'],['Контакты','Կոնտակտներ','Contacts'],['Салон красоты','Գեղեցկության սրահ','Beauty salon'],
-    ['Салон красоты в самом сердце Города.','Գեղեցկության սրահ Քաղաքի սրտում։','A beauty salon in the heart of City.'],['Листайте вниз','Սահեցրեք ներքև','Scroll down'],['Ереван,','Երևան,','Yerevan,'],['ул. Аргишти, 7/10, Ереван','Արգիշտի փողոց 7/10, Երևան','Argishti Street 7/10, Yerevan'],
+    ['Салон красоты в самом сердце Города.','Գեղեցկության սրահ Քաղաքի սրտում։','A beauty salon in the heart of City.'],['Листайте вниз','Սահեցրեք ներքև','Scroll down'],['Ереван,','Քաղաք,','City,'],['ул. Аргишти, 7/10','Սրահի հասցե','ул. Аргишти, 7/10'],
     ['Записаться','Ամրագրել','Book now'],['Записаться →','Ամրագրել →','Book now →'],['Записаться онлайн','Ամրագրել առցանց','Book online'],['Смотреть работы','Դիտել աշխատանքները','View our work'],
     ['Портфолио','Պորտֆոլիո','Portfolio'],['Вдохновляйтесь реальными результатами наших мастеров и выбирайте свой идеальный образ.','Ոգեշնչվեք մեր մասնագետների իրական աշխատանքներով և ընտրեք ձեր կերպարը։','Explore real results from our specialists and choose your look.'],['Смотреть все работы','Դիտել բոլոր աշխատանքները','View all work'],
     ['Открыть галерею','Բացել պատկերասրահը','Open gallery'],['Колесо или двойной клик — увеличить','Մեծացնելու համար օգտագործեք անիվը կամ կրկնակի սեղմումը','Use the wheel or double-click to zoom'],['Галерея','Պատկերասրահ','Gallery'],
@@ -7960,11 +8636,11 @@ html,body,#salon-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:none
     ['Brow & Lash-мастер','Հոնքերի և թարթիչների վարպետ','Brow & lash specialist'],
     ['Маникюр · педикюр','Մատնահարդարում · ոտնահարդարում','Manicure · pedicure'],['Волосы · укладки','Մազեր · հարդարում','Hair · styling'],
     ['Что говорят о нас','Ինչ են ասում մեր մասին','What clients say about us'],['Отзывы на Яндекс Карты','Կարծիքներ Яндекс Карты-ում','Reviews on Яндекс Карты'],['Подробнее →','Ավելին →','Read more →'],['рейтинг салона','սրահի վարկանիշ','salon rating'],
-    ['Смотреть все отзывы →','Դիտել բոլոր կարծիքները →','View all reviews →'],['Ждём вас','Սպասում ենք ձեզ','We look forward to seeing you'],['ул. Аргишти, 7/10, Ереван','Քաղաք, Սրահի հասցե','City, ул. Аргишти, 7/10, Ереван'],
+    ['Смотреть все отзывы →','Դիտել բոլոր կարծիքները →','View all reviews →'],['Ждём вас','Սպասում ենք ձեզ','We look forward to seeing you'],['ул. Аргишти, 7/10, Ереван','Քաղաք, Սրահի հասցե','City, ул. Аргишти, 7/10'],
     ['Армения · открыть в Яндекс Карты','Հայաստան · բացել Яндекс Карты-ում','Armenia · open in Яндекс Карты'],
     ['Нажмите, чтобы позвонить','Սեղմեք զանգահարելու համար','Click to call'],['Написать в салон','Գրել սրահին','Message the salon'],
-    ['График работы','Աշխատանքային ժամեր','Opening hours'],['Уточняется','Կավելացվի','To be added'],
-    ['Цифровой офис для салонов красоты','Թվային գրասենյակ գեղեցկության սրահների համար','Digital office for beauty salons'],['Создано в','Ստեղծված է','Created in'],['Позвонить','Զանգահարել','Call'],['Построить маршрут','Կառուցել երթուղի','Get directions'],['Всё необходимое для комфортного визита','Ամեն ինչ հարմարավետ այցի համար','Everything for a comfortable visit'],['Салон красоты в городе','Գեղեցկության սրահ Քաղաքում','Beauty salon in City'],['Здесь можно спокойно выбрать нужные процедуры и доверить уход мастерам разных направлений. Мы ценим аккуратную работу, комфорт и внимательное отношение к каждому гостю.','Այստեղ կարող եք հանգիստ ընտրել անհրաժեշտ ծառայությունները և վստահել խնամքը տարբեր ուղղությունների մասնագետներին։ Մենք կարևորում ենք ճշգրիտ աշխատանքը, հարմարավետությունն ու յուրաքանչյուր հյուրի նկատմամբ ուշադիր վերաբերմունքը։','Choose the services you need and trust your care to specialists across different beauty fields. We value precise work, comfort, and attentive service for every guest.'],['Маникюр, волосы, брови и косметология.','Մատնահարդարում, մազեր, հոնքեր և կոսմետոլոգիա։','Nails, hair, brows and cosmetology.'],['Спокойная атмосфера и внимание к каждому гостю.','Հանգիստ մթնոլորտ և ուշադրություն յուրաքանչյուր հյուրի նկատմամբ։','A calm atmosphere and personal attention.'],['Связь по телефону или WhatsApp или Telegram без лишних шагов.','Կապ հեռախոսով կամ Мессенджер-ով՝ առանց ավելորդ քայլերի։','Direct booking by phone or Мессенджер.'],['Разные направления','Տարբեր ուղղություններ','Different services'],['Комфорт','Հարմարավետություն','Comfort'],['Прямая запись','Ուղիղ ամրագրում','Direct booking'],
+    ['График работы','Աշխատանքային ժամեր','Opening hours'],['10:00–21:00','Կավելացվի','To be added'],
+    ['Цифровой офис для салонов красоты','Թվային գրասենյակ գեղեցկության սրահների համար','Digital office for beauty salons'],['Создано в','Ստեղծված է','Created in'],['Позвонить','Զանգահարել','Call'],['Построить маршрут','Կառուցել երթուղի','Get directions'],['Всё необходимое для комфортного визита','Ամեն ինչ հարմարավետ այցի համար','Everything for a comfortable visit'],['Салон красоты в городе','Գեղեցկության սրահ Քաղաքում','Beauty salon in City'],['Здесь можно спокойно выбрать нужные процедуры и доверить уход мастерам разных направлений. Мы ценим аккуратную работу, комфорт и внимательное отношение к каждому гостю.','Այստեղ կարող եք հանգիստ ընտրել անհրաժեշտ ծառայությունները և վստահել խնամքը տարբեր ուղղությունների մասնագետներին։ Մենք կարևորում ենք ճշգրիտ աշխատանքը, հարմարավետությունն ու յուրաքանչյուր հյուրի նկատմամբ ուշադիր վերաբերմունքը։','Choose the services you need and trust your care to specialists across different beauty fields. We value precise work, comfort, and attentive service for every guest.'],['Маникюр, волосы, брови и косметология.','Մատնահարդարում, մազեր, հոնքեր և կոսմետոլոգիա։','Nails, hair, brows and cosmetology.'],['Спокойная атмосфера и внимание к каждому гостю.','Հանգիստ մթնոլորտ և ուշադրություն յուրաքանչյուր հյուրի նկատմամբ։','A calm atmosphere and personal attention.'],['Связь по телефону или Мессенджер без лишних шагов.','Կապ հեռախոսով կամ Мессенджер-ով՝ առանց ավելորդ քայլերի։','Direct booking by phone or Мессенджер.'],['Разные направления','Տարբեր ուղղություններ','Different services'],['Комфорт','Հարմարավետություն','Comfort'],['Прямая запись','Ուղիղ ամրագրում','Direct booking'],
     ['Запись','Ամրագրում','Booking'],['Как вам удобнее записаться?','Ինչպե՞ս է ձեզ հարմար ամրագրել։','How would you like to book?'],
     ['Выберите удобный способ связи.','Ընտրեք ձեզ հարմար կապի տարբերակը։','Choose the most convenient way to contact us.'],
     ['Телефон','Հեռախոս','Phone'],['Открыть','Բացել','Open'],['Профиль','Պրոֆիլ','Profile'],['О мастере','Մասնագետի մասին','About the specialist'],
@@ -7987,10 +8663,9 @@ html,body,#salon-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:none
     ['Удаление волос нитью','Մազահեռացում թելով','Threading hair removal'],['Шугаринг','Շուգարինգ','Sugaring'],
     ['Электроэпиляция игловая','Ասեղային էլեկտրոէպիլյացիա','Needle electrolysis'],['Восковая эпиляция','Մոմային էպիլյացիա','Waxing'],
     ['Прокалывание ушей','Ականջների ծակում','Ear piercing'],
-    ['Открыто','Բաց է','Open'],['Закрыто','Փակ է','Closed'],['Уточняется','Կավելացվի','To be added'],['Уточняется','Կավելացվի','To be added'],
+    ['Открыто','Բաց է','Open'],['Закрыто','Փակ է','Closed'],['10:00–21:00','Կավելացվի','To be added'],['10:00–21:00','Կավելացվի','To be added'],
     ['График работы','Աշխատանքային ժամեր','Opening hours'],['График работы','Աշխատանքային ժամեր','Opening hours']
   ];
-  DESKTOP_I18N_ROWS.push(...B.services.map(x=>[x.ru,x.hy,x.en]),...[["Окрашивание волос","Մազերի ներկում","Hair coloring"],["Пирсинг","Պիրսինգ","Piercing"],["Макияж","Դիմահարդարում","Makeup"],["Стрижки","Սանրվածքներ","Haircuts"],["Коррекция бровей","Հոնքերի ձևավորում","Eyebrows"],["Маникюр","Մատնահարդարում","Manicure"],["Уход за волосами","Մազերի խնամք","Hair care"],["Биозавивка","Բիոգանգրացում","Bioperm"],["Мужской маникюр","Տղամարդու մատնահարդարում","Men's manicure"],["Педикюр","Պեդիկյուր","Pedicure"],["Татуировка","Դաջվածք","Tattoo"],["Причёски","Մազերի հարդարում","Styling"],["Ламинирование ресниц","Թարթիչների լամինացիա","Lash lamination"],["Мужской педикюр","Տղամարդու պեդիկյուր","Men's pedicure"],["BOSHKI PROJECT — пространство, в котором встречаются стрижки, сложное окрашивание, маникюр, макияж, пирсинг и татуировка. Авторские работы, индустриальная эстетика и собственный характер.","BOSHKI PROJECT-ը մեկ վայրում միավորում է սանրվածքը, ստեղծագործական ներկումը, մատնահարդարումը, դիմահարդարումը, պիրսինգը և դաջվածքը։","BOSHKI PROJECT brings haircuts, creative color, nail art, makeup, piercing and tattoos together in one distinctive space."],["Ереван","Երևան","Yerevan"],["Ежедневно 10:00–21:00","Ամեն օր 10:00–21:00","Daily 10:00–21:00"],["Яндекс Карты","Յանդեքս Քարտեզներ","Yandex Maps"],["Открыто до 21:00","Բաց է մինչև 21:00","Open until 21:00"],["Закрыто до 10:00","Փակ է մինչև 10:00","Closed until 10:00"]]);
   const desktopLangIndex={ru:0,hy:1,en:2};
   const desktopDirect={};
   DESKTOP_I18N_ROWS.forEach(row=>desktopDirect[row[0]]=row);
@@ -8130,20 +8805,16 @@ html,body,#salon-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:none
   }
 
   function updateStatus(){
-    const now=new Intl.DateTimeFormat('en-GB',{timeZone:B.timezone||'Asia/Yerevan',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).format(new Date());
-    const open=now>='10:00'&&now<'21:00';
-    const label=open?'Открыто до 21:00':'Закрыто до 10:00';
     const main=document.getElementById('stdStatusMain'),sub=document.getElementById('stdStatusSub');
-    if(main){main.textContent=label;main.className='std-status-main '+(open?'open':'closed');main.style.color=''}
-    if(sub)sub.textContent='Ежедневно 10:00–21:00';
+    if(main){main.textContent='График';main.className='std-status-main';main.style.color=''}
+    if(sub)sub.textContent='10:00–21:00';
     const stickyStatus=document.getElementById('stdStickyServiceStatus'),stickyStatusSub=document.getElementById('stdStickyServiceStatusSub'),stickyCard=document.getElementById('stdStickyServiceCard');
-    if(stickyStatus)stickyStatus.textContent=open?'Открыто':'Закрыто';
-    if(stickyStatusSub)stickyStatusSub.textContent='Ежедневно 10:00–21:00';
-    if(stickyCard){stickyCard.classList.toggle('is-open',open);stickyCard.classList.toggle('is-closed',!open)}
+    if(stickyStatus)stickyStatus.textContent='График';
+    if(stickyStatusSub)stickyStatusSub.textContent='10:00–21:00';
+    if(stickyCard)stickyCard.classList.remove('is-open','is-closed');
     const contactStatus=document.getElementById('stdContactStatus'),contactStatusText=document.getElementById('stdContactStatusText');
-    if(contactStatus){contactStatus.classList.toggle('open',open);contactStatus.classList.toggle('closed',!open)}
-    if(contactStatusText)contactStatusText.textContent=label;
+    if(contactStatus)contactStatus.classList.remove('open','closed');
+    if(contactStatusText)contactStatusText.textContent='График работы';
   }
   updateStatus();
-  window.setInterval(updateStatus,60000);
 })();
