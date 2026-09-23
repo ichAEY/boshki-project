@@ -7665,7 +7665,7 @@ html,body,#salon-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:none
               <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="6" width="16" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M8 3.8v4.4M16 3.8v4.4M4 10h16M8 13.5h.01M12 13.5h.01M16 13.5h.01M8 17h.01M12 17h.01M16 17h.01" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
               <span>Записаться</span>
             </button>
-            <a class="std-btn" href="#salonDesktopPortfolio">
+            <a class="std-btn" id="stdViewWorks" href="#salonDesktopPortfolio">
               <span class="std-sparkles" aria-hidden="true">✦</span>
               <span>Смотреть работы</span>
             </a>
@@ -8100,6 +8100,7 @@ html,body,#salon-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:none
   document.getElementById('stdOpenGallery').addEventListener('click',()=>openDesktopGalleryBrowser('Ногти'));
   document.getElementById('stdStickyGalleryOpen')?.addEventListener('click',()=>openDesktopGalleryBrowser('Ногти'));
   if(heroVideo)heroVideo.addEventListener('click',()=>openDesktopGalleryBrowser('Ногти'));
+  document.getElementById('stdViewWorks')?.addEventListener('click',e=>{e.preventDefault();openDesktopGalleryBrowser('Ногти')});
   document.getElementById('stdGalleryBrowserBack').addEventListener('click',closeDesktopGalleryBrowser);
   document.getElementById('stdGalleryClose').addEventListener('click',closeDesktopViewer);
   document.getElementById('stdGalleryPrev').addEventListener('click',()=>moveDesktopGallery(-1));
@@ -8791,10 +8792,10 @@ html,body,#salon-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:none
     const copy=lang==='ru'?{open:'Открыто',closed:'Закрыто',until:'до 21:00',opens:'откроется в 10:00'}:lang==='hy'?{open:'Բաց է',closed:'Փակ է',until:'մինչև 21:00',opens:'բացվում է 10:00'}:{open:'Open',closed:'Closed',until:'until 21:00',opens:'opens 10:00'};
     const now=new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Yerevan',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).format(new Date());
     const open=now>='10:00'&&now<'21:00';
-    const primary=open?copy.open:copy.closed,detail=open?copy.until:copy.opens;
+    const primary=open?copy.open:copy.closed,detail=open?copy.until:copy.opens,heroDetail=open?copy.until:'';
     const main=document.getElementById('stdStatusMain'),sub=document.getElementById('stdStatusSub');
     if(main){main.textContent=primary;main.className='std-status-main '+(open?'open':'closed');main.style.color=''}
-    if(sub)sub.textContent=detail;
+    if(sub)sub.textContent=heroDetail;
     const stickyStatus=document.getElementById('stdStickyServiceStatus'),stickyStatusSub=document.getElementById('stdStickyServiceStatusSub'),stickyCard=document.getElementById('stdStickyServiceCard');
     if(stickyStatus)stickyStatus.textContent=primary;
     if(stickyStatusSub)stickyStatusSub.textContent=detail;
