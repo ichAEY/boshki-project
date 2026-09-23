@@ -1209,7 +1209,7 @@ const css=document.createElement('style'); css.id='salon-mobile-base-style'; css
 @media(max-width:1023px){
 #tn13Intro{display:none!important} #salon-mobile{background:#f6f0e9!important;color:#181512!important}
 #salon-mobile .tn13-hero{height:744px!important;min-height:744px!important;padding:0!important;background:#fff!important;position:relative!important;overflow:hidden!important}#salon-mobile>.tn13-footer{display:none!important}
-.tn22-top{position:absolute;z-index:30;top:0;left:0;right:0;height:52px;padding:0 20px;display:flex;align-items:center;justify-content:space-between;background:#f8f4ee}
+.tn22-top{position:absolute;z-index:30;top:0;left:0;right:0;height:52px;padding:0 20px;display:flex;align-items:center;justify-content:space-between;background:#fff}
 .tn22-brand{font:500 24px/1 'Cormorant Garamond',Georgia,serif!important;letter-spacing:.02em;text-decoration:none!important;color:#171513!important}
 .tn22-menu{width:32px;height:32px;border:0;background:none;padding:0;display:grid;align-content:center;justify-items:end;gap:5px}.tn22-menu i{display:block;width:23px;height:1px;background:#1b1816}.tn22-menu i:nth-child(2){width:17px}.tn22-navpop{position:absolute;z-index:60;top:46px;right:12px;width:196px;padding:7px 12px;border:1px solid rgba(70,55,48,.12);border-radius:15px;background:rgba(250,247,242,.98);box-shadow:0 16px 40px rgba(45,34,29,.16);backdrop-filter:blur(18px);display:none}.tn22-navpop.open{display:grid}.tn22-navpop a{min-height:40px;display:flex;align-items:center;border-bottom:1px solid rgba(70,55,48,.08);font:500 14px/1 'Cormorant Garamond',Georgia,serif;color:#211d1a!important;text-decoration:none}.tn22-navpop a:last-child{border-bottom:0}
 .tn22-media{position:absolute;top:52px;left:0;right:0;height:372px;overflow:hidden;background:#eee;border:0;padding:0;touch-action:pan-y}.tn22-slide{position:absolute;inset:0;opacity:0;transition:opacity .7s ease}.tn22-slide.active{opacity:1}.tn22-slide img{width:100%;height:100%;object-fit:cover;filter:none!important;pointer-events:none;-webkit-user-drag:none;user-select:none}.tn22-media:after{content:'';position:absolute;inset:auto 0 0;height:120px;background:linear-gradient(180deg,rgba(255,255,255,0),#fff 96%);pointer-events:none}.tn22-dots{position:absolute;z-index:3;left:50%;bottom:20px;transform:translateX(-50%);display:flex;gap:6px}.tn22-dots i{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.65);box-shadow:0 0 0 1px rgba(0,0,0,.08)}.tn22-dots i.active{width:18px;border-radius:999px;background:#fff}
@@ -1440,7 +1440,7 @@ style.textContent=`
 #tn38About{margin:0!important;padding:0!important;background:#fff!important;color:#171513!important;overflow:hidden!important}
 .tn42-about{padding:40px 18px 58px}
 .tn42-kicker{margin:0 3px 18px;font:600 10px/1 'Manrope',Arial,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#88786e}
-.tn42-card{max-width:500px;margin:0 auto;border:1px solid rgba(66,55,49,.11);border-radius:27px;overflow:hidden;background:#fff;box-shadow:0 14px 34px rgba(47,37,31,.08)}
+.tn42-card{max-width:500px;margin:0 auto;border:1px solid rgba(66,55,49,.11);border-radius:27px;overflow:hidden;background:#fff;box-shadow:0 14px 34px rgba(40,45,50,.08)}
 .tn42-photo{position:relative;height:238px;background:#171513;overflow:hidden}
 .tn42-photo img{display:block;width:100%;height:100%;object-fit:cover;object-position:center center;filter:none!important}
 .tn42-rating{position:absolute;left:12px;bottom:12px;height:32px;padding:0 10px;border:1px solid rgba(255,255,255,.28);border-radius:999px;background:rgba(18,17,16,.72);backdrop-filter:blur(10px);display:flex;align-items:center;gap:6px;color:#fff;box-shadow:0 5px 14px rgba(0,0,0,.13)}
@@ -1520,7 +1520,7 @@ services.insertAdjacentElement('afterend',about);
 
       /* ABOUT — keep salon name serif, supporting copy modern; facts a brighter warm tone. */
       #tn38About .tn42-card{background:#fff!important;border-color:rgba(66,55,49,.14)!important}
-      #tn38About .tn42-body{background:#e7ded5!important}
+      #tn38About .tn42-body{background:#fff!important}
       #tn38About .tn42-lead{font:400 27px/1.08 'Cormorant Garamond',Georgia,serif!important}
       #tn38About .br-about-brand{display:block!important;font:400 27px/1.08 'Cormorant Garamond',Georgia,serif!important;letter-spacing:-.032em!important;color:#1d1a18!important}
       #tn38About .br-about-kind{display:block!important;margin-top:9px!important;font:500 12px/1.35 'Manrope',Arial,sans-serif!important;letter-spacing:.015em!important;color:#665c56!important}
@@ -1561,7 +1561,7 @@ services.insertAdjacentElement('afterend',about);
       #tn13Reviews .br-review-meta-stars{color:#b78d4f!important;letter-spacing:1px!important;font-size:10px!important}
       #tn13Reviews .br-review-card p{margin:14px 0 0!important;font:400 12.5px/1.5 'Manrope',Arial,sans-serif!important;color:#4f4843!important;display:-webkit-box!important;-webkit-box-orient:vertical!important;-webkit-line-clamp:4!important;overflow:hidden!important}
       #tn13Reviews .br-review-open{display:block!important;margin-top:10px!important;font:500 9.5px/1 'Manrope',Arial,sans-serif!important;color:#655b54!important}
-      #tn13Reviews .br-review-all{display:flex!important;align-items:center!important;justify-content:center!important;margin:28px 22px 0!important;height:46px!important;border:1px solid rgba(66,55,49,.18)!important;border-radius:7px!important;color:#2f2a26!important;text-decoration:none!important;font:500 10.5px/1 'Manrope',Arial,sans-serif!important;letter-spacing:.15em!important;text-transform:uppercase!important;background:rgba(255,255,255,.18)!important}
+      #tn13Reviews .br-review-all{display:flex!important;align-items:center!important;justify-content:center!important;margin:28px 22px 0!important;height:46px!important;border:1px solid rgba(66,55,49,.18)!important;border-radius:7px!important;color:#2f2a26!important;text-decoration:none!important;font:500 10.5px/1 'Manrope',Arial,sans-serif!important;letter-spacing:.15em!important;text-transform:uppercase!important;background:#f3f4f5!important}
 
       /* CONTACTS + TANEM. */
       #tn13Visit{background:#2f2926!important}
