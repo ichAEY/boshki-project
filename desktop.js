@@ -4517,7 +4517,7 @@ html,body,#salon-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:none
 }
 @media(min-width:768px){
 /* Hero and portfolio use the exact same base canvas. No seam/fade at the boundary. */
-#salonDesktopTop.std-hero,
+#salonDesktopTop.std-hero{background:#fff!important}
 #salonDesktopPortfolio.std-portfolio{
   background:
     radial-gradient(ellipse 185px 610px at -1% 43%,rgba(83,57,45,.24) 0%,rgba(105,74,58,.15) 25%,rgba(133,96,76,.065) 48%,transparent 76%),
