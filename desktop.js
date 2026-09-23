@@ -7938,7 +7938,7 @@ html,body,#salon-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:none
   const DESKTOP_I18N_ROWS=[
     ['Услуги','Ծառայություններ','Services'],['Наши работы','Մեր աշխատանքները','Our work'],['О нас','Մեր մասին','About us'],
     ['Отзывы','Կարծիքներ','Reviews'],['Контакты','Կոնտակտներ','Contacts'],['Салон красоты','Գեղեցկության սրահ','Beauty salon'],
-    ['Салон красоты в самом сердце Города.','Գեղեցկության սրահ Քաղաքի սրտում։','A beauty salon in the heart of City.'],['Листайте вниз','Սահեցրեք ներքև','Scroll down'],['Ереван,','Քաղաք,','City,'],['ул. Аргишти, 7/10, Ереван','Սրահի հասցե','ул. Аргишти, 7/10, Ереван'],
+    ['Салон красоты в самом сердце Города.','Գեղեցկության սրահ Քաղաքի սրտում։','A beauty salon in the heart of City.'],['Листайте вниз','Սահեցրեք ներքև','Scroll down'],['Ереван,','Երևան,','Yerevan,'],['ул. Аргишти, 7/10, Ереван','Արգիշտի փողոց 7/10, Երևան','Argishti Street 7/10, Yerevan'],
     ['Записаться','Ամրագրել','Book now'],['Записаться →','Ամրագրել →','Book now →'],['Записаться онлайн','Ամրագրել առցանց','Book online'],['Смотреть работы','Դիտել աշխատանքները','View our work'],
     ['Портфолио','Պորտֆոլիո','Portfolio'],['Вдохновляйтесь реальными результатами наших мастеров и выбирайте свой идеальный образ.','Ոգեշնչվեք մեր մասնագետների իրական աշխատանքներով և ընտրեք ձեր կերպարը։','Explore real results from our specialists and choose your look.'],['Смотреть все работы','Դիտել բոլոր աշխատանքները','View all work'],
     ['Открыть галерею','Բացել պատկերասրահը','Open gallery'],['Колесо или двойной клик — увеличить','Մեծացնելու համար օգտագործեք անիվը կամ կրկնակի սեղմումը','Use the wheel or double-click to zoom'],['Галерея','Պատկերասրահ','Gallery'],
@@ -8092,7 +8092,7 @@ html,body,#salon-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:none
       });
     }
 
-    const titles={ru:'BOSHKI PROJECT — Город',hy:'BOSHKI PROJECT — Քաղաք',en:'BOSHKI PROJECT — City'};
+    const titles={ru:'BOSHKI PROJECT — Ереван',hy:'BOSHKI PROJECT — Երևան',en:'BOSHKI PROJECT — Yerevan'};
     document.title=titles[currentDesktopLang]||titles.hy;
   }
   root.querySelectorAll('.std-lang-switch [data-desktop-lang]').forEach(btn=>btn.addEventListener('click',()=>{
@@ -8130,16 +8130,20 @@ html,body,#salon-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:none
   }
 
   function updateStatus(){
+    const now=new Intl.DateTimeFormat('en-GB',{timeZone:B.timezone||'Asia/Yerevan',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).format(new Date());
+    const open=now>='10:00'&&now<'21:00';
+    const label=open?'Открыто до 21:00':'Закрыто до 10:00';
     const main=document.getElementById('stdStatusMain'),sub=document.getElementById('stdStatusSub');
-    if(main){const now=new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Yerevan',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).format(new Date());main.textContent=now>='10:00'&&now<'21:00'?'Открыто до 21:00':'Закрыто до 10:00';main.className='std-status-main';main.style.color=''}
+    if(main){main.textContent=label;main.className='std-status-main '+(open?'open':'closed');main.style.color=''}
     if(sub)sub.textContent='Ежедневно 10:00–21:00';
     const stickyStatus=document.getElementById('stdStickyServiceStatus'),stickyStatusSub=document.getElementById('stdStickyServiceStatusSub'),stickyCard=document.getElementById('stdStickyServiceCard');
-    if(stickyStatus)stickyStatus.textContent='График';
-    if(stickyStatusSub)stickyStatusSub.textContent='Уточняется';
-    if(stickyCard)stickyCard.classList.remove('is-open','is-closed');
+    if(stickyStatus)stickyStatus.textContent=open?'Открыто':'Закрыто';
+    if(stickyStatusSub)stickyStatusSub.textContent='Ежедневно 10:00–21:00';
+    if(stickyCard){stickyCard.classList.toggle('is-open',open);stickyCard.classList.toggle('is-closed',!open)}
     const contactStatus=document.getElementById('stdContactStatus'),contactStatusText=document.getElementById('stdContactStatusText');
-    if(contactStatus)contactStatus.classList.remove('open','closed');
-    if(contactStatusText)contactStatusText.textContent='График работы';
+    if(contactStatus){contactStatus.classList.toggle('open',open);contactStatus.classList.toggle('closed',!open)}
+    if(contactStatusText)contactStatusText.textContent=label;
   }
   updateStatus();
+  window.setInterval(updateStatus,60000);
 })();
