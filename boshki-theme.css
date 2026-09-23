@@ -20,3 +20,20 @@ html body #salon-desktop-v1[data-empty-team="1"] #salonDesktopAbout .br-about-te
 html body #salon-desktop-v1[data-empty-team="1"] #salonDesktopAbout .br-about-column{width:min(100%,920px)!important;max-width:920px!important;flex:1!important}
 html body #salon-desktop-v1 #salonDesktopTop .std-hero-photo{box-shadow:-18px 15px 48px rgba(30,35,40,.10)!important}
 }
+
+/* No verified team data supplied: keep About, omit the empty team half. */
+@media(min-width:768px){
+  html body #salon-desktop-v1[data-empty-team="1"] #salonDesktopTeam{display:none!important}
+  html body #salon-desktop-v1[data-empty-team="1"] #salonDesktopAbout>.br-about-team-headings{
+    display:block!important;width:min(calc(100% - 64px),920px)!important;max-width:920px!important;margin-left:auto!important;margin-right:auto!important
+  }
+  html body #salon-desktop-v1[data-empty-team="1"] #salonDesktopAbout>.br-about-team-headings:after{display:none!important}
+  html body #salon-desktop-v1[data-empty-team="1"] #salonDesktopAbout>.br-about-team-headings h2:last-child{display:none!important}
+  html body #salon-desktop-v1[data-empty-team="1"] #salonDesktopAbout>.br-about-team-shell{
+    display:flex!important;width:min(calc(100% - 64px),920px)!important;max-width:920px!important;margin-left:auto!important;margin-right:auto!important;justify-content:center!important
+  }
+  html body #salon-desktop-v1[data-empty-team="1"] #salonDesktopAbout>.br-about-team-shell:after{display:none!important}
+  html body #salon-desktop-v1[data-empty-team="1"] #salonDesktopAbout .br-about-column{
+    width:100%!important;max-width:920px!important;min-height:0!important;height:auto!important;flex:1 1 auto!important
+  }
+}
