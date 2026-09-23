@@ -7150,7 +7150,7 @@ html,body,#salon-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:none
                   <svg viewBox="0 0 24 24"><path d="M19 10c0 5.2-7 10-7 10s-7-4.8-7-10a7 7 0 1 1 14 0Z"></path><circle cx="12" cy="10" r="2.2"></circle></svg>
                 </span>
                 <span class="dct-service-sticky-copy">
-                  <b>Город</b>
+                  <b>Ереван</b>
                   <small>ул. Аргишти, 7/10, Ереван</small>
                 </span>
               </a>
