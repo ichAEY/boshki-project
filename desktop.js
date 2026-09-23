@@ -637,7 +637,7 @@
         z-index:20;
         padding:0 100px;
         border-bottom:0;
-        background:#f6f0ec;
+        background:#fff!important;
       }
       .std-header-brand{
         display:flex;
@@ -729,7 +729,7 @@
         height:calc(100svh - 80px);
         min-height:760px;
         margin:0;
-        background:#eae0d9;
+        background:#fff!important;
         overflow:hidden;
       }
       .std-hero-copy{
@@ -739,10 +739,7 @@
         justify-content:center;
         align-items:flex-start;
         padding:0 48px;
-        background:
-          radial-gradient(620px 460px at 60% 58%,rgba(255,255,255,.20),transparent 72%),
-          radial-gradient(380px 300px at 88% 2%,rgba(255,255,255,.22),transparent 72%),
-          linear-gradient(120deg,#ebe1da 0%,#e7dcd4 58%,#eee6df 100%);
+        background:#fff!important;
       }
       .std-hero-copy:before{
         content:'';
@@ -954,7 +951,7 @@
         bottom:0;
         height:86px;
         pointer-events:none;
-        background:linear-gradient(180deg,rgba(239,231,224,0) 0%,rgba(239,231,224,.28) 45%,#f0e8e1 100%);
+        background:linear-gradient(180deg,rgba(255,255,255,0) 0%,rgba(255,255,255,.28) 45%,#fff 100%);
       }
 
       .std-portfolio{
@@ -2289,18 +2286,18 @@
     height:auto!important;
     min-height:760px!important;
     padding:78px 0 62px!important;
-    background:#e9e2da!important;
+    background:#fff!important;
     color:#171513!important;
   }
   #salonDesktopReviews .std-reviews-kicker{color:#746c66!important}
   #salonDesktopReviews .std-reviews-title{color:#171513!important}
   #salonDesktopReviews .std-reviews-score>strong{color:#171513!important}
   #salonDesktopReviews .std-reviews-count{color:#716862!important}
-  #salonDesktopReviews .std-review-card{border-color:rgba(66,55,49,.15)!important;border-radius:14px!important;background:rgba(255,255,255,.34)!important}
-  #salonDesktopReviews .std-review-avatar{background:#d7cec6!important;border-color:rgba(66,55,49,.10)!important;color:#514943!important}
+  #salonDesktopReviews .std-review-card{border-color:rgba(66,55,49,.15)!important;border-radius:14px!important;background:#f6f7f8!important}
+  #salonDesktopReviews .std-review-avatar{background:#e4e6e8!important;border-color:rgba(66,55,49,.10)!important;color:#514943!important}
   #salonDesktopReviews .std-review-name{color:#2a2522!important}
   #salonDesktopReviews .std-review-text{color:#4f4843!important}
-  #salonDesktopReviews .std-reviews-all{border-color:rgba(66,55,49,.18)!important;background:rgba(255,255,255,.18)!important;color:#2f2a26!important}
+  #salonDesktopReviews .std-reviews-all{border-color:rgba(66,55,49,.18)!important;background:#f3f4f5!important;color:#2f2a26!important}
 
   /* Contacts follow the mobile light section; TANEM badge stays dark. */
   .std-contact{padding:74px 70px 54px!important;background:#f7f2eb!important;color:#171513!important}
@@ -2361,7 +2358,7 @@
     font:600 12px/1 "Manrope",Arial,sans-serif!important;letter-spacing:.26em!important;text-transform:uppercase!important
   }
 
-  .std-header{background:#f8f4ee!important;border-bottom:1px solid rgba(62,51,44,.06)!important}
+  .std-header{background:#fff!important;border-bottom:1px solid rgba(62,51,44,.06)!important}
   .std-header-right{gap:17px!important}
   .std-lang-switch{height:42px;display:flex;align-items:center;gap:4px;padding:0 4px}
   .std-lang-switch button{min-width:28px;height:34px;padding:0 3px;border:0;background:transparent;color:#8b817b;
@@ -2484,13 +2481,13 @@
   .std-master-cats{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin-top:13px}
   .std-master-cat{display:inline-flex;min-height:25px;align-items:center;padding:0 9px;border:1px solid rgba(255,255,255,.11);border-radius:999px;color:#d8cdc6;font:500 9px/1 "Manrope",Arial,sans-serif}
 
-  #salonDesktopReviews.std-reviews{height:auto!important;min-height:0!important;padding:82px 0 70px!important;background:#e9e2da!important;color:#171513!important}
+  #salonDesktopReviews.std-reviews{height:auto!important;min-height:0!important;padding:82px 0 70px!important;background:#fff!important;color:#171513!important}
   #salonDesktopReviews .std-reviews-head{width:min(calc(100% - 96px),1360px)!important;margin:0 auto!important;text-align:center!important}
   #salonDesktopReviews .std-reviews-kicker{color:#746c66!important}#salonDesktopReviews .std-reviews-title{color:#171513!important}
   #salonDesktopReviews .std-reviews-score{margin-top:34px!important}#salonDesktopReviews .std-reviews-score>strong{font:500 78px/.82 "Cormorant Garamond",Georgia,serif!important;color:#171513!important}
   #salonDesktopReviews .std-reviews-stars{margin-top:17px!important;font-size:27px!important;color:#b78d4f!important}
   #salonDesktopReviews .std-reviews-count{margin-top:13px!important;color:#716862!important;font-size:13px!important}
-  #salonDesktopReviews .std-review-card{height:270px!important;min-height:270px!important;padding:25px!important;border-color:rgba(66,55,49,.15)!important;border-radius:13px!important;background:rgba(255,255,255,.34)!important}
+  #salonDesktopReviews .std-review-card{height:270px!important;min-height:270px!important;padding:25px!important;border-color:rgba(66,55,49,.15)!important;border-radius:13px!important;background:#f6f7f8!important}
   #salonDesktopReviews .std-review-text{margin-top:22px!important;color:#4f4843!important;font-size:14px!important;line-height:1.5!important;display:-webkit-box!important;-webkit-box-orient:vertical!important;-webkit-line-clamp:5!important;overflow:hidden!important}
 
   .std-contact{min-height:0!important;padding:82px 70px 46px!important;background:#2f2926!important;color:#f7f3f0!important}
@@ -2552,7 +2549,7 @@
   .std-hero{
     height:calc(100dvh - 80px)!important;
     min-height:700px!important;
-    background:#eae0d9!important;
+    background:#fff!important;
   }
   .std-hero-copy{
     position:relative!important;
@@ -2926,7 +2923,7 @@
   
   #salonDesktopAbout.mct-about{
     padding:84px 0 88px!important;
-    background:radial-gradient(circle at 88% 18%,rgba(193,158,145,.13),transparent 31%),linear-gradient(180deg,#f8f3ef 0%,#f4ebe5 100%)!important;
+    background:#fff!important;
     color:#171513!important;
   }
   #salonDesktopAbout>.mct-shell{
@@ -2965,7 +2962,7 @@
     overflow:hidden!important;
     border:1px solid rgba(85,64,57,.10)!important;
     border-radius:28px!important;
-    background:rgba(255,253,250,.80)!important;
+    background:#fff!important;
     box-shadow:0 18px 48px rgba(67,50,44,.075)!important;
   }
   #salonDesktopAbout .mct-about-portrait-wrap{
@@ -3102,7 +3099,7 @@
     min-height:760px!important;
     overflow:hidden!important;
     padding:65px 0 52px!important;
-    background:#e9e2da!important;
+    background:#fff!important;
     color:#171513!important;
   }
   #salonDesktopReviews .std-reviews-head{
@@ -3177,7 +3174,7 @@
     padding:31px 30px 28px!important;
     border:1px solid rgba(66,55,49,.15)!important;
     border-radius:12px!important;
-    background:rgba(255,255,255,.34)!important;
+    background:#f6f7f8!important;
     color:#19191b!important;
     text-decoration:none!important;
     box-shadow:none!important;
@@ -3194,7 +3191,7 @@
     border-radius:50%!important;
     display:grid!important;
     place-items:center!important;
-    background:#d7cec6!important;
+    background:#e4e6e8!important;
     border:1px solid rgba(66,55,49,.10)!important;
     color:#514943!important;
     font:500 32px/1 "Cormorant Garamond",Georgia,serif!important;
@@ -3247,7 +3244,7 @@
     height:55px!important;
     border:1px solid rgba(66,55,49,.18)!important;
     border-radius:7px!important;
-    background:rgba(255,255,255,.18)!important;
+    background:#f3f4f5!important;
     display:flex!important;
     align-items:center!important;
     justify-content:center!important;
@@ -3504,7 +3501,7 @@
   .std-header{
     height:80px!important;
     padding:0 48px!important;
-    background:#f8f4ee!important;
+    background:#fff!important;
     border-bottom:1px solid rgba(77,59,50,.055)!important;
   }
   .std-header-brand{
@@ -3543,10 +3540,7 @@
     height:calc(100dvh - 80px)!important;
     min-height:690px!important;
     overflow:hidden!important;
-    background:
-      radial-gradient(700px 520px at 22% 48%,rgba(255,255,255,.52),transparent 68%),
-      radial-gradient(620px 460px at 76% 38%,rgba(183,143,120,.09),transparent 72%),
-      linear-gradient(118deg,#f8f4ee 0%,#f6efe9 56%,#f2e8e0 100%)!important;
+    background:#fff!important;
   }
   .std-hero:before,
   .std-hero:after{
@@ -3579,7 +3573,7 @@
     justify-content:flex-start!important;
     padding:0 40px 0 78px!important;
     overflow:visible!important;
-    background:transparent!important;
+    background:#fff!important;
   }
   .std-hero-copy:before{
     content:""!important;
@@ -3789,12 +3783,7 @@
   .std-header-right{margin-left:auto!important;transform:translateX(0)!important}
 
   .std-hero{
-    background:
-      radial-gradient(330px 470px at -4% 24%,rgba(88,61,49,.115) 0%,rgba(125,92,74,.065) 18%,transparent 66%),
-      radial-gradient(420px 560px at 104% 82%,rgba(93,65,52,.115) 0%,rgba(137,101,80,.06) 19%,transparent 66%),
-      radial-gradient(520px 320px at 69% 2%,rgba(170,129,104,.085),transparent 72%),
-      radial-gradient(650px 500px at 25% 50%,rgba(255,255,255,.55),transparent 70%),
-      linear-gradient(118deg,#f9f5ef 0%,#f6efe9 53%,#f1e7df 100%)!important;
+    background:#fff!important;
   }
   .std-hero:before{
     left:30%!important;
@@ -4171,11 +4160,7 @@
 @media(min-width:768px){
   /* Background only — matched to the supplied reference. */
   #salonDesktopTop.std-hero{
-    background:
-      radial-gradient(ellipse 360px 520px at -3% 35%,rgba(112,79,61,.105) 0%,rgba(140,104,84,.050) 28%,transparent 72%),
-      radial-gradient(ellipse 460px 620px at 103% 82%,rgba(115,82,64,.095) 0%,rgba(151,113,91,.040) 28%,transparent 72%),
-      radial-gradient(ellipse 760px 520px at 38% 42%,rgba(255,255,255,.48) 0%,rgba(255,255,255,.20) 45%,transparent 76%),
-      linear-gradient(108deg,#f7f1ea 0%,#f8f3ed 45%,#f3ebe4 100%)!important;
+    background:#fff!important;
   }
   #salonDesktopTop.std-hero:before{
     width:1040px!important;
@@ -4215,11 +4200,7 @@
 @media(min-width:768px){
   /* Reference background: force every hero layer to stay transparent except the hero canvas. */
   #salonDesktopTop.std-hero{
-    background:
-      radial-gradient(ellipse 290px 500px at -2% 42%,rgba(121,88,69,.12) 0%,rgba(143,108,88,.055) 34%,transparent 76%),
-      radial-gradient(ellipse 300px 560px at 101% 69%,rgba(119,84,67,.105) 0%,rgba(151,112,91,.045) 34%,transparent 76%),
-      radial-gradient(ellipse 720px 500px at 35% 45%,rgba(255,255,255,.52) 0%,rgba(255,255,255,.22) 48%,transparent 78%),
-      linear-gradient(102deg,#f7f1ea 0%,#f8f4ee 47%,#f3ebe4 100%)!important;
+    background:#fff!important;
   }
   #salonDesktopTop .std-hero-copy,
   #salonDesktopTop .std-hero-frame,
@@ -4273,11 +4254,7 @@
 @media(min-width:768px){
   /* Reference-specific left edge shadow: visible warm vertical vignette fading inward. */
   #salonDesktopTop.std-hero{
-    background:
-      radial-gradient(ellipse 185px 610px at -1% 43%,rgba(83,57,45,.24) 0%,rgba(105,74,58,.15) 25%,rgba(133,96,76,.065) 48%,transparent 76%),
-      radial-gradient(ellipse 360px 640px at 101% 70%,rgba(119,84,67,.105) 0%,rgba(151,112,91,.045) 34%,transparent 76%),
-      radial-gradient(ellipse 720px 500px at 35% 45%,rgba(255,255,255,.52) 0%,rgba(255,255,255,.22) 48%,transparent 78%),
-      linear-gradient(102deg,#f3ebe3 0%,#f4eee7 47%,#eee3da 100%)!important;
+    background:#fff!important;
   }
 }
 
@@ -4346,7 +4323,7 @@
 @media(min-width:768px){
   /* Header tone integrated with the hero. */
   .std-header{
-    background:rgba(239,230,221,.92)!important;
+    background:#fff!important;
     border-bottom:1px solid rgba(103,82,70,.10)!important;
     box-shadow:0 7px 24px rgba(73,55,46,.035)!important;
   }
@@ -4414,7 +4391,7 @@
 html,body,#salon-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:none!important;overscroll-behavior:auto!important}
 .std-section-reveal,.std-section-reveal.in-view,.std-section-reveal.is-visible{opacity:1!important;transform:none!important;transition:none!important}
 #salon-desktop-v1 section{scroll-snap-align:none!important;scroll-snap-stop:normal!important}
-#salonDesktopTop.std-hero:after{content:""!important;display:block!important;position:absolute!important;z-index:4!important;left:0!important;right:0!important;bottom:-1px!important;width:auto!important;height:150px!important;border:0!important;border-radius:0!important;background:linear-gradient(180deg,rgba(243,235,227,0) 0%,rgba(243,235,227,.46) 45%,#f3ebe3 100%)!important;pointer-events:none!important}
+#salonDesktopTop.std-hero:after{content:""!important;display:block!important;position:absolute!important;z-index:4!important;left:0!important;right:0!important;bottom:-1px!important;width:auto!important;height:150px!important;border:0!important;border-radius:0!important;background:linear-gradient(180deg,rgba(255,255,255,0) 0%,rgba(255,255,255,.46) 45%,#fff 100%)!important;pointer-events:none!important}
 #salonDesktopPortfolio.std-portfolio{margin-top:-1px!important;padding-top:92px!important;background:radial-gradient(ellipse 330px 520px at -2% 18%,rgba(83,57,45,.12) 0%,rgba(105,74,58,.06) 38%,transparent 76%),radial-gradient(ellipse 390px 560px at 102% 76%,rgba(119,84,67,.08) 0%,rgba(151,112,91,.035) 35%,transparent 76%),radial-gradient(ellipse 760px 500px at 37% 20%,rgba(255,255,255,.36) 0%,rgba(255,255,255,.13) 48%,transparent 78%),linear-gradient(180deg,#f3ebe3 0%,#f4eee7 48%,#eee3da 100%)!important}
 #salonDesktopPortfolio.std-portfolio:before{width:760px!important;height:760px!important;left:-470px!important;bottom:-390px!important;border:1px solid rgba(151,112,91,.09)!important;border-radius:50%!important;background:transparent!important;filter:none!important}
 #salonDesktopPortfolio.std-portfolio:after{width:980px!important;height:980px!important;right:-520px!important;top:-610px!important;border:1px solid rgba(151,112,91,.12)!important;border-radius:50%!important;background:transparent!important;filter:none!important}
@@ -5060,7 +5037,7 @@ html,body,#salon-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:none
   /* ABOUT + TEAM — one section, two balanced sides. */
   #salonDesktopAbout.br-about-team{
     padding:92px 0 102px!important;
-    background:radial-gradient(circle at 88% 18%,rgba(193,158,145,.13),transparent 31%),linear-gradient(180deg,#f8f3ef 0%,#f4ebe5 100%)!important;
+    background:#fff!important;
   }
   #salonDesktopAbout>.br-about-team-shell{
     width:min(calc(100% - 96px),1360px)!important;
@@ -5084,7 +5061,7 @@ html,body,#salon-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:none
     overflow:hidden!important;
     border:1px solid rgba(85,64,57,.10)!important;
     border-radius:28px!important;
-    background:rgba(255,253,250,.80)!important;
+    background:#fff!important;
     box-shadow:0 18px 48px rgba(67,50,44,.075)!important;
   }
   #salonDesktopAbout .mct-about-portrait-wrap{
@@ -5510,7 +5487,7 @@ html,body,#salon-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:none
     padding:36px!important;
     border:1px solid rgba(85,64,57,.10)!important;
     border-radius:28px!important;
-    background:rgba(255,253,250,.80)!important;
+    background:#fff!important;
     box-shadow:0 20px 52px rgba(67,50,44,.09)!important;
   }
   #salonDesktopAbout .mct-about-head,
@@ -5520,7 +5497,7 @@ html,body,#salon-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:none
     margin-top:0!important;
     border:0!important;
     border-radius:22px!important;
-    background:transparent!important;
+    background:#fff!important;
     box-shadow:none!important;
   }
   #salonDesktopAbout .mct-about-portrait-wrap{
@@ -6414,10 +6391,7 @@ html,body,#salon-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:none
   #salonDesktopAbout.br-about-team{
     padding:88px 32px 102px!important;
     overflow:hidden!important;
-    background:
-      radial-gradient(700px 460px at 4% 12%,rgba(217,190,176,.15),transparent 70%),
-      radial-gradient(660px 480px at 96% 88%,rgba(217,190,176,.11),transparent 72%),
-      #f8f4ee!important;
+    background:#fff!important;
   }
   #salonDesktopAbout>.br-about-team-headings,
   #salonDesktopAbout>.br-about-team-shell{
@@ -6461,7 +6435,7 @@ html,body,#salon-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:none
   #salonDesktopAbout .br-about-column{
     padding:20px!important;
     border:1px solid rgba(72,55,47,.10)!important;
-    background:rgba(255,255,255,.46)!important;
+    background:#fff!important;
     box-shadow:0 24px 60px rgba(69,50,42,.09)!important;
   }
   #salonDesktopAbout .mct-about-card{
@@ -6477,7 +6451,7 @@ html,body,#salon-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:none
     overflow:hidden!important;
     border:0!important;
     border-radius:22px!important;
-    background:transparent!important;
+    background:#fff!important;
     box-shadow:none!important;
   }
   #salonDesktopAbout .mct-about-portrait-wrap,
@@ -6526,7 +6500,7 @@ html,body,#salon-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:none
     padding:13px!important;
     border:1px solid rgba(81,60,51,.09)!important;
     border-radius:14px!important;
-    background:rgba(255,255,255,.55)!important;
+    background:#f3f4f5!important;
   }
   #salonDesktopAbout .dct-about-amenities-grid article+article{border-left:1px solid rgba(81,60,51,.09)!important}
   #salonDesktopAbout .dct-about-amenities-grid strong{font-size:11.5px!important;line-height:1.2!important}
@@ -6821,7 +6795,7 @@ html,body,#salon-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:none
 
   #salonDesktopAbout.br-about-team{
     padding-top:64px!important;
-    background:radial-gradient(circle at 12% 12%,rgba(255,255,255,.72),transparent 28%),radial-gradient(circle at 92% 16%,rgba(193,158,145,.14),transparent 30%),linear-gradient(180deg,#f8f3ef 0%,#f1e7df 100%)!important;
+    background:#fff!important;
   }
   #salonDesktopAbout .mct-about-card{
     box-shadow:0 28px 64px rgba(87,61,49,.13),inset 0 1px 0 rgba(255,255,255,.82)!important;
@@ -6939,13 +6913,13 @@ html,body,#salon-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:none
   /* About: no extra decorative frames. The three facts are the visual endpoint. */
   #salonDesktopAbout .mct-about-card{
     border:0!important;
-    background:transparent!important;
+    background:#fff!important;
     box-shadow:none!important;
   }
   #salonDesktopAbout .dct-about-amenities-grid article{
     border:0!important;
     border-radius:0!important;
-    background:transparent!important;
+    background:#f3f4f5!important;
     box-shadow:none!important;
     padding:10px 12px!important;
   }
@@ -7038,18 +7012,18 @@ html,body,#salon-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:none
   #salonDesktopAbout .br-about-column{
     padding:0!important;
     border:0!important;
-    background:transparent!important;
+    background:#fff!important;
     box-shadow:none!important;
   }
   #salonDesktopAbout .mct-about-card{
     border:0!important;
-    background:transparent!important;
+    background:#fff!important;
     box-shadow:none!important;
     border-radius:0!important;
   }
   #salonDesktopAbout .mct-about-portrait-wrap{
     border-radius:20px!important;
-    background:transparent!important;
+    background:#f3f4f5!important;
   }
   #salonDesktopAbout .mct-about-portrait img{
     object-fit:contain!important;
@@ -7105,13 +7079,13 @@ html,body,#salon-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:none
 
   /* The about column itself has no visual frame. */
   #salonDesktopAbout .br-about-column{
-    padding:0!important;border:0!important;background:transparent!important;box-shadow:none!important;
+    padding:0!important;border:0!important;background:#fff!important;box-shadow:none!important;
   }
   #salonDesktopAbout .mct-about-card{
-    border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;
+    border:0!important;border-radius:0!important;background:#fff!important;box-shadow:none!important;
   }
   #salonDesktopAbout .mct-about-portrait-wrap{
-    border:0!important;box-shadow:none!important;background:transparent!important;
+    border:0!important;box-shadow:none!important;background:#f3f4f5!important;
   }
   #salonDesktopAbout .mct-about-portrait img{
     object-fit:contain!important;object-position:center center!important;
@@ -7121,7 +7095,7 @@ html,body,#salon-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:none
     transform:translateY(-12px) scale(.82)!important;
   }
   #salonDesktopAbout .dct-about-amenities-grid article{
-    border:0!important;background:transparent!important;box-shadow:none!important;
+    border:0!important;background:#f3f4f5!important;box-shadow:none!important;
   }
   #salonDesktopAbout .dct-about-amenities-grid strong{font-size:17px!important}
   #salonDesktopAbout .dct-about-amenities-grid span{font-size:13.2px!important}
@@ -7162,10 +7136,7 @@ html,body,#salon-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:none
   #salonDesktopAbout.br-about-team{
     position:relative!important;
     padding-top:64px!important;
-    background:
-      radial-gradient(720px 460px at 8% 8%,rgba(255,255,255,.82),transparent 68%),
-      radial-gradient(660px 500px at 94% 86%,rgba(176,137,119,.15),transparent 70%),
-      linear-gradient(145deg,#f8f4ee 0%,#efe2da 52%,#f7f0eb 100%)!important;
+    background:#fff!important;
   }
   #salonDesktopAbout.br-about-team:before{
     content:""!important;position:absolute!important;inset:0!important;pointer-events:none!important;
@@ -7183,7 +7154,7 @@ html,body,#salon-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:none
     padding:20px!important;
     border:1px solid rgba(72,55,47,.10)!important;
     border-radius:28px!important;
-    background:rgba(255,253,250,.76)!important;
+    background:#fff!important;
     box-shadow:0 24px 58px rgba(69,50,42,.11)!important;
   }
   #salonDesktopAbout .mct-about-card{
@@ -7191,12 +7162,12 @@ html,body,#salon-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:none
     width:100%!important;height:100%!important;min-height:0!important;
     grid-template-rows:385px minmax(0,1fr)!important;
     margin:0!important;padding:0!important;overflow:hidden!important;
-    border:0!important;border-radius:22px!important;background:transparent!important;box-shadow:none!important;
+    border:0!important;border-radius:22px!important;background:#fff!important;box-shadow:none!important;
   }
   #salonDesktopAbout .mct-about-portrait-wrap{
     height:385px!important;min-height:385px!important;
     overflow:hidden!important;border:0!important;border-radius:20px!important;
-    background:rgba(255,255,255,.28)!important;box-shadow:none!important;
+    background:#f3f4f5!important;box-shadow:none!important;
   }
   #salonDesktopAbout .mct-about-portrait{width:100%!important;height:100%!important}
   #salonDesktopAbout .mct-about-portrait img{
@@ -7212,7 +7183,7 @@ html,body,#salon-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:none
   #salonDesktopAbout .dct-about-amenities-grid article{
     min-height:94px!important;padding:14px!important;
     border:1px solid rgba(81,60,51,.09)!important;border-radius:14px!important;
-    background:rgba(255,255,255,.56)!important;box-shadow:0 9px 22px rgba(80,56,45,.055)!important;
+    background:#f3f4f5!important;box-shadow:0 9px 22px rgba(80,56,45,.055)!important;
   }
   #salonDesktopAbout .dct-about-amenities-grid article+article{border-left:1px solid rgba(81,60,51,.09)!important}
   #salonDesktopAbout .dct-about-amenities-grid strong{font-size:16.5px!important;line-height:1.2!important}
@@ -7373,7 +7344,7 @@ html,body,#salon-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:none
 
   /* About card follows mobile card language and proportions. */
   #salonDesktopAbout .br-about-column{
-    background:#eee7df!important;
+    background:#fff!important;
   }
   #salonDesktopAbout .br-about-column,
   #salonDesktopTeam.br-team-panel{
@@ -7459,7 +7430,7 @@ html,body,#salon-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:none
   #salonDesktopAbout .dct-about-amenities-grid{gap:10px!important}
   #salonDesktopAbout .dct-about-amenities-grid article{
     min-height:102px!important;padding:15px!important;
-    background:linear-gradient(145deg,#e4d6cb 0%,#eadfd6 100%)!important;
+    background:#f3f4f5!important;
     border-color:rgba(86,64,53,.10)!important;
     box-shadow:0 10px 24px rgba(70,50,41,.075),inset 0 1px 0 rgba(255,255,255,.42)!important;
   }
