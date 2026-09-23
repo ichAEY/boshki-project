@@ -4138,7 +4138,7 @@
 }
 
 @media(min-width:768px){
-  /* Center kicker against the actual НАЗВАНИЕ САЛОНА text box, not the whole left column. */
+  /* Center kicker against the actual BOSHKI PROJECT text box, not the whole left column. */
   #salonDesktopTop .std-logo{
     font-size:clamp(59.52px,4.9755vw,81.84px)!important;
   }
@@ -7652,7 +7652,7 @@ html,body,#salon-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:none
 
             <span class="std-meta-divider" aria-hidden="true"></span>
 
-            <a class="std-meta-item" href="#salonDesktopContacts" aria-disabled="true">
+            <a class="std-meta-item" href="https://yandex.ru/maps/org/boshki_prodzhekt/35082945166/" target="_blank" rel="noopener">
               <span class="std-meta-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24"><path d="M12 21s6-5.2 6-11a6 6 0 1 0-12 0c0 5.8 6 11 6 11Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="12" cy="10" r="2.1" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
               </span>
@@ -7710,12 +7710,12 @@ html,body,#salon-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:none
                   <small id="stdStickyServiceStatusSub">10:00–21:00</small>
                 </span>
               </div>
-              <a class="dct-service-sticky-row dct-service-sticky-route" href="#salonDesktopContacts" aria-disabled="true" aria-label="Построить маршрут в Яндекс Карты">
+              <a class="dct-service-sticky-row dct-service-sticky-route" href="https://yandex.ru/maps/org/boshki_prodzhekt/35082945166/" target="_blank" rel="noopener" aria-label="Построить маршрут в Яндекс Карты">
                 <span class="dct-service-sticky-icon" aria-hidden="true">
                   <svg viewBox="0 0 24 24"><path d="M19 10c0 5.2-7 10-7 10s-7-4.8-7-10a7 7 0 1 1 14 0Z"></path><circle cx="12" cy="10" r="2.2"></circle></svg>
                 </span>
                 <span class="dct-service-sticky-copy">
-                  <b>Город</b>
+                  <b>Ереван</b>
                   <small>ул. Аргишти, 7/10</small>
                 </span>
               </a>
@@ -7914,7 +7914,7 @@ html,body,#salon-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:none
       <div class="std-master-page-panel">
         <div class="std-master-page-top">
           <button class="std-master-page-close" id="stdMasterPageClose" type="button" aria-label="Закрыть">←</button>
-          <span>НАЗВАНИЕ САЛОНА</span>
+          <span>BOSHKI PROJECT</span>
           <i aria-hidden="true"></i>
         </div>
         <div class="std-master-page-content" id="stdMasterPageContent"></div>
@@ -8601,7 +8601,7 @@ html,body,#salon-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:none
     ["Мужской педикюр","Տղամարդու պեդիկյուր","Men's pedicure"],
     ['Услуги','Ծառայություններ','Services'],['Наши работы','Մեր աշխատանքները','Our work'],['О нас','Մեր մասին','About us'],
     ['Отзывы','Կարծիքներ','Reviews'],['Контакты','Կոնտակտներ','Contacts'],['Салон красоты','Գեղեցկության սրահ','Beauty salon'],
-    ['Салон красоты в самом сердце Города.','Գեղեցկության սրահ Քաղաքի սրտում։','A beauty salon in the heart of City.'],['Листайте вниз','Սահեցրեք ներքև','Scroll down'],['Ереван,','Քաղաք,','City,'],['ул. Аргишти, 7/10','Սրահի հասցե','ул. Аргишти, 7/10'],
+    ['Салон красоты в Ереване.','Գեղեցկության սրահ Երևանում։','A beauty salon in Yerevan.'],['Листайте вниз','Սահեցրեք ներքև','Scroll down'],['Ереван,','Երևան,','Yerevan,'],['ул. Аргишти, 7/10','Արգիշտի փողոց 7/10','Argishti Street 7/10'],
     ['Записаться','Ամրագրել','Book now'],['Записаться →','Ամրագրել →','Book now →'],['Записаться онлайн','Ամրագրել առցանց','Book online'],['Смотреть работы','Դիտել աշխատանքները','View our work'],
     ['Портфолио','Պորտֆոլիո','Portfolio'],['Вдохновляйтесь реальными результатами наших мастеров и выбирайте свой идеальный образ.','Ոգեշնչվեք մեր մասնագետների իրական աշխատանքներով և ընտրեք ձեր կերպարը։','Explore real results from our specialists and choose your look.'],['Смотреть все работы','Դիտել բոլոր աշխատանքները','View all work'],
     ['Открыть галерею','Բացել պատկերասրահը','Open gallery'],['Колесо или двойной клик — увеличить','Մեծացնելու համար օգտագործեք անիվը կամ կրկնակի սեղմումը','Use the wheel or double-click to zoom'],['Галерея','Պատկերասրահ','Gallery'],
