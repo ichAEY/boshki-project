@@ -7559,6 +7559,21 @@ html,body,#salon-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:none
     100%{left:130%}
   }
 }
+
+/* Empty verified team: omit the empty half without inventing specialists. */
+#salon-desktop-v1[data-empty-team="1"] #salonDesktopTeam{display:none!important}
+#salon-desktop-v1[data-empty-team="1"] #salonDesktopAbout>.br-about-team-headings{
+  display:block!important;width:min(calc(100% - 64px),920px)!important;max-width:920px!important;margin-left:auto!important;margin-right:auto!important
+}
+#salon-desktop-v1[data-empty-team="1"] #salonDesktopAbout>.br-about-team-headings:after{display:none!important}
+#salon-desktop-v1[data-empty-team="1"] #salonDesktopAbout>.br-about-team-headings h2:last-child{display:none!important}
+#salon-desktop-v1[data-empty-team="1"] #salonDesktopAbout>.br-about-team-shell{
+  display:flex!important;width:min(calc(100% - 64px),920px)!important;max-width:920px!important;margin-left:auto!important;margin-right:auto!important;justify-content:center!important
+}
+#salon-desktop-v1[data-empty-team="1"] #salonDesktopAbout>.br-about-team-shell:after{display:none!important}
+#salon-desktop-v1[data-empty-team="1"] #salonDesktopAbout .br-about-column{
+  width:100%!important;max-width:920px!important;min-height:0!important;height:auto!important;flex:1 1 auto!important
+}
 `;
   document.head.appendChild(desktopStyle);
   
@@ -7592,6 +7607,7 @@ html,body,#salon-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:none
 
   const root=document.createElement('div');
   root.id='salon-desktop-v1';
+  root.dataset.emptyTeam=TEAM_MASTERS.length?'0':'1';
   root.innerHTML=`
     <header class="std-header">
       <a class="std-header-brand" href="#salonDesktopTop" aria-label="BOSHKI PROJECT">
@@ -7608,7 +7624,7 @@ html,body,#salon-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:none
       </nav>
       <div class="std-header-right">
         <div class="std-lang-switch std-lang-switch-placeholder" aria-hidden="true"></div>
-        <a class="std-phone" href="#salonDesktopContacts" aria-disabled="true" aria-label="Позвонить в BOSHKI PROJECT">
+        <a class="std-phone" href="tel:+37477116819" aria-label="Позвонить в BOSHKI PROJECT">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.83 16.57a1 1 0 0 0 1.21-.3l.36-.47A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.47.35a1 1 0 0 0-.29 1.23 14 14 0 0 0 6.39 6.39Z" fill="currentColor"/></svg>
           <span>+374 77 116819</span>
         </a>
@@ -7624,7 +7640,7 @@ html,body,#salon-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:none
           <h1 class="std-logo">BOSHKI PROJECT</h1>
           <div class="std-logo-sub">BEAUTY STUDIO</div>
 
-          <p class="std-tagline">Описание салона.</p>
+          <p class="std-tagline">Стрижки, окрашивание, маникюр, макияж, пирсинг и татуировка.</p>
 
           <div class="std-meta">
             <div class="std-meta-item">
@@ -7784,9 +7800,9 @@ html,body,#salon-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:none
         <p class="std-reviews-kicker">Отзывы</p>
         <h2 class="std-reviews-title" id="stdReviewsTitle">Что говорят о нас</h2>
         <div class="std-reviews-score">
-          <strong>—</strong>
-          <div class="std-reviews-stars" aria-label="5 звёзд">☆☆☆☆☆</div>
-          <div class="std-reviews-count">Отзывы на Яндекс Карты</div>
+          <strong>5.0</strong>
+          <div class="std-reviews-stars" aria-label="5 звёзд">★★★★★</div>
+          <div class="std-reviews-count">159 отзывов · Яндекс Карты</div>
         </div>
       </div>
 
@@ -7794,13 +7810,13 @@ html,body,#salon-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:none
         <div class="std-reviews-loop">
           <div class="std-reviews-set">
             ${DESKTOP_REAL_REVIEWS.map(r=>`
-              <a class="std-review-card" href="#salonDesktopReviews" target="_blank" rel="noopener">
+              <a class="std-review-card" href="${YANDEX_REVIEWS}" target="_blank" rel="noopener">
                 <div class="std-review-head">
                   <span class="std-review-avatar">${([...(String(r[0]).trim())][0]||'S').toUpperCase()}</span>
                   <span>
                     <strong class="std-review-name">${r[0]}</strong>
                     <span class="std-review-meta">Яндекс Карты</span>
-                    <span class="std-review-stars">☆☆☆☆☆</span>
+                    <span class="std-review-stars">★★★★★</span>
                   </span>
                 </div>
                 <p class="std-review-text">${r[1]}</p>
@@ -7810,13 +7826,13 @@ html,body,#salon-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:none
           </div>
           <div class="std-reviews-set" aria-hidden="true">
             ${DESKTOP_REAL_REVIEWS.map(r=>`
-              <a class="std-review-card" href="#salonDesktopReviews" target="_blank" rel="noopener" tabindex="-1">
+              <a class="std-review-card" href="${YANDEX_REVIEWS}" target="_blank" rel="noopener" tabindex="-1">
                 <div class="std-review-head">
                   <span class="std-review-avatar">${([...(String(r[0]).trim())][0]||'S').toUpperCase()}</span>
                   <span>
                     <strong class="std-review-name">${r[0]}</strong>
                     <span class="std-review-meta">Яндекс Карты</span>
-                    <span class="std-review-stars">☆☆☆☆☆</span>
+                    <span class="std-review-stars">★★★★★</span>
                   </span>
                 </div>
                 <p class="std-review-text">${r[1]}</p>
@@ -7847,25 +7863,25 @@ html,body,#salon-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:none
 
         <div class="std-contact-body">
           <div class="std-contact-list">
-            <a class="std-contact-card" href="#salonDesktopContacts" aria-disabled="true">
+            <a class="std-contact-card" href="${YANDEX_RU}" target="_blank" rel="noopener">
               <span class="std-contact-card-icon">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s6.5-5.4 6.5-11a6.5 6.5 0 1 0-13 0c0 5.6 6.5 11 6.5 11Z"></path><circle cx="12" cy="10" r="2.2"></circle></svg>
               </span>
               <span class="std-contact-card-copy"><strong class="std-contact-card-title">ул. Аргишти, 7/10, Ереван</strong><span class="std-contact-card-sub">ул. Аргишти, 7/10</span></span>
             </a>
 
-            <a class="std-contact-card" href="#salonDesktopContacts" aria-disabled="true">
+            <a class="std-contact-card" href="tel:+37477116819">
               <span class="std-contact-card-icon">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4h3l1.3 4-2 1.5c1 2 2.6 3.6 4.6 4.6l1.5-2L19 13.5v3c0 1.1-.9 2-2 2C10.4 18.5 5.5 13.6 5.5 7A2 2 0 0 1 7 4Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </span>
-              <span class="std-contact-card-copy"><strong class="std-contact-card-title">+374 77 116819</strong><span class="std-contact-card-sub">Контакт будет добавлен</span></span>
+              <span class="std-contact-card-copy"><strong class="std-contact-card-title">+374 77 116819</strong><span class="std-contact-card-sub">Нажмите, чтобы позвонить</span></span>
             </a>
 
-            <a class="std-contact-card" href="#salonDesktopContacts" aria-disabled="true">
+            <a class="std-contact-card" href="${WHATSAPP_URL}" target="_blank" rel="noopener">
               <span class="std-contact-card-icon">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5.5h14v10H9l-4 3v-13Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M8.5 9.2c.8 2.2 2.1 3.5 4.3 4.3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
               </span>
-              <span class="std-contact-card-copy"><strong class="std-contact-card-title">Мессенджер</strong><span class="std-contact-card-sub">Контакт будет добавлен</span></span>
+              <span class="std-contact-card-copy"><strong class="std-contact-card-title">WhatsApp</strong><span class="std-contact-card-sub">Написать в WhatsApp</span></span>
             </a>
 
             <div class="std-contact-card static">
@@ -7879,8 +7895,8 @@ html,body,#salon-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:none
           <div class="std-contact-right">
             <div class="std-contact-map"><iframe title="Карта салона" loading="eager" src="about:blank"></iframe></div>
             <div class="std-contact-actions">
-              <a class="std-contact-action-btn std-contact-call" href="#salonDesktopContacts" aria-disabled="true">Позвонить</a>
-              <a class="std-contact-action-btn std-contact-route" href="#salonDesktopContacts" aria-disabled="true">Построить маршрут</a>
+              <a class="std-contact-action-btn std-contact-call" href="tel:+37477116819">Позвонить</a>
+              <a class="std-contact-action-btn std-contact-route" href="${ROUTE}" target="_blank" rel="noopener">Построить маршрут</a>
             </div>
           </div>
         </div>
@@ -7911,9 +7927,9 @@ html,body,#salon-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:none
         <button class="std-book-close" id="stdBookClose" type="button" aria-label="Закрыть">×</button>
         <p class="std-services-kicker">Запись</p><h3>Как вам удобнее записаться?</h3><p>Выберите удобный способ связи.</p>
         <div class="std-book-options">
-          <a href="#visit" aria-disabled="true"><span>Телефон</span><span>+374 77 116819 →</span></a>
-          <a href="#salonDesktopContacts" aria-disabled="true"><span>Мессенджер</span><span>Будет добавлен →</span></a>
-          <a href="#salonDesktopContacts" aria-disabled="true"><span>Яндекс Карты</span><span>Будет добавлено →</span></a>
+          <a href="tel:+37477116819"><span>Телефон</span><span>+374 77 116819 →</span></a>
+          <a href="https://t.me/Boshki_projectt" target="_blank" rel="noopener"><span>Telegram</span><span>Открыть →</span></a>
+          <a href="${YANDEX_RU}" target="_blank" rel="noopener"><span>Яндекс Карты</span><span>Открыть →</span></a>
         </div>
       </div>
     </div>
@@ -8474,7 +8490,7 @@ html,body,#salon-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:none
     }
   }
   function paintDesktopMaster(master){
-    masterPageContent.innerHTML='<div class="std-master-profile"><div class="std-master-avatar">'+TEAM_AVATAR+'</div><h2>'+master.name+'</h2><p>'+master.role+'</p><div class="std-master-profile-rating"><b>☆☆☆☆☆</b> · BOSHKI PROJECT</div><div class="std-master-profile-cats">'+(master.cats||[]).map(cat=>'<span>'+cat+'</span>').join('')+'</div></div><div class="std-master-tabs">'+['Профиль','Услуги','Портфолио','Отзывы'].map(tab=>'<button type="button" data-master-tab="'+tab+'" class="'+(tab===activeDesktopMasterTab?'active':'')+'">'+tab+'</button>').join('')+'</div><div class="std-master-tab-content"></div>';
+    masterPageContent.innerHTML='<div class="std-master-profile"><div class="std-master-avatar">'+TEAM_AVATAR+'</div><h2>'+master.name+'</h2><p>'+master.role+'</p><div class="std-master-profile-rating"><b>★★★★★</b> · BOSHKI PROJECT</div><div class="std-master-profile-cats">'+(master.cats||[]).map(cat=>'<span>'+cat+'</span>').join('')+'</div></div><div class="std-master-tabs">'+['Профиль','Услуги','Портфолио','Отзывы'].map(tab=>'<button type="button" data-master-tab="'+tab+'" class="'+(tab===activeDesktopMasterTab?'active':'')+'">'+tab+'</button>').join('')+'</div><div class="std-master-tab-content"></div>';
     masterPageContent.querySelectorAll('[data-master-tab]').forEach(btn=>btn.onclick=()=>{
       activeDesktopMasterTab=btn.dataset.masterTab;
       masterPageContent.querySelectorAll('[data-master-tab]').forEach(x=>x.classList.toggle('active',x===btn));
@@ -8776,16 +8792,19 @@ html,body,#salon-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:none
   }
 
   function updateStatus(){
+    const now=new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Yerevan',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).format(new Date());
+    const open=now>='10:00'&&now<'21:00';
     const main=document.getElementById('stdStatusMain'),sub=document.getElementById('stdStatusSub');
-    if(main){main.textContent='График';main.className='std-status-main';main.style.color=''}
+    if(main){main.textContent=open?'Открыто':'Закрыто';main.className='std-status-main '+(open?'open':'closed');main.style.color=''}
     if(sub)sub.textContent='10:00–21:00';
     const stickyStatus=document.getElementById('stdStickyServiceStatus'),stickyStatusSub=document.getElementById('stdStickyServiceStatusSub'),stickyCard=document.getElementById('stdStickyServiceCard');
-    if(stickyStatus)stickyStatus.textContent='График';
+    if(stickyStatus)stickyStatus.textContent=open?'Открыто':'Закрыто';
     if(stickyStatusSub)stickyStatusSub.textContent='10:00–21:00';
-    if(stickyCard)stickyCard.classList.remove('is-open','is-closed');
+    if(stickyCard){stickyCard.classList.toggle('is-open',open);stickyCard.classList.toggle('is-closed',!open)}
     const contactStatus=document.getElementById('stdContactStatus'),contactStatusText=document.getElementById('stdContactStatusText');
-    if(contactStatus)contactStatus.classList.remove('open','closed');
-    if(contactStatusText)contactStatusText.textContent='График работы';
+    if(contactStatus){contactStatus.classList.toggle('open',open);contactStatus.classList.toggle('closed',!open)}
+    if(contactStatusText)contactStatusText.textContent=open?'Открыто':'Закрыто';
   }
   updateStatus();
+  window.setInterval(updateStatus,60000);
 })();
