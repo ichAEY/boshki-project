@@ -13,8 +13,8 @@
   const DESKTOP_REAL_REVIEWS=[["Hartman Alpenfeld","highly recommend! good value for money."],["Артем Ш.","Incredible place with amazing people!"],["Nina B.","The best hair salon in all of Yerevan"]];
   const PORTFOLIO=[
   {
-    "src": "galery1.webp",
-    "alt": "BOSHKI PROJECT — работы и пространство"
+    "src": "galery00009.webp",
+    "alt": "Маникюр BOSHKI PROJECT"
   },
   {
     "src": "galery00007.webp",
@@ -7888,12 +7888,12 @@ html,body,#salon-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:none
               <span class="std-contact-card-icon">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"></circle><path d="M12 7.5V12l3.2 1.8"></path></svg>
               </span>
-              <span class="std-contact-card-copy"><strong class="std-contact-card-title">График работы</strong><span class="std-contact-card-sub">10:00–21:00</span></span>
+              <span class="std-contact-card-copy"><strong class="std-contact-card-title">График работы</strong><span class="std-contact-card-sub" id="stdContactHoursSub">—</span></span>
             </div>
           </div>
 
           <div class="std-contact-right">
-            <div class="std-contact-map"><iframe title="Карта салона" loading="eager" src="about:blank"></iframe></div>
+            <div class="std-contact-map"><iframe title="Карта салона" loading="eager" src="https://yandex.com/map-widget/v1/?mode=search&oid=35082945166&ol=biz"></iframe></div>
             <div class="std-contact-actions">
               <a class="std-contact-action-btn std-contact-call" href="tel:+37477116819">Позвонить</a>
               <a class="std-contact-action-btn std-contact-route" href="${ROUTE}" target="_blank" rel="noopener">Построить маршрут</a>
@@ -8520,7 +8520,7 @@ html,body,#salon-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:none
   masterPageBook.addEventListener('click',()=>{closeDesktopMaster();openDesktopBooking()});
   document.addEventListener('keydown',e=>{if(e.key==='Escape'&&masterOverlay.classList.contains('open'))closeDesktopMaster()});
 
-  const DESKTOP_LANG_STORAGE='salon-template-language';
+  const DESKTOP_LANG_STORAGE='boshki-project-language-v2';
   const DESKTOP_I18N_ROWS=[
     ["Ереван,","Երևան,","Yerevan,"],
     ["ул. Аргишти, 7/10","Արգիշտի փողոց 7/10","Argishti Street 7/10"],
@@ -8626,7 +8626,7 @@ html,body,#salon-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:none
     ['Смотреть все отзывы →','Դիտել բոլոր կարծիքները →','View all reviews →'],['Ждём вас','Սպասում ենք ձեզ','We look forward to seeing you'],['ул. Аргишти, 7/10, Ереван','Քաղաք, Սրահի հասցե','City, ул. Аргишти, 7/10'],
     ['Армения · открыть в Яндекс Карты','Հայաստան · բացել Яндекс Карты-ում','Armenia · open in Яндекс Карты'],
     ['Нажмите, чтобы позвонить','Սեղմեք զանգահարելու համար','Click to call'],['Написать в салон','Գրել սրահին','Message the salon'],
-    ['График работы','Աշխատանքային ժամեր','Opening hours'],['10:00–21:00','Կավելացվի','To be added'],
+    ['График работы','Աշխատանքային ժամեր','Opening hours'],['10:00–21:00','10:00–21:00','10:00–21:00'],
     ['Цифровой офис для салонов красоты','Թվային գրասենյակ գեղեցկության սրահների համար','Digital office for beauty salons'],['Создано в','Ստեղծված է','Created in'],['Позвонить','Զանգահարել','Call'],['Построить маршрут','Կառուցել երթուղի','Get directions'],['Всё необходимое для комфортного визита','Ամեն ինչ հարմարավետ այցի համար','Everything for a comfortable visit'],['Салон красоты в городе','Գեղեցկության սրահ Քաղաքում','Beauty salon in City'],['Здесь можно спокойно выбрать нужные процедуры и доверить уход мастерам разных направлений. Мы ценим аккуратную работу, комфорт и внимательное отношение к каждому гостю.','Այստեղ կարող եք հանգիստ ընտրել անհրաժեշտ ծառայությունները և վստահել խնամքը տարբեր ուղղությունների մասնագետներին։ Մենք կարևորում ենք ճշգրիտ աշխատանքը, հարմարավետությունն ու յուրաքանչյուր հյուրի նկատմամբ ուշադիր վերաբերմունքը։','Choose the services you need and trust your care to specialists across different beauty fields. We value precise work, comfort, and attentive service for every guest.'],['Маникюр, волосы, брови и косметология.','Մատնահարդարում, մազեր, հոնքեր և կոսմետոլոգիա։','Nails, hair, brows and cosmetology.'],['Спокойная атмосфера и внимание к каждому гостю.','Հանգիստ մթնոլորտ և ուշադրություն յուրաքանչյուր հյուրի նկատմամբ։','A calm atmosphere and personal attention.'],['Связь по телефону или Мессенджер без лишних шагов.','Կապ հեռախոսով կամ Мессенджер-ով՝ առանց ավելորդ քայլերի։','Direct booking by phone or Мессенджер.'],['Разные направления','Տարբեր ուղղություններ','Different services'],['Комфорт','Հարմարավետություն','Comfort'],['Прямая запись','Ուղիղ ամրագրում','Direct booking'],
     ['Запись','Ամրագրում','Booking'],['Как вам удобнее записаться?','Ինչպե՞ս է ձեզ հարմար ամրագրել։','How would you like to book?'],
     ['Выберите удобный способ связи.','Ընտրեք ձեզ հարմար կապի տարբերակը։','Choose the most convenient way to contact us.'],
@@ -8650,7 +8650,7 @@ html,body,#salon-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:none
     ['Удаление волос нитью','Մազահեռացում թելով','Threading hair removal'],['Шугаринг','Շուգարինգ','Sugaring'],
     ['Электроэпиляция игловая','Ասեղային էլեկտրոէպիլյացիա','Needle electrolysis'],['Восковая эпиляция','Մոմային էպիլյացիա','Waxing'],
     ['Прокалывание ушей','Ականջների ծակում','Ear piercing'],
-    ['Открыто','Բաց է','Open'],['Закрыто','Փակ է','Closed'],['10:00–21:00','Կավելացվի','To be added'],['10:00–21:00','Կավելացվի','To be added'],
+    ['Открыто','Բաց է','Open'],['Закрыто','Փակ է','Closed'],['10:00–21:00','10:00–21:00','10:00–21:00'],['10:00–21:00','10:00–21:00','10:00–21:00'],
     ['График работы','Աշխատանքային ժամեր','Opening hours'],['График работы','Աշխատանքային ժամեր','Opening hours']
   ];
   const desktopLangIndex={ru:0,hy:1,en:2};
@@ -8662,13 +8662,7 @@ html,body,#salon-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:none
       const saved=localStorage.getItem(DESKTOP_LANG_STORAGE);
       if(/^(hy|ru|en)$/.test(saved||''))return saved;
     }catch(_){}
-    const list=(navigator.languages&&navigator.languages.length?navigator.languages:[navigator.language||'']).map(x=>String(x).toLowerCase());
-    for(const value of list){
-      if(value.startsWith('hy'))return 'hy';
-      if(value.startsWith('ru'))return 'ru';
-      if(value.startsWith('en'))return 'en';
-    }
-    return 'hy';
+    return 'en';
   }
   let currentDesktopLang=desktopDetectLanguage();
 
@@ -8731,6 +8725,7 @@ html,body,#salon-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:none
     document.documentElement.lang=currentDesktopLang;
     document.documentElement.dir='ltr';
     document.body.dataset.brLang=currentDesktopLang;
+    window.dispatchEvent(new CustomEvent('boshki:languagechange',{detail:{lang:currentDesktopLang}}));
 
     if(currentDesktopLang==='hy'){
       const team=root.querySelector('#salonDesktopTeam');
@@ -8792,19 +8787,27 @@ html,body,#salon-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:none
   }
 
   function updateStatus(){
+    const lang=(typeof currentDesktopLang==='string'?currentDesktopLang:(document.body.dataset.brLang||'en')).toLowerCase();
+    const copy=lang==='ru'?{open:'Открыто',closed:'Закрыто',until:'до 21:00',opens:'откроется в 10:00'}:lang==='hy'?{open:'Բաց է',closed:'Փակ է',until:'մինչև 21:00',opens:'բացվում է 10:00'}:{open:'Open',closed:'Closed',until:'until 21:00',opens:'opens 10:00'};
     const now=new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Yerevan',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).format(new Date());
     const open=now>='10:00'&&now<'21:00';
+    const primary=open?copy.open:copy.closed,detail=open?copy.until:copy.opens;
     const main=document.getElementById('stdStatusMain'),sub=document.getElementById('stdStatusSub');
-    if(main){main.textContent=open?'Открыто':'Закрыто';main.className='std-status-main '+(open?'open':'closed');main.style.color=''}
-    if(sub)sub.textContent='10:00–21:00';
+    if(main){main.textContent=primary;main.className='std-status-main '+(open?'open':'closed');main.style.color=''}
+    if(sub)sub.textContent=detail;
     const stickyStatus=document.getElementById('stdStickyServiceStatus'),stickyStatusSub=document.getElementById('stdStickyServiceStatusSub'),stickyCard=document.getElementById('stdStickyServiceCard');
-    if(stickyStatus)stickyStatus.textContent=open?'Открыто':'Закрыто';
-    if(stickyStatusSub)stickyStatusSub.textContent='10:00–21:00';
+    if(stickyStatus)stickyStatus.textContent=primary;
+    if(stickyStatusSub)stickyStatusSub.textContent=detail;
     if(stickyCard){stickyCard.classList.toggle('is-open',open);stickyCard.classList.toggle('is-closed',!open)}
-    const contactStatus=document.getElementById('stdContactStatus'),contactStatusText=document.getElementById('stdContactStatusText');
+    const contactStatus=document.getElementById('stdContactStatus'),contactStatusText=document.getElementById('stdContactStatusText'),contactHours=document.getElementById('stdContactHoursSub');
     if(contactStatus){contactStatus.classList.toggle('open',open);contactStatus.classList.toggle('closed',!open)}
-    if(contactStatusText)contactStatusText.textContent=open?'Открыто':'Закрыто';
+    if(contactStatusText)contactStatusText.textContent=primary+' · '+detail;
+    if(contactHours)contactHours.textContent=detail;
   }
   updateStatus();
   window.setInterval(updateStatus,60000);
+  window.addEventListener('boshki:languagechange',updateStatus);
 })();
+
+/* boshki-desktop-cold-neutral-20260924 */
+(function(){if(document.getElementById('boshki-desktop-cold-neutral-20260924'))return;const style=document.createElement('style');style.id='boshki-desktop-cold-neutral-20260924';style.textContent="\n@media(min-width:1024px){\n#salon-desktop-v1{--purple:#181818!important;--purple2:#303030!important;background:#fafaf9!important;color:#181818!important}\n#salon-desktop-v1 .std-header{background:#f5f5f3!important;border-bottom:1px solid rgba(24,24,24,.06)!important}\n#salon-desktop-v1 .std-header-book,#salon-desktop-v1 .std-btn-primary,#salon-desktop-v1 .dct-service-sticky-book{background:#181818!important;border-color:#181818!important;color:#fff!important;box-shadow:none!important}\n#salon-desktop-v1 .std-btn:not(.std-btn-primary){background:#e8e8e6!important;border-color:#d2d2cf!important;color:#181818!important}\n#salon-desktop-v1 .std-sparkles{color:#454545!important}\n#salon-desktop-v1 .std-status-main.open{color:#2f7d46!important}#salon-desktop-v1 .std-status-main.closed{color:#c54b55!important}\n#salonDesktopPortfolio{background:#fafaf9!important;color:#181818!important}\n#salon-desktop-v1 .std-gallery-browser,#salon-desktop-v1 .std-gallery-browser-shell{background:#f2f2f0!important;color:#181818!important}\n#salon-desktop-v1 .std-gallery-browser-tab.active{background:#181818!important;border-color:#181818!important;color:#fff!important}\n#salonDesktopReviews{background:#f2f2f0!important;color:#181818!important}\n#salonDesktopReviews .std-review-card{background:#fafafa!important;border-color:rgba(24,24,24,.12)!important}\n#salonDesktopReviews .std-review-avatar{background:#dededc!important;color:#404040!important}\n#salonDesktopReviews .std-reviews-stars,#salonDesktopReviews .std-review-stars{color:#444!important}\n#salonDesktopServices.mct-prices,#salonDesktopContacts.std-contact{background:#242424!important;color:#f7f7f6!important}\n#salonDesktopServices .mct-tab.is-active{background:#f3f3f1!important;border-color:#f3f3f1!important;color:#181818!important}\n#salonDesktopServices .dct-service-sticky-card{background:#2d2d2d!important;border-color:rgba(255,255,255,.10)!important}\n#salonDesktopServices .dct-service-sticky-work{border-color:rgba(255,255,255,.18)!important;background:#333!important;color:#f2f2f0!important}\n#salonDesktopContacts .std-contact-card{background:rgba(255,255,255,.06)!important;border-color:rgba(255,255,255,.13)!important}\n#salonDesktopContacts .std-contact-status.open{background:#203b2a!important;border-color:#315b40!important;color:#8fd0a1!important}\n#salonDesktopContacts .std-contact-status.closed{background:#46292e!important;border-color:#63383f!important;color:#ef9ea7!important}\n#salonDesktopContacts .std-contact-map{background:#333!important;border-color:rgba(255,255,255,.10)!important}\n#salonDesktopContacts .std-contact-brand{background:#181818!important}\n#salonDesktopAbout .mct-about-card{box-shadow:0 26px 58px rgba(0,0,0,.10)!important}\nbody[data-br-lang=\"en\"] #salon-desktop-v1 .std-nav{width:min(46vw,690px)!important;justify-content:space-between!important;gap:0!important}\n}";document.head.appendChild(style);})();
