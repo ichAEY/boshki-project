@@ -5,7 +5,7 @@ window.BOSHKI_DATA = {
   "address": "ул. Аргишти, 7/10, Ереван",
   "phone": "+374 77 116819",
   "phoneDial": "+37477116819",
-  "whatsapp": "https://wa.me/37477116819?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9C%D0%B5%D0%BD%D1%8F%20%D0%B7%D0%B0%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D0%BE%D0%B2%D0%B0%D0%BB%D0%BE%20%D0%B2%D0%B0%D1%88%D0%B5%20%D0%BF%D1%80%D0%B5%D0%B4%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5.",
+  "whatsapp": "https://wa.me/37477116819?text=%D0%9E%D0%B1%D1%80%D0%B0%D1%89%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%B8%D0%B7%20%D0%AF%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%20%D0%9A%D0%B0%D1%80%D1%82%0A%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9C%D0%B5%D0%BD%D1%8F%20%D0%B7%D0%B0%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D0%BE%D0%B2%D0%B0%D0%BB%D0%BE%20%D0%B2%D0%B0%D1%88%D0%B5%20%D0%BF%D1%80%D0%B5%D0%B4%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5",
   "telegram": "https://t.me/Boshki_projectt",
   "yandex": "https://yandex.ru/maps/org/boshki_prodzhekt/35082945166/",
   "reviewsUrl": "https://yandex.com/maps/org/boshki_project/35082945166/reviews/",
@@ -496,10 +496,6 @@ window.BOSHKI_DATA = {
         "alt": "Интерьер и атмосфера BOSHKI PROJECT"
       },
       {
-        "src": "galery00020.webp",
-        "alt": "Интерьер и атмосфера BOSHKI PROJECT"
-      },
-      {
         "src": "galery00021.webp",
         "alt": "Интерьер и атмосфера BOSHKI PROJECT"
       }
@@ -570,6 +566,10 @@ window.BOSHKI_DATA = {
       {
         "src": "galery00024.webp",
         "alt": "Пирсинг BOSHKI PROJECT"
+      },
+      {
+        "src": "galery00020.webp",
+        "alt": "Пирсинг и украшения BOSHKI PROJECT"
       }
     ],
     "Татуировка": [
