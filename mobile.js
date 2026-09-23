@@ -1220,16 +1220,16 @@ services.insertAdjacentElement('afterend',about);
 
   var meta={
     ru:{
-      title:'BOSHKI PROJECT',
-      description:'Универсальный шаблон цифрового офиса салона.'
+      title:'BOSHKI PROJECT — Ереван',
+      description:'BOSHKI PROJECT — салон красоты в Ереване: волосы, ногти, макияж, пирсинг и татуировка.'
     },
     hy:{
-      title:'BOSHKI PROJECT',
-      description:'Универсальный шаблон цифрового офиса салона.'
+      title:'BOSHKI PROJECT — Երևան',
+      description:'BOSHKI PROJECT գեղեցկության սրահ Երևանում՝ մազեր, մատնահարդարում, դիմահարդարում, պիրսինգ և դաջվածք։'
     },
     en:{
-      title:'BOSHKI PROJECT',
-      description:'Универсальный шаблон цифрового офиса салона.'
+      title:'BOSHKI PROJECT — Yerevan',
+      description:'BOSHKI PROJECT beauty salon in Yerevan: hair, nails, makeup, piercing and tattoo.'
     }
   };
 
@@ -1237,7 +1237,7 @@ services.insertAdjacentElement('afterend',about);
     ['Меню','Մենյու','Menu'],
     ['Открыть меню','Բացել մենյուն','Open menu'],
     ['Салон красоты','Գեղեցկության սրահ','Beauty salon'],
-    ['BOSHKI PROJECT — пространство, в котором встречаются стрижки, сложное окрашивание, маникюр, макияж, пирсинг и татуировка. Авторские работы, индустриальная эстетика и собственный характер.','Գեղեցկության սրահ Քաղաքի սրտում։','A beauty salon in the heart of City.'],
+    ['BOSHKI PROJECT — пространство, в котором встречаются стрижки, сложное окрашивание, маникюр, макияж, пирсинг и татуировка. Авторские работы, индустриальная эстетика и собственный характер.','BOSHKI PROJECT-ը մեկ վայրում միավորում է սանրվածքը, ստեղծագործական ներկումը, մատնահարդարումը, դիմահարդարումը, պիրսինգը և դաջվածքը։','BOSHKI PROJECT brings haircuts, creative color, nail art, makeup, piercing and tattoos together in one distinctive space.'],
     ['Проверяем','Ստուգում ենք','Checking'],
     ['режим работы','աշխատանքային ժամերը','opening hours'],
     ['Ереван,','Երևան,','Yerevan,'],
