@@ -4,17 +4,456 @@
   'use strict';
   if(!window.matchMedia || !window.matchMedia('(max-width:1023px)').matches || window.matchMedia('(min-width:768px) and (hover:hover) and (pointer:fine)').matches) return;
 
-  const B=window.BOSHKI_DATA;
-  const PHONE=B.phone;
-  const WHATSAPP_URL=B.whatsapp;
-  const YANDEX=B.yandex;
-  const YANDEX_REVIEWS=B.reviewsUrl;
-  const ADDRESS=B.address;
-  const RATING=B.rating;
-  const RATINGS_COUNT=B.ratingsCount;
-  const services=B.services.map(x=>[{Маникюр:'nails','Окрашивание волос':'hair','Стрижки':'hair','Макияж':'makeup'}[x.category]||'other',x.ru,'Записаться']);
-  const works=B.portfolio.map(x=>({...x,cat:x.src===B.hero?'salon':'works'}));
-  const reviews=B.reviews.map(([name,text])=>({name,text}));
+  const PHONE="+37477116819";
+  const WHATSAPP_URL="https://wa.me/37477116819?text=%D0%9E%D0%B1%D1%80%D0%B0%D1%89%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%B8%D0%B7%20%D0%AF%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%20%D0%9A%D0%B0%D1%80%D1%82%0A%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9C%D0%B5%D0%BD%D1%8F%20%D0%B7%D0%B0%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D0%BE%D0%B2%D0%B0%D0%BB%D0%BE%20%D0%B2%D0%B0%D1%88%D0%B5%20%D0%BF%D1%80%D0%B5%D0%B4%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5";
+  const YANDEX="https://yandex.ru/maps/org/boshki_prodzhekt/35082945166/";
+  const YANDEX_REVIEWS="https://yandex.com/maps/org/boshki_project/35082945166/reviews/";
+  const ADDRESS="ул. Аргишти, 7/10, Ереван";
+  const RATING="5.0";
+  const RATINGS_COUNT=218;
+  const services=[
+  [
+    "coloring",
+    "Тотал блонд",
+    "50 000 ֏ · 4 ч"
+  ],
+  [
+    "coloring",
+    "Осветление корней + тонирование",
+    "25 000 ֏ · 3 ч"
+  ],
+  [
+    "coloring",
+    "Выход из цвета (деколоризация)",
+    "40 000 ֏ · 5 ч"
+  ],
+  [
+    "coloring",
+    "Аиртач + мелирование",
+    "60 000 ֏ · 5 ч"
+  ],
+  [
+    "coloring",
+    "Контуринг + тонирование",
+    "40 000 ֏ · 4 ч"
+  ],
+  [
+    "coloring",
+    "Однотонное окрашивание",
+    "20 000 ֏ · 4 ч"
+  ],
+  [
+    "coloring",
+    "Консультация по креативному окрашиванию",
+    "50 000 ֏"
+  ],
+  [
+    "coloring",
+    "Консультация по окрашиванию (бесплатно)",
+    "10 ֏"
+  ],
+  [
+    "piercing",
+    "Пирсинг",
+    "18 000 ֏"
+  ],
+  [
+    "piercing",
+    "Консультация по пирсингу (бесплатно)",
+    "10 ֏"
+  ],
+  [
+    "piercing",
+    "Микродермал",
+    "40 000 ֏"
+  ],
+  [
+    "piercing",
+    "Восстановление прокола",
+    "6 000 ֏"
+  ],
+  [
+    "piercing",
+    "Процедура по уходу",
+    "5 000 ֏"
+  ],
+  [
+    "piercing",
+    "Тоннели",
+    "18 000 ֏"
+  ],
+  [
+    "piercing",
+    "Интимный пирсинг",
+    "30 000 ֏ · 1 ч"
+  ],
+  [
+    "piercing",
+    "Индастриал",
+    "28 000 ֏"
+  ],
+  [
+    "makeup",
+    "Макияж",
+    "15 000 ֏"
+  ],
+  [
+    "makeup",
+    "Свадебный образ",
+    "30 000 ֏ · 1 ч"
+  ],
+  [
+    "makeup",
+    "Репетиция свадебного образа",
+    "20 000 ֏"
+  ],
+  [
+    "makeup",
+    "Обучение макияжу для себя",
+    "60 000 ֏"
+  ],
+  [
+    "makeup",
+    "Креативный макияж",
+    "30 000 ֏"
+  ],
+  [
+    "makeup",
+    "Полный образ: макияж + укладка",
+    "20 000 ֏"
+  ],
+  [
+    "makeup",
+    "Вечерний макияж",
+    "20 000 ֏"
+  ],
+  [
+    "haircuts",
+    "Стрижка чёлки",
+    "5 000 ֏ · 30 мин"
+  ],
+  [
+    "haircuts",
+    "Женская стрижка — 1,5 ч",
+    "15 000 ֏ · 1,5 ч"
+  ],
+  [
+    "haircuts",
+    "Мужская стрижка — 1,5 ч",
+    "15 000 ֏ · 1,5 ч"
+  ],
+  [
+    "haircuts",
+    "Мужская стрижка — 2 ч",
+    "20 000 ֏ · 2 ч"
+  ],
+  [
+    "haircuts",
+    "Женская стрижка — 2 ч",
+    "20 000 ֏ · 2 ч"
+  ],
+  [
+    "haircuts",
+    "Консультация по стрижке (бесплатно)",
+    "10 ֏"
+  ],
+  [
+    "brows",
+    "Осветление бровей",
+    "10 000 ֏ · 1 ч"
+  ],
+  [
+    "brows",
+    "Коррекция бровей",
+    "5 000 ֏"
+  ],
+  [
+    "brows",
+    "Skinny-брови",
+    "8 000 ֏"
+  ],
+  [
+    "brows",
+    "Долговременная укладка бровей",
+    "20 000 ֏"
+  ],
+  [
+    "brows",
+    "Консультация по бровям (бесплатно)",
+    "10 ֏"
+  ],
+  [
+    "manicure",
+    "Маникюр без покрытия",
+    "10 000 ֏"
+  ],
+  [
+    "manicure",
+    "Маникюр с дизайном",
+    "17 000 ֏"
+  ],
+  [
+    "manicure",
+    "Когти (Claws)",
+    "26 000 ֏ · 2 ч"
+  ],
+  [
+    "manicure",
+    "Наращивание с однотонным покрытием",
+    "23 000 ֏"
+  ],
+  [
+    "manicure",
+    "Наращивание с дизайном",
+    "26 000 ֏"
+  ],
+  [
+    "haircare",
+    "Уход OI Davines",
+    "20 000 ֏"
+  ],
+  [
+    "haircare",
+    "Уход K18",
+    "20 000 ֏"
+  ],
+  [
+    "haircare",
+    "Уход Londa Lightplex",
+    "15 000 ֏"
+  ],
+  [
+    "haircare",
+    "Davines Nourishing Keratin Wonder",
+    "20 000 ֏"
+  ],
+  [
+    "bioperm",
+    "Биозавивка",
+    "60 000 ֏ · 4 ч"
+  ],
+  [
+    "bioperm",
+    "Консультация по биозавивке (бесплатно)",
+    "10 ֏ · 1 ч"
+  ],
+  [
+    "mensmanicure",
+    "Мужской маникюр без покрытия",
+    "12 000 ֏"
+  ],
+  [
+    "mensmanicure",
+    "Мужской маникюр с покрытием",
+    "15 000 ֏"
+  ],
+  [
+    "pedicure",
+    "Педикюр",
+    "12 000 ֏"
+  ],
+  [
+    "pedicure",
+    "Педикюр с покрытием гель-лак",
+    "18 000 ֏"
+  ],
+  [
+    "tattoo",
+    "Татуировка",
+    "100 000 ֏"
+  ],
+  [
+    "tattoo",
+    "Консультация по тату (бесплатно)",
+    "10 ֏ · 1 ч"
+  ],
+  [
+    "styling",
+    "Укладка по кудрявому методу",
+    "10 000 ֏ · 30 мин"
+  ],
+  [
+    "styling",
+    "Укладка локонами",
+    "7 000 ֏ · 30 мин"
+  ],
+  [
+    "lashes",
+    "Ламинирование и окрашивание ресниц",
+    "20 000 ֏"
+  ],
+  [
+    "menspedicure",
+    "Мужской педикюр",
+    "13 000 ֏"
+  ]
+];
+  const works=[
+  {
+    "src": "galery1.webp",
+    "cat": "salon",
+    "alt": "Интерьер и атмосфера BOSHKI PROJECT"
+  },
+  {
+    "src": "galery00003.webp",
+    "cat": "salon",
+    "alt": "Интерьер и атмосфера BOSHKI PROJECT"
+  },
+  {
+    "src": "galery00004.webp",
+    "cat": "salon",
+    "alt": "Интерьер и атмосфера BOSHKI PROJECT"
+  },
+  {
+    "src": "galery00005.webp",
+    "cat": "salon",
+    "alt": "Интерьер и атмосфера BOSHKI PROJECT"
+  },
+  {
+    "src": "galery00006.webp",
+    "cat": "salon",
+    "alt": "Интерьер и атмосфера BOSHKI PROJECT"
+  },
+  {
+    "src": "galery00014.webp",
+    "cat": "salon",
+    "alt": "Интерьер и атмосфера BOSHKI PROJECT"
+  },
+  {
+    "src": "galery00018.webp",
+    "cat": "salon",
+    "alt": "Интерьер и атмосфера BOSHKI PROJECT"
+  },
+  {
+    "src": "galery00021.webp",
+    "cat": "salon",
+    "alt": "Интерьер и атмосфера BOSHKI PROJECT"
+  },
+  {
+    "src": "galery00001.webp",
+    "cat": "manicure",
+    "alt": "Маникюр BOSHKI PROJECT"
+  },
+  {
+    "src": "galery00009.webp",
+    "cat": "manicure",
+    "alt": "Маникюр BOSHKI PROJECT"
+  },
+  {
+    "src": "galery00017.webp",
+    "cat": "manicure",
+    "alt": "Маникюр BOSHKI PROJECT"
+  },
+  {
+    "src": "galery00027.webp",
+    "cat": "manicure",
+    "alt": "Маникюр BOSHKI PROJECT"
+  },
+  {
+    "src": "galery00028.webp",
+    "cat": "manicure",
+    "alt": "Маникюр BOSHKI PROJECT"
+  },
+  {
+    "src": "galery00029.webp",
+    "cat": "manicure",
+    "alt": "Маникюр BOSHKI PROJECT"
+  },
+  {
+    "src": "galery00007.webp",
+    "cat": "coloring",
+    "alt": "Окрашивание волос BOSHKI PROJECT"
+  },
+  {
+    "src": "galery00015.webp",
+    "cat": "coloring",
+    "alt": "Окрашивание волос BOSHKI PROJECT"
+  },
+  {
+    "src": "galery00002.webp",
+    "cat": "haircuts",
+    "alt": "Стрижка BOSHKI PROJECT"
+  },
+  {
+    "src": "galery00019.webp",
+    "cat": "haircuts",
+    "alt": "Стрижка BOSHKI PROJECT"
+  },
+  {
+    "src": "galery00023.webp",
+    "cat": "haircuts",
+    "alt": "Стрижка BOSHKI PROJECT"
+  },
+  {
+    "src": "galery00025.webp",
+    "cat": "haircuts",
+    "alt": "Стрижка BOSHKI PROJECT"
+  },
+  {
+    "src": "galery00011.webp",
+    "cat": "piercing",
+    "alt": "Пирсинг BOSHKI PROJECT"
+  },
+  {
+    "src": "galery00016.webp",
+    "cat": "piercing",
+    "alt": "Пирсинг BOSHKI PROJECT"
+  },
+  {
+    "src": "galery00024.webp",
+    "cat": "piercing",
+    "alt": "Пирсинг BOSHKI PROJECT"
+  },
+  {
+    "src": "galery00020.webp",
+    "cat": "piercing",
+    "alt": "Пирсинг и украшения BOSHKI PROJECT"
+  },
+  {
+    "src": "galery00008.webp",
+    "cat": "tattoo",
+    "alt": "Татуировка BOSHKI PROJECT"
+  },
+  {
+    "src": "galery00012.webp",
+    "cat": "tattoo",
+    "alt": "Татуировка BOSHKI PROJECT"
+  },
+  {
+    "src": "galery00013.webp",
+    "cat": "tattoo",
+    "alt": "Татуировка BOSHKI PROJECT"
+  },
+  {
+    "src": "galery00022.webp",
+    "cat": "tattoo",
+    "alt": "Татуировка BOSHKI PROJECT"
+  },
+  {
+    "src": "galery00026.webp",
+    "cat": "tattoo",
+    "alt": "Татуировка BOSHKI PROJECT"
+  },
+  {
+    "src": "galery00010.webp",
+    "cat": "makeup",
+    "alt": "Макияж BOSHKI PROJECT"
+  }
+];
+  const reviews=[
+  {
+    "name": "Hartman Alpenfeld",
+    "text": "highly recommend! good value for money."
+  },
+  {
+    "name": "Артем Ш.",
+    "text": "Incredible place with amazing people!"
+  },
+  {
+    "name": "Nina B.",
+    "text": "The best hair salon in all of Yerevan"
+  }
+];
   const masters=[];
 
   const font=document.createElement('link');
@@ -110,8 +549,8 @@
   const root=document.createElement('div');
   root.id='salon-mobile';
 
-  const serviceTabs=[['all','Все'],['nails','Ногти'],['hair','Волосы'],['brows','Брови и ресницы'],['face','Косметология'],['depilation','Эпиляция'],['makeup','Макияж'],['massage','Массаж'],['other','Другое']];
-  const galleryTabs=[['all','Все'],...Object.keys(B.imageGroups).map(k=>[k,k])];
+  const serviceTabs=[["all","Все"],["coloring","Окрашивание волос"],["piercing","Пирсинг"],["makeup","Макияж"],["haircuts","Стрижки"],["brows","Коррекция бровей"],["manicure","Маникюр"],["haircare","Уход за волосами"],["bioperm","Биозавивка"],["mensmanicure","Мужской маникюр"],["pedicure","Педикюр"],["tattoo","Татуировка"],["styling","Причёски"],["lashes","Ламинирование ресниц"],["menspedicure","Мужской педикюр"]];
+  const galleryTabs=[["all","Все"],["salon","Салон"],["manicure","Маникюр"],["coloring","Окрашивание"],["haircuts","Стрижки"],["piercing","Пирсинг"],["tattoo","Татуировка"],["makeup","Макияж"]];
 
   root.innerHTML=`
     <header class="tn13-hero" id="tn13Top">
@@ -139,7 +578,7 @@
         <div class="tn13-visual" aria-label="Интерьер и работы BOSHKI PROJECT">
           <button class="tn13-visual-main" type="button" data-gallery="salon"></button>
           <button class="tn13-visual-small" type="button" data-gallery="nails"></button>
-          <div class="tn13-visual-label">Город · ул. Аргишти, 7/10, Ереван</div>
+          <div class="tn13-visual-label">Ереван · ул. Аргишти, 7/10</div>
         </div>
 
         <div class="tn13-hero-bottom">
@@ -179,9 +618,9 @@
     <section class="tn13-section tn13-reviews" id="tn13Reviews">
       <div class="tn13-shell tn13-reveal">
         <div class="tn13-section-head"><div><p class="tn13-kicker">Отзывы</p><h2>Что говорят<br>клиенты</h2></div></div>
-        <a class="tn13-review-summary" href="${YANDEX_REVIEWS}" target="_blank" rel="noopener"><strong>${RATING}</strong><span>★★★★★<br>Яндекс Карты →</span></a>
+        <a class="tn13-review-summary" href="${YANDEX_REVIEWS}" target="_blank" rel="noopener"><strong>${RATING}</strong><span>☆☆☆☆☆<br>Яндекс Карты →</span></a>
       </div>
-      <div class="tn13-review-viewport" id="tn13ReviewViewport"><div class="tn13-review-track" id="tn13ReviewTrack">${reviews.concat(reviews).map(r=>`<a class="tn13-review-card" href="${YANDEX_REVIEWS}" target="_blank" rel="noopener"><div class="tn13-review-stars">★★★★★</div><blockquote>«${r.text}»</blockquote><small>${r.name} · Яндекс Карты</small></a>`).join('')}</div></div>
+      <div class="tn13-review-viewport" id="tn13ReviewViewport"><div class="tn13-review-track" id="tn13ReviewTrack">${reviews.concat(reviews).map(r=>`<a class="tn13-review-card" href="${YANDEX_REVIEWS}" target="_blank" rel="noopener"><div class="tn13-review-stars">☆☆☆☆☆</div><blockquote>«${r.text}»</blockquote><small>${r.name} · Яндекс Карты</small></a>`).join('')}</div></div>
     </section>
 
     <section class="tn13-final" id="tn13Visit">
@@ -205,7 +644,7 @@
     <div class="tn13-overlay" id="tn13Gallery"><div class="tn13-gallery-head"><button class="tn13-back" id="tn13GalleryClose" type="button">←</button><div class="tn13-gallery-title">Галерея BOSHKI PROJECT</div><div class="tn13-gallery-sub">Салон · ногти · волосы · макияж</div></div><div class="tn13-gallery-tabs" id="tn13GalleryTabs"></div><div class="tn13-gallery-list" id="tn13GalleryList"></div></div>
 
     <div class="tn13-sheet" id="tn13MasterSheet"><div class="tn13-panel"><button class="tn13-close" id="tn13MasterClose" type="button">×</button><div id="tn13MasterBody"></div></div></div>
-    <div class="tn13-sheet" id="tn13BookSheet" role="dialog" aria-modal="true" aria-labelledby="tn50BookTitle"><div class="tn13-panel"><button class="tn13-close" id="tn13BookClose" type="button" aria-label="Закрыть">×</button><p class="tn13-kicker">Запись</p><h2 class="tn50-book-title" id="tn50BookTitle">Как вам удобнее записаться?</h2><p class="tn50-book-copy">Выберите удобный способ связи.</p><div class="tn50-book-options"><a class="tn50-book-option" href="tel:${B.phoneDial}"><span class="tn50-book-icon phone">☎</span><span><strong>Позвонить</strong></span><span class="tn50-book-arrow">→</span></a><a class="tn50-book-option" href="${B.whatsapp}" target="_blank" rel="noopener"><span class="tn50-book-icon viber-generic">✉</span><span><strong>WhatsApp</strong></span><span class="tn50-book-arrow">→</span></a><a class="tn50-book-option" href="${B.telegram}" target="_blank" rel="noopener"><span class="tn50-book-icon">↗</span><span><strong>Telegram</strong></span><span class="tn50-book-arrow">→</span></a></div></div></div>
+    <div class="tn13-sheet" id="tn13BookSheet" role="dialog" aria-modal="true" aria-labelledby="tn50BookTitle"><div class="tn13-panel"><button class="tn13-close" id="tn13BookClose" type="button" aria-label="Закрыть">×</button><p class="tn13-kicker">Запись</p><h2 class="tn50-book-title" id="tn50BookTitle">Как вам удобнее записаться?</h2><p class="tn50-book-copy">Выберите удобный способ связи.</p><div class="tn50-book-options"><a class="tn50-book-option" href="#tn13Visit" aria-disabled="true"><span class="tn50-book-icon phone"><svg aria-hidden="true"><use href="#stl-icon-phone"/></svg></span><span><strong>Телефон</strong></span><span class="tn50-book-arrow">→</span></a><a class="tn50-book-option" href="#tn13Visit" aria-disabled="true"><span class="tn50-book-icon viber-generic"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 5.5h14v10H9l-4 3v-13Z"/></svg></span><span><strong>Мессенджер</strong></span><span class="tn50-book-arrow">→</span></a></div></div></div>
   `;
   document.body.appendChild(root);
 
@@ -258,18 +697,512 @@
 
 if(!window.matchMedia||!window.matchMedia('(max-width:1023px)').matches||window.matchMedia('(min-width:768px) and (hover:hover) and (pointer:fine)').matches)return;
 const root=document.getElementById('salon-mobile'); if(!root)return;
-const B=window.BOSHKI_DATA;
-const YANDEX=B.yandex;
-const YANDEX_RU=B.yandex;
-const YANDEX_REVIEWS=B.reviewsUrl;
-const ROUTE=B.yandex;
-const PHONE=B.phone;
-const WHATSAPP_URL=B.whatsapp;
-const SERVICES=B.services.map(x=>({cat:x.category,title:x.ru,price:x.price.toLocaleString('ru-RU')+' ֏',duration:x.duration||'',desc:''}));
-const GALLERY=B.imageGroups;
-const PORTFOLIO=B.portfolio;
-const REVIEW_DATA=B.reviews;
-const MASTERS=B.team;
+const YANDEX="https://yandex.ru/maps/org/boshki_prodzhekt/35082945166/";
+const YANDEX_RU="https://yandex.ru/maps/org/boshki_prodzhekt/35082945166/";
+const YANDEX_REVIEWS="https://yandex.com/maps/org/boshki_project/35082945166/reviews/";
+const ROUTE="https://yandex.ru/maps/org/boshki_prodzhekt/35082945166/";
+const PHONE="+37477116819";
+const WHATSAPP_URL="https://wa.me/37477116819?text=%D0%9E%D0%B1%D1%80%D0%B0%D1%89%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%B8%D0%B7%20%D0%AF%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%20%D0%9A%D0%B0%D1%80%D1%82%0A%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9C%D0%B5%D0%BD%D1%8F%20%D0%B7%D0%B0%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D0%BE%D0%B2%D0%B0%D0%BB%D0%BE%20%D0%B2%D0%B0%D1%88%D0%B5%20%D0%BF%D1%80%D0%B5%D0%B4%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5";
+const SERVICES=[
+  {
+    "cat": "Окрашивание волос",
+    "title": "Тотал блонд",
+    "price": "50 000 ֏",
+    "desc": "4 ч"
+  },
+  {
+    "cat": "Окрашивание волос",
+    "title": "Осветление корней + тонирование",
+    "price": "25 000 ֏",
+    "desc": "3 ч"
+  },
+  {
+    "cat": "Окрашивание волос",
+    "title": "Выход из цвета (деколоризация)",
+    "price": "40 000 ֏",
+    "desc": "5 ч"
+  },
+  {
+    "cat": "Окрашивание волос",
+    "title": "Аиртач + мелирование",
+    "price": "60 000 ֏",
+    "desc": "5 ч"
+  },
+  {
+    "cat": "Окрашивание волос",
+    "title": "Контуринг + тонирование",
+    "price": "40 000 ֏",
+    "desc": "4 ч"
+  },
+  {
+    "cat": "Окрашивание волос",
+    "title": "Однотонное окрашивание",
+    "price": "20 000 ֏",
+    "desc": "4 ч"
+  },
+  {
+    "cat": "Окрашивание волос",
+    "title": "Консультация по креативному окрашиванию",
+    "price": "50 000 ֏",
+    "desc": ""
+  },
+  {
+    "cat": "Окрашивание волос",
+    "title": "Консультация по окрашиванию (бесплатно)",
+    "price": "10 ֏",
+    "desc": ""
+  },
+  {
+    "cat": "Пирсинг",
+    "title": "Пирсинг",
+    "price": "18 000 ֏",
+    "desc": ""
+  },
+  {
+    "cat": "Пирсинг",
+    "title": "Консультация по пирсингу (бесплатно)",
+    "price": "10 ֏",
+    "desc": ""
+  },
+  {
+    "cat": "Пирсинг",
+    "title": "Микродермал",
+    "price": "40 000 ֏",
+    "desc": ""
+  },
+  {
+    "cat": "Пирсинг",
+    "title": "Восстановление прокола",
+    "price": "6 000 ֏",
+    "desc": ""
+  },
+  {
+    "cat": "Пирсинг",
+    "title": "Процедура по уходу",
+    "price": "5 000 ֏",
+    "desc": ""
+  },
+  {
+    "cat": "Пирсинг",
+    "title": "Тоннели",
+    "price": "18 000 ֏",
+    "desc": ""
+  },
+  {
+    "cat": "Пирсинг",
+    "title": "Интимный пирсинг",
+    "price": "30 000 ֏",
+    "desc": "1 ч"
+  },
+  {
+    "cat": "Пирсинг",
+    "title": "Индастриал",
+    "price": "28 000 ֏",
+    "desc": ""
+  },
+  {
+    "cat": "Макияж",
+    "title": "Макияж",
+    "price": "15 000 ֏",
+    "desc": ""
+  },
+  {
+    "cat": "Макияж",
+    "title": "Свадебный образ",
+    "price": "30 000 ֏",
+    "desc": "1 ч"
+  },
+  {
+    "cat": "Макияж",
+    "title": "Репетиция свадебного образа",
+    "price": "20 000 ֏",
+    "desc": ""
+  },
+  {
+    "cat": "Макияж",
+    "title": "Обучение макияжу для себя",
+    "price": "60 000 ֏",
+    "desc": ""
+  },
+  {
+    "cat": "Макияж",
+    "title": "Креативный макияж",
+    "price": "30 000 ֏",
+    "desc": ""
+  },
+  {
+    "cat": "Макияж",
+    "title": "Полный образ: макияж + укладка",
+    "price": "20 000 ֏",
+    "desc": ""
+  },
+  {
+    "cat": "Макияж",
+    "title": "Вечерний макияж",
+    "price": "20 000 ֏",
+    "desc": ""
+  },
+  {
+    "cat": "Стрижки",
+    "title": "Стрижка чёлки",
+    "price": "5 000 ֏",
+    "desc": "30 мин"
+  },
+  {
+    "cat": "Стрижки",
+    "title": "Женская стрижка — 1,5 ч",
+    "price": "15 000 ֏",
+    "desc": "1,5 ч"
+  },
+  {
+    "cat": "Стрижки",
+    "title": "Мужская стрижка — 1,5 ч",
+    "price": "15 000 ֏",
+    "desc": "1,5 ч"
+  },
+  {
+    "cat": "Стрижки",
+    "title": "Мужская стрижка — 2 ч",
+    "price": "20 000 ֏",
+    "desc": "2 ч"
+  },
+  {
+    "cat": "Стрижки",
+    "title": "Женская стрижка — 2 ч",
+    "price": "20 000 ֏",
+    "desc": "2 ч"
+  },
+  {
+    "cat": "Стрижки",
+    "title": "Консультация по стрижке (бесплатно)",
+    "price": "10 ֏",
+    "desc": ""
+  },
+  {
+    "cat": "Коррекция бровей",
+    "title": "Осветление бровей",
+    "price": "10 000 ֏",
+    "desc": "1 ч"
+  },
+  {
+    "cat": "Коррекция бровей",
+    "title": "Коррекция бровей",
+    "price": "5 000 ֏",
+    "desc": ""
+  },
+  {
+    "cat": "Коррекция бровей",
+    "title": "Skinny-брови",
+    "price": "8 000 ֏",
+    "desc": ""
+  },
+  {
+    "cat": "Коррекция бровей",
+    "title": "Долговременная укладка бровей",
+    "price": "20 000 ֏",
+    "desc": ""
+  },
+  {
+    "cat": "Коррекция бровей",
+    "title": "Консультация по бровям (бесплатно)",
+    "price": "10 ֏",
+    "desc": ""
+  },
+  {
+    "cat": "Маникюр",
+    "title": "Маникюр без покрытия",
+    "price": "10 000 ֏",
+    "desc": ""
+  },
+  {
+    "cat": "Маникюр",
+    "title": "Маникюр с дизайном",
+    "price": "17 000 ֏",
+    "desc": ""
+  },
+  {
+    "cat": "Маникюр",
+    "title": "Когти (Claws)",
+    "price": "26 000 ֏",
+    "desc": "2 ч"
+  },
+  {
+    "cat": "Маникюр",
+    "title": "Наращивание с однотонным покрытием",
+    "price": "23 000 ֏",
+    "desc": ""
+  },
+  {
+    "cat": "Маникюр",
+    "title": "Наращивание с дизайном",
+    "price": "26 000 ֏",
+    "desc": ""
+  },
+  {
+    "cat": "Уход за волосами",
+    "title": "Уход OI Davines",
+    "price": "20 000 ֏",
+    "desc": ""
+  },
+  {
+    "cat": "Уход за волосами",
+    "title": "Уход K18",
+    "price": "20 000 ֏",
+    "desc": ""
+  },
+  {
+    "cat": "Уход за волосами",
+    "title": "Уход Londa Lightplex",
+    "price": "15 000 ֏",
+    "desc": ""
+  },
+  {
+    "cat": "Уход за волосами",
+    "title": "Davines Nourishing Keratin Wonder",
+    "price": "20 000 ֏",
+    "desc": ""
+  },
+  {
+    "cat": "Биозавивка",
+    "title": "Биозавивка",
+    "price": "60 000 ֏",
+    "desc": "4 ч"
+  },
+  {
+    "cat": "Биозавивка",
+    "title": "Консультация по биозавивке (бесплатно)",
+    "price": "10 ֏",
+    "desc": "1 ч"
+  },
+  {
+    "cat": "Мужской маникюр",
+    "title": "Мужской маникюр без покрытия",
+    "price": "12 000 ֏",
+    "desc": ""
+  },
+  {
+    "cat": "Мужской маникюр",
+    "title": "Мужской маникюр с покрытием",
+    "price": "15 000 ֏",
+    "desc": ""
+  },
+  {
+    "cat": "Педикюр",
+    "title": "Педикюр",
+    "price": "12 000 ֏",
+    "desc": ""
+  },
+  {
+    "cat": "Педикюр",
+    "title": "Педикюр с покрытием гель-лак",
+    "price": "18 000 ֏",
+    "desc": ""
+  },
+  {
+    "cat": "Татуировка",
+    "title": "Татуировка",
+    "price": "100 000 ֏",
+    "desc": ""
+  },
+  {
+    "cat": "Татуировка",
+    "title": "Консультация по тату (бесплатно)",
+    "price": "10 ֏",
+    "desc": "1 ч"
+  },
+  {
+    "cat": "Причёски",
+    "title": "Укладка по кудрявому методу",
+    "price": "10 000 ֏",
+    "desc": "30 мин"
+  },
+  {
+    "cat": "Причёски",
+    "title": "Укладка локонами",
+    "price": "7 000 ֏",
+    "desc": "30 мин"
+  },
+  {
+    "cat": "Ламинирование ресниц",
+    "title": "Ламинирование и окрашивание ресниц",
+    "price": "20 000 ֏",
+    "desc": ""
+  },
+  {
+    "cat": "Мужской педикюр",
+    "title": "Мужской педикюр",
+    "price": "13 000 ֏",
+    "desc": ""
+  }
+];
+const GALLERY={
+  "Салон": [
+    {
+      "src": "galery1.webp",
+      "alt": "Интерьер и атмосфера BOSHKI PROJECT"
+    },
+    {
+      "src": "galery00003.webp",
+      "alt": "Интерьер и атмосфера BOSHKI PROJECT"
+    },
+    {
+      "src": "galery00004.webp",
+      "alt": "Интерьер и атмосфера BOSHKI PROJECT"
+    },
+    {
+      "src": "galery00005.webp",
+      "alt": "Интерьер и атмосфера BOSHKI PROJECT"
+    },
+    {
+      "src": "galery00006.webp",
+      "alt": "Интерьер и атмосфера BOSHKI PROJECT"
+    },
+    {
+      "src": "galery00014.webp",
+      "alt": "Интерьер и атмосфера BOSHKI PROJECT"
+    },
+    {
+      "src": "galery00018.webp",
+      "alt": "Интерьер и атмосфера BOSHKI PROJECT"
+    },
+    {
+      "src": "galery00021.webp",
+      "alt": "Интерьер и атмосфера BOSHKI PROJECT"
+    }
+  ],
+  "Маникюр": [
+    {
+      "src": "galery00001.webp",
+      "alt": "Маникюр BOSHKI PROJECT"
+    },
+    {
+      "src": "galery00009.webp",
+      "alt": "Маникюр BOSHKI PROJECT"
+    },
+    {
+      "src": "galery00017.webp",
+      "alt": "Маникюр BOSHKI PROJECT"
+    },
+    {
+      "src": "galery00027.webp",
+      "alt": "Маникюр BOSHKI PROJECT"
+    },
+    {
+      "src": "galery00028.webp",
+      "alt": "Маникюр BOSHKI PROJECT"
+    },
+    {
+      "src": "galery00029.webp",
+      "alt": "Маникюр BOSHKI PROJECT"
+    }
+  ],
+  "Окрашивание": [
+    {
+      "src": "galery00007.webp",
+      "alt": "Окрашивание волос BOSHKI PROJECT"
+    },
+    {
+      "src": "galery00015.webp",
+      "alt": "Окрашивание волос BOSHKI PROJECT"
+    }
+  ],
+  "Стрижки": [
+    {
+      "src": "galery00002.webp",
+      "alt": "Стрижка BOSHKI PROJECT"
+    },
+    {
+      "src": "galery00019.webp",
+      "alt": "Стрижка BOSHKI PROJECT"
+    },
+    {
+      "src": "galery00023.webp",
+      "alt": "Стрижка BOSHKI PROJECT"
+    },
+    {
+      "src": "galery00025.webp",
+      "alt": "Стрижка BOSHKI PROJECT"
+    }
+  ],
+  "Пирсинг": [
+    {
+      "src": "galery00011.webp",
+      "alt": "Пирсинг BOSHKI PROJECT"
+    },
+    {
+      "src": "galery00016.webp",
+      "alt": "Пирсинг BOSHKI PROJECT"
+    },
+    {
+      "src": "galery00024.webp",
+      "alt": "Пирсинг BOSHKI PROJECT"
+    },
+    {
+      "src": "galery00020.webp",
+      "alt": "Пирсинг и украшения BOSHKI PROJECT"
+    }
+  ],
+  "Татуировка": [
+    {
+      "src": "galery00008.webp",
+      "alt": "Татуировка BOSHKI PROJECT"
+    },
+    {
+      "src": "galery00012.webp",
+      "alt": "Татуировка BOSHKI PROJECT"
+    },
+    {
+      "src": "galery00013.webp",
+      "alt": "Татуировка BOSHKI PROJECT"
+    },
+    {
+      "src": "galery00022.webp",
+      "alt": "Татуировка BOSHKI PROJECT"
+    },
+    {
+      "src": "galery00026.webp",
+      "alt": "Татуировка BOSHKI PROJECT"
+    }
+  ],
+  "Макияж": [
+    {
+      "src": "galery00010.webp",
+      "alt": "Макияж BOSHKI PROJECT"
+    }
+  ]
+};
+const PORTFOLIO=[
+  {
+    "src": "galery1.webp",
+    "alt": "BOSHKI PROJECT — работы и пространство"
+  },
+  {
+    "src": "galery00007.webp",
+    "alt": "BOSHKI PROJECT — работы и пространство"
+  },
+  {
+    "src": "galery00001.webp",
+    "alt": "BOSHKI PROJECT — работы и пространство"
+  },
+  {
+    "src": "galery00008.webp",
+    "alt": "BOSHKI PROJECT — работы и пространство"
+  },
+  {
+    "src": "galery00010.webp",
+    "alt": "BOSHKI PROJECT — работы и пространство"
+  },
+  {
+    "src": "galery00011.webp",
+    "alt": "BOSHKI PROJECT — работы и пространство"
+  },
+  {
+    "src": "galery00017.webp",
+    "alt": "BOSHKI PROJECT — работы и пространство"
+  }
+];
+const REVIEW_DATA=[["Hartman Alpenfeld","highly recommend! good value for money."],["Артем Ш.","Incredible place with amazing people!"],["Nina B.","The best hair salon in all of Yerevan"]];
+const MASTERS=[];
 const MASTER_AVATAR='<svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="23" r="11" fill="currentColor"></circle><path d="M12 56c2.7-11.4 10-17 20-17s17.3 5.6 20 17" fill="currentColor"></path></svg>';
 
 const css=document.createElement('style'); css.id='salon-mobile-base-style'; css.textContent=`
@@ -382,7 +1315,7 @@ const book=()=>{const s=$('#tn13BookSheet');if(s){s.classList.add('open');docume
 
 // HERO
 const hero=$('#tn13Top');
-hero.innerHTML=`<div class="tn22-top"><a class="tn22-brand" href="#tn13Top">BOSHKI PROJECT</a><button class="tn22-menu" type="button" aria-label="Меню"><i></i><i></i><i></i></button></div><button class="tn22-media" type="button" aria-label="Открыть галерею салона"><span class="tn22-slide active"></span><span class="tn22-slide"></span><span class="tn22-dots"><i class="active"></i><i></i></span></button><div class="tn22-card"><h1 class="tn22-title">BOSHKI PROJECT</h1><div class="tn22-sub">Салон красоты</div><p class="tn22-copy">BOSHKI PROJECT — пространство, в котором встречаются стрижки, сложное окрашивание, маникюр, макияж, пирсинг и татуировка. Авторские работы, индустриальная эстетика и собственный характер.</p><div class="tn37-hero-info"><div class="tn37-info"><span class="tn37-info-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"></circle><path d="M12 7.5v5l3.2 2"></path></svg></span><span class="tn37-info-copy tn50-hero-status"><strong class="tn50-hero-status-main">Проверяем</strong><span class="tn50-hero-status-sub">режим работы</span></span></div><span class="tn37-info-divider" aria-hidden="true"></span><div class="tn37-info tn37-location"><span class="tn37-info-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 10c0 5.2-7 10-7 10s-7-4.8-7-10a7 7 0 1 1 14 0Z"></path><circle cx="12" cy="10" r="2.2"></circle></svg></span><span class="tn37-info-copy"><strong>Ереван,</strong>ул. Аргишти, 7/10, Ереван</span></div></div><button class="tn22-cta" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5.5" width="16" height="14" rx="2.2"></rect><path d="M8 3.5v4M16 3.5v4M4 9.5h16M8 13h.01M12 13h.01M16 13h.01M8 16h.01M12 16h.01"></path></svg><span>Записаться</span></button><a class="tn22-worklink" href="#tn13Portfolio"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 .9 3.1L16 7l-3.1.9L12 11l-.9-3.1L8 7l3.1-.9L12 3ZM6 13l.7 2.3L9 16l-2.3.7L6 19l-.7-2.3L3 16l2.3-.7L6 13ZM17.5 12l.8 2.7 2.7.8-2.7.8-.8 2.7-.8-2.7-2.7-.8 2.7-.8.8-2.7Z"></path></svg><span>Смотреть работы</span></a></div>`;
+hero.innerHTML=`<div class="tn22-top"><a class="tn22-brand" href="#tn13Top">BOSHKI PROJECT</a><button class="tn22-menu" type="button" aria-label="Меню"><i></i><i></i><i></i></button></div><button class="tn22-media" type="button" aria-label="Открыть галерею салона"><span class="tn22-slide active"></span><span class="tn22-slide"></span><span class="tn22-dots"><i class="active"></i><i></i></span></button><div class="tn22-card"><h1 class="tn22-title">BOSHKI PROJECT</h1><div class="tn22-sub">Салон красоты</div><p class="tn22-copy">BOSHKI PROJECT — пространство, в котором встречаются стрижки, сложное окрашивание, маникюр, макияж, пирсинг и татуировка. Авторские работы, индустриальная эстетика и собственный характер.</p><div class="tn37-hero-info"><div class="tn37-info"><span class="tn37-info-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"></circle><path d="M12 7.5v5l3.2 2"></path></svg></span><span class="tn37-info-copy tn50-hero-status"><strong class="tn50-hero-status-main">Проверяем</strong><span class="tn50-hero-status-sub">режим работы</span></span></div><span class="tn37-info-divider" aria-hidden="true"></span><div class="tn37-info tn37-location"><span class="tn37-info-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 10c0 5.2-7 10-7 10s-7-4.8-7-10a7 7 0 1 1 14 0Z"></path><circle cx="12" cy="10" r="2.2"></circle></svg></span><span class="tn37-info-copy"><strong>Ереван,</strong>ул. Аргишти, 7/10</span></div></div><button class="tn22-cta" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5.5" width="16" height="14" rx="2.2"></rect><path d="M8 3.5v4M16 3.5v4M4 9.5h16M8 13h.01M12 13h.01M16 13h.01M8 16h.01M12 16h.01"></path></svg><span>Записаться</span></button><a class="tn22-worklink" href="#tn13Portfolio"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 .9 3.1L16 7l-3.1.9L12 11l-.9-3.1L8 7l3.1-.9L12 3ZM6 13l.7 2.3L9 16l-2.3.7L6 19l-.7-2.3L3 16l2.3-.7L6 13ZM17.5 12l.8 2.7 2.7.8-2.7.8-.8 2.7-.8-2.7-2.7-.8 2.7-.8.8-2.7Z"></path></svg><span>Смотреть работы</span></a></div>`;
 hero.querySelector('.tn22-cta').addEventListener('click',book);
 const menuButton=hero.querySelector('.tn22-menu');
 const navPop=document.createElement('nav');navPop.className='tn22-navpop';navPop.innerHTML='<a href="#tn13Portfolio">Портфолио</a><a href="#tn13Services">Услуги</a><a href="#tn38About">О салоне</a><a href="#tn13Team">Команда</a><a href="#tn13Reviews">Отзывы</a><a href="#tn13Visit">Контакты</a>';hero.querySelector('.tn22-top').appendChild(navPop);menuButton.addEventListener('click',e=>{e.stopPropagation();navPop.classList.toggle('open')});navPop.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>navPop.classList.remove('open')));document.addEventListener('pointerdown',e=>{if(!e.target.closest('.tn22-top'))navPop.classList.remove('open')});
@@ -418,7 +1351,7 @@ let galleryCloseTimer=0;
 function openGallery(cat='Салон'){clearTimeout(galleryCloseTimer);galleryCat=Object.prototype.hasOwnProperty.call(GALLERY,cat)?cat:'Салон';renderGallery();gallery.classList.remove('closing');gallery.scrollTop=0;requestAnimationFrame(()=>gallery.classList.add('open'))}
 function closeGallery(){if(!gallery.classList.contains('open'))return;clearTimeout(galleryCloseTimer);gallery.classList.remove('open');gallery.classList.add('closing');galleryCloseTimer=setTimeout(()=>gallery.classList.remove('closing'),520)}
 
-const sectionIds=['tn13Portfolio','tn13Services',...(B.team.length?['tn13Team']:[]),'tn13Reviews','tn13Visit'];const sectionNav=document.createElement('nav');sectionNav.className='tn23-section-nav';sectionNav.setAttribute('aria-hidden','true');sectionNav.innerHTML=[['tn13Portfolio','Портфолио'],['tn13Services','Услуги'],['tn13Team','Команда'],['tn13Reviews','Отзывы'],['tn13Visit','Визит']].map((x,i)=>`<button type="button" data-section="${x[0]}" class="${i===0?'active':''}">${x[1]}</button>`).join('');hero.insertAdjacentElement('afterend',sectionNav);
+const sectionIds=['tn13Portfolio','tn13Services','tn13Team','tn13Reviews','tn13Visit'];const sectionNav=document.createElement('nav');sectionNav.className='tn23-section-nav';sectionNav.setAttribute('aria-hidden','true');sectionNav.innerHTML=[['tn13Portfolio','Портфолио'],['tn13Services','Услуги'],['tn13Team','Команда'],['tn13Reviews','Отзывы'],['tn13Visit','Визит']].map((x,i)=>`<button type="button" data-section="${x[0]}" class="${i===0?'active':''}">${x[1]}</button>`).join('');hero.insertAdjacentElement('afterend',sectionNav);
 let activeSection='tn13Portfolio',navRaf=0,navTargetLock=null,navUnlockTimer=0;
 function revealActiveNavButton(btn){const navRect=sectionNav.getBoundingClientRect(),btnRect=btn.getBoundingClientRect(),pad=10;let delta=0;if(btnRect.right>navRect.right-pad)delta=btnRect.right-(navRect.right-pad);else if(btnRect.left<navRect.left+pad)delta=btnRect.left-(navRect.left+pad);if(Math.abs(delta)>1)sectionNav.scrollBy({left:delta,behavior:'smooth'})}
 function setActiveSection(id){if(!id)return;activeSection=id;const btn=sectionNav.querySelector(`[data-section="${id}"]`);if(!btn)return;sectionNav.querySelectorAll('button').forEach(x=>x.classList.toggle('active',x===btn));revealActiveNavButton(btn)}
@@ -431,23 +1364,23 @@ window.addEventListener('scroll',()=>{if(!navRaf)navRaf=requestAnimationFrame(up
 const port=$('#tn13Portfolio');port.innerHTML=`<div class="tn22-port"><p class="tn22-kicker">Портфолио</p><h2>Наши работы</h2><div class="tn22-port-grid">${PORTFOLIO.map((x,i)=>`<button class="tn22-photo" type="button" data-pi="${i}"><img loading="lazy" decoding="async" src="${x.src}" alt="${x.alt}"></button>`).join('')}</div><button class="tn22-port-all" type="button">Смотреть все работы <span>→</span></button></div>`;port.querySelectorAll('[data-pi]').forEach(b=>b.onclick=()=>openViewer(PORTFOLIO,+b.dataset.pi,'portfolio'));port.querySelector('.tn22-port-all').onclick=()=>openGallery('Салон');
 
 // SERVICES
-const serv=$('#tn13Services');let serviceCat=SERVICES[0]?.cat||'Маникюр',servicesExpanded=false;
-const SERVICE_CATS=[...new Set(SERVICES.map(s=>s.cat))];
+const serv=$('#tn13Services');let serviceCat='Окрашивание волос',servicesExpanded=false;
+const SERVICE_CATS=['Окрашивание волос',...[...new Set(SERVICES.map(s=>s.cat))].filter(c=>c!=='Окрашивание волос')];
 serv.innerHTML=`<div class="tn31-services"><p class="tn22-kicker">Услуги</p><h2>Наши услуги</h2><div class="tn31-cats-wrap"><div class="tn31-cats"></div></div><div class="tn31-service-list"></div><button class="tn31-service-more" type="button"><span class="tn31-more-text"></span><span aria-hidden="true">↓</span></button></div>`;
 const scats=serv.querySelector('.tn31-cats'),slist=serv.querySelector('.tn31-service-list'),sMore=serv.querySelector('.tn31-service-more');
 function splitServiceTitle(raw){const parts=String(raw).split(' — ');const main=parts.shift()||raw;let detail=parts.join(' — ');if(!detail&&main.length>48){const m=main.match(/^(.*?)(\s\([^)]{5,}\)|\sBrazilian Blowout)$/i);if(m)return {main:m[1],detail:m[2].trim()}}return {main,detail}}
-function serviceLine(s){const t=splitServiceTitle(s.title);return `<div class="tn31-service-row"><div class="tn31-service-copy"><div class="tn31-service-name">${t.main}</div>${t.detail?`<span class="tn31-service-detail">${t.detail}</span>`:''}</div><div class="tn31-service-side"><div class="tn31-service-price">${s.price} ${s.duration?`<small> · ${s.duration}</small>`:''}</div><button class="tn31-service-book" type="button" data-book-service>Записаться →</button></div></div>`}
+function serviceLine(s){const t=splitServiceTitle(s.title);return `<div class="tn31-service-row"><div class="tn31-service-copy"><div class="tn31-service-name">${t.main}</div>${t.detail?`<span class="tn31-service-detail">${t.detail}</span>`:''}</div><div class="tn31-service-side"><button class="tn31-service-book" type="button" data-book-service>Записаться →</button></div></div>`}
 function serviceWord(n){const n10=n%10,n100=n%100;if(n10===1&&n100!==11)return 'услугу';if(n10>=2&&n10<=4&&(n100<12||n100>14))return 'услуги';return 'услуг'}
 function revealCat(btn){const left=btn.offsetLeft-22,right=left+btn.offsetWidth+44;if(left<scats.scrollLeft)scats.scrollTo({left:Math.max(0,left),behavior:'smooth'});else if(right>scats.scrollLeft+scats.clientWidth)scats.scrollTo({left:right-scats.clientWidth,behavior:'smooth'})}
 function renderServices(){scats.innerHTML=SERVICE_CATS.map(c=>`<button class="tn31-cat${c===serviceCat?' active':''}" type="button" data-scat="${c}">${c}</button>`).join('');scats.querySelectorAll('[data-scat]').forEach(b=>b.onclick=()=>{serviceCat=b.dataset.scat;servicesExpanded=false;renderServices();requestAnimationFrame(()=>revealCat(scats.querySelector(`[data-scat="${serviceCat}"]`)))});const arr=SERVICES.filter(s=>s.cat===serviceCat),shown=servicesExpanded?arr:arr.slice(0,7),remaining=Math.max(0,arr.length-7);slist.innerHTML=shown.map(serviceLine).join('');slist.querySelectorAll('[data-book-service]').forEach(b=>b.onclick=book);sMore.hidden=arr.length<=7;sMore.querySelector('.tn31-more-text').textContent=servicesExpanded?'Свернуть':`Показать ещё ${remaining} ${serviceWord(remaining)}`;sMore.querySelector('span:last-child').textContent=servicesExpanded?'↑':'↓'}
 sMore.onclick=()=>{servicesExpanded=!servicesExpanded;renderServices()};renderServices();
 
 // TEAM + TEAM SHEET
-const team=$('#tn13Team');if(!B.team.length){team.style.display='none';root.querySelectorAll('a[href="#tn13Team"],[data-section="tn13Team"]').forEach(x=>x.remove())}team.innerHTML=`<div class="tn22-team"><p class="tn22-kicker">Наша команда</p><h2>Мастера своего дела</h2><div class="tn22-team-grid">${MASTERS.map(m=>`<button class="tn22-master-card" type="button" data-mid="${m.id}"><span class="tn22-master-circle">${MASTER_AVATAR}</span><strong class="tn22-master-name">${m.name}</strong><span class="tn22-master-role">${m.role}</span></button>`).join('')}</div><div class="tn42-team-hint">Листайте <span>→</span></div></div>`;
+const team=$('#tn13Team');team.innerHTML=`<div class="tn22-team"><p class="tn22-kicker">Наша команда</p><h2>Мастера своего дела</h2><div class="tn22-team-grid">${MASTERS.map(m=>`<button class="tn22-master-card" type="button" data-mid="${m.id}"><span class="tn22-master-circle">${MASTER_AVATAR}</span><strong class="tn22-master-name">${m.name}</strong><span class="tn22-master-role">${m.role}</span></button>`).join('')}</div><div class="tn42-team-hint">Листайте <span>→</span></div></div>`;
 const teamSheet=document.createElement('div');teamSheet.className='tn22-team-sheet';root.appendChild(teamSheet);
 
 // MASTER PAGE
-const masterPage=document.createElement('div');masterPage.className='tn22-master-page';masterPage.innerHTML=`<div class="tn22-master-shell"><div class="tn22-master-top"><button class="tn22-back" type="button">←</button><div class="tn22-master-brand">BOSHKI PROJECT</div><span class="tn42-master-spacer" aria-hidden="true"></span></div><div class="tn22-master-body"></div></div><button class="tn22-master-book" type="button">Записаться онлайн</button>`;root.appendChild(masterPage);let masterCloseTimer=0;function closeMaster(){if(!masterPage.classList.contains('open'))return;clearTimeout(masterCloseTimer);masterPage.classList.remove('open');masterPage.classList.add('closing');masterCloseTimer=setTimeout(()=>masterPage.classList.remove('closing'),520)}masterPage.querySelector('.tn22-back').onclick=closeMaster;masterPage.querySelector('.tn22-master-book').onclick=book;let currentMaster=null,currentMasterTab='Профиль';
+const masterPage=document.createElement('div');masterPage.className='tn22-master-page';masterPage.innerHTML=`<div class="tn22-master-shell"><div class="tn22-master-top"><button class="tn22-back" type="button">←</button><div class="tn22-master-brand">НАЗВАНИЕ САЛОНА</div><span class="tn42-master-spacer" aria-hidden="true"></span></div><div class="tn22-master-body"></div></div><button class="tn22-master-book" type="button">Записаться онлайн</button>`;root.appendChild(masterPage);let masterCloseTimer=0;function closeMaster(){if(!masterPage.classList.contains('open'))return;clearTimeout(masterCloseTimer);masterPage.classList.remove('open');masterPage.classList.add('closing');masterCloseTimer=setTimeout(()=>masterPage.classList.remove('closing'),520)}masterPage.querySelector('.tn22-back').onclick=closeMaster;masterPage.querySelector('.tn22-master-book').onclick=book;let currentMaster=null,currentMasterTab='Профиль';
 function masterReviews(m){return REVIEW_DATA.filter(r=>m.reviewNames.includes(r[0]));}
 function renderMasterTab(){const body=masterPage.querySelector('.tn22-master-content');if(!body||!currentMaster)return;if(currentMasterTab==='Профиль'){body.innerHTML=`<h3>О мастере</h3><p class="tn22-master-about" style="text-align:left;margin:0">${currentMaster.about}</p>`}else if(currentMasterTab==='Услуги'){const arr=SERVICES.filter(s=>currentMaster.cats.includes(s.cat)).slice(0,8);body.innerHTML=`<h3>Услуги</h3>${arr.length?arr.map(s=>`<div class="tn22-master-service"><b>${s.title}</b><span>Записаться</span></div>`).join(''):'<p class="tn22-master-about" style="text-align:left;margin:0">Пока нет данных об услугах.</p>'}`}else if(currentMasterTab==='Портфолио'){body.innerHTML=`<h3>Портфолио</h3><div class="tn22-master-works">${currentMaster.work.length?currentMaster.work.map(src=>`<img loading="lazy" decoding="async" src="${src}" alt="Работа ${currentMaster.name}">`).join(''):'<p class="tn22-master-about" style="grid-column:1/-1;text-align:left;margin:0">Пока нет фото.</p>'}</div>`}else{const rs=masterReviews(currentMaster);body.innerHTML=`<h3>Отзывы</h3>${rs.length?rs.map(r=>`<div class="tn22-master-review"><strong>${r[0]}</strong><p>${r[1]}</p></div>`).join(''):'<p class="tn22-master-about" style="text-align:left;margin:0">Пока нет отзывов.</p>'}`}}
 function openMaster(id){currentMaster=MASTERS.find(m=>m.id===id);if(!currentMaster)return;currentMasterTab='Профиль';const b=masterPage.querySelector('.tn22-master-body');b.innerHTML=`<div class="tn22-profile"><div class="tn22-profile-circle">${MASTER_AVATAR}</div><h1>${currentMaster.name}</h1><div class="tn22-profile-role">${currentMaster.role}</div><div class="tn22-salon-rating"><b>★</b> — <span>рейтинг салона</span></div></div><div class="tn22-master-tabs">${['Профиль','Услуги','Портфолио','Отзывы'].map(t=>`<button class="${t==='Профиль'?'active':''}" type="button" data-mtab="${t}">${t}</button>`).join('')}</div><div class="tn22-master-content"></div>`;b.querySelectorAll('[data-mtab]').forEach(x=>x.onclick=()=>{currentMasterTab=x.dataset.mtab;b.querySelectorAll('[data-mtab]').forEach(y=>y.classList.toggle('active',y===x));renderMasterTab()});renderMasterTab();teamSheet.classList.remove('open');clearTimeout(masterCloseTimer);masterPage.classList.remove('closing');masterPage.scrollTop=0;requestAnimationFrame(()=>masterPage.classList.add('open'))}
@@ -455,12 +1388,12 @@ team.querySelectorAll('[data-mid]').forEach(b=>b.onclick=()=>openMaster(b.datase
 
 // REVIEWS
 const reviews=$('#tn13Reviews');
-const REAL_REVIEW_DATA=B.reviews;
+const REAL_REVIEW_DATA=[["Hartman Alpenfeld","highly recommend! good value for money."],["Артем Ш.","Incredible place with amazing people!"],["Nina B.","The best hair salon in all of Yerevan"]];
 const reviewInitial=n=>([...String(n).trim()][0]||'S').toUpperCase();
-const reviewHref=()=>B.reviewsUrl;
+const reviewHref=()=> '#tn13Reviews';
 const reviewCard=r=>`<a class="tn30-review-card" href="${reviewHref(r)}" target="_blank" rel="noopener"><div class="tn30-review-head"><span class="tn30-review-avatar">${reviewInitial(r[0])}</span><span><strong class="tn30-review-name">${r[0]}</strong><span class="tn30-review-meta">Яндекс Карты</span></span></div><p>${r[1]}</p><span class="tn30-review-open">Подробнее →</span></a>`;
 const reviewLanes=[0,1,2].map(row=>REAL_REVIEW_DATA.filter((_,i)=>i%3===row));
-reviews.innerHTML=`<div class="tn30-reviews"><p class="tn22-kicker">Отзывы</p><h2>Что говорят о нас</h2><div class="tn30-score"><strong>${B.rating}</strong><div class="tn30-stars">★★★★★</div><div class="tn30-count">${B.reviewsCount} отзывов · Яндекс Карты</div></div><div class="tn30-review-stage">${reviewLanes.map((lane,i)=>{const loop=[lane[lane.length-1],...lane,lane[0]];return `<div class="tn30-lane" data-lane="${i}"><div class="tn30-track">${loop.map(reviewCard).join('')}</div></div>`}).join('')}</div><a class="tn30-review-all" href="${YANDEX_REVIEWS}" target="_blank" rel="noopener">Смотреть все отзывы →</a></div>`;
+reviews.innerHTML=`<div class="tn30-reviews"><p class="tn22-kicker">Отзывы</p><h2>Что говорят о нас</h2><div class="tn30-score"><strong>5.0</strong><div class="tn30-stars">☆☆☆☆☆</div><div class="tn30-count">159 отзывов · Яндекс Карты</div></div><div class="tn30-review-stage">${reviewLanes.map((lane,i)=>{const loop=[lane[lane.length-1],...lane,lane[0]];return `<div class="tn30-lane" data-lane="${i}"><div class="tn30-track">${loop.map(reviewCard).join('')}</div></div>`}).join('')}</div><a class="tn30-review-all" href="${YANDEX_REVIEWS}" target="_blank" rel="noopener">Смотреть все отзывы →</a></div>`;
 const reviewStage=reviews.querySelector('.tn30-review-stage'),reviewTracks=[...reviews.querySelectorAll('.tn30-track')];
 let reviewIndex=1,reviewPauseTimer=0,reviewMotionTimer=0,reviewDragging=false,reviewMoved=false,reviewSuppressClick=false,reviewStartX=0,reviewStartY=0,reviewDx=0;
 const reviewGap=12,reviewDuration=780,reviewGroupCount=Math.max(1,...reviewLanes.map(l=>l.length));
@@ -483,9 +1416,9 @@ const iconPhone=`<span class="tn22-contact-icon"><svg viewBox="0 0 24 24" aria-h
 const iconMessage=`<span class="tn22-contact-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5.5h14v10H9l-4 3v-13Z"/></svg></span>`;
 const iconClock=`<span class="tn22-contact-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3.2 1.8"/></svg></span>`;
 const statusClock=`<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3.2 1.8"/></svg>`;
-visit.innerHTML=`<div class="tn22-visit"><div class="tn22-visit-head"><p class="tn22-kicker">Контакты</p><span class="tn22-status" id="tn22Status">${statusClock}<span class="tn22-status-text"></span></span></div><h2>Ждём вас</h2><div class="tn22-contact-grid"><a class="tn22-contact" href="${B.yandex}" target="_blank" rel="noopener">${iconPin}<span><strong>${B.address}</strong><span>Построить маршрут</span></span></a><a class="tn22-contact" href="tel:${B.phoneDial}">${iconPhone}<span><strong>${B.phone}</strong><span>Нажмите, чтобы позвонить</span></span></a><a class="tn22-contact" href="${B.whatsapp}" target="_blank" rel="noopener">${iconMessage}<span><strong>WhatsApp</strong><span>Написать в салон</span></span></a><a class="tn22-contact" href="${B.telegram}" target="_blank" rel="noopener">${iconMessage}<span><strong>Telegram</strong><span>Написать в салон</span></span></a><div class="tn22-contact">${iconClock}<span><strong>График работы</strong><span>Ежедневно 10:00–21:00</span></span></div></div><div class="tn22-mapwrap"><div class="tn22-map-skeleton">Загружаем карту…</div><iframe title="Карта BOSHKI PROJECT" loading="lazy" src="https://yandex.com/map-widget/v1/?ll=44.503960%2C40.169164&amp;z=17&amp;pt=44.503960%2C40.169164%2Cpm2rdm"></iframe></div><div class="tn22-visit-actions"><a class="tn22-visit-btn tn22-call" href="tel:${B.phoneDial}">Позвонить</a><a class="tn22-visit-btn tn22-route" href="${B.yandex}" target="_blank" rel="noopener">Построить маршрут</a></div><a class="tn22-footer" href="https://tanem.ru/" target="_blank" rel="noopener"><strong>TANEM.ru</strong><span>Цифровой офис для салонов красоты</span></a></div>`;
+visit.innerHTML=`<div class="tn22-visit"><div class="tn22-visit-head"><p class="tn22-kicker">Контакты</p><span class="tn22-status" id="tn22Status">${statusClock}<span class="tn22-status-text"></span></span></div><h2>Ждём вас</h2><div class="tn22-contact-grid"><a class="tn22-contact" href="https://yandex.ru/maps/org/boshki_prodzhekt/35082945166/" target="_blank" rel="noopener">${iconPin}<span><strong>ул. Аргишти, 7/10, Ереван</strong><span>ул. Аргишти, 7/10</span></span></a><a class="tn22-contact" href="tel:+37477116819">${iconPhone}<span><strong>+374 77 116819</strong><span>Нажмите, чтобы позвонить</span></span></a><a class="tn22-contact" href="https://wa.me/37477116819?text=%D0%9E%D0%B1%D1%80%D0%B0%D1%89%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%B8%D0%B7%20%D0%AF%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%20%D0%9A%D0%B0%D1%80%D1%82%0A%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9C%D0%B5%D0%BD%D1%8F%20%D0%B7%D0%B0%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D0%BE%D0%B2%D0%B0%D0%BB%D0%BE%20%D0%B2%D0%B0%D1%88%D0%B5%20%D0%BF%D1%80%D0%B5%D0%B4%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5" target="_blank" rel="noopener">${iconMessage}<span><strong>Мессенджер</strong><span>Написать в салон</span></span></a><div class="tn22-contact">${iconClock}<span><strong>График работы</strong><span>10:00–21:00</span></span></div></div><div class="tn22-mapwrap"><div class="tn22-map-skeleton">Загружаем карту…</div><iframe title="Карта BOSHKI PROJECT" loading="lazy" src="about:blank"></iframe></div><div class="tn22-visit-actions"><a class="tn22-visit-btn tn22-call" href="tel:+37477116819">Позвонить</a><a class="tn22-visit-btn tn22-route" href="https://yandex.ru/maps/org/boshki_prodzhekt/35082945166/" target="_blank" rel="noopener">Построить маршрут</a></div><a class="tn22-footer" href="https://tanem.ru/" target="_blank" rel="noopener"><strong>TANEM.ru</strong><span>Цифровой офис для салонов красоты</span></a></div>`;
 const map=visit.querySelector('.tn22-mapwrap'),iframe=map.querySelector('iframe');iframe.addEventListener('load',()=>map.classList.add('loaded'));setTimeout(()=>map.classList.add('loaded'),5000);
-function status(){const t=new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Yerevan',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).format(new Date()),open=t>='10:00'&&t<'21:00',label=open?'Открыто до 21:00':'Закрыто до 10:00';const el=visit.querySelector('#tn22Status'),txt=el?.querySelector('.tn22-status-text');if(txt)txt.textContent=label;if(el)el.className='tn22-status '+(open?'open':'closed');const hs=hero.querySelector('.tn50-hero-status');if(hs){const main=hs.querySelector('.tn50-hero-status-main'),sub=hs.querySelector('.tn50-hero-status-sub');if(main)main.textContent=label;if(sub)sub.textContent='Ереван';hs.classList.toggle('open',open);hs.classList.toggle('closed',!open)}}status();setInterval(status,60000);
+function status(){const el=visit.querySelector('#tn22Status'),txt=el&&el.querySelector('.tn22-status-text');if(txt)txt.textContent='График работы';if(el)el.className='tn22-status';const hs=hero.querySelector('.tn50-hero-status');if(hs){const main=hs.querySelector('.tn50-hero-status-main'),sub=hs.querySelector('.tn50-hero-status-sub');if(main)main.textContent='График';if(sub)sub.textContent='10:00–21:00';hs.classList.remove('open','closed')}}status();
 
 // STICKY
 const sticky=$('#tn13Sticky');if(sticky){sticky.innerHTML=`<strong>Доступно ${SERVICES.length} услуг</strong><button type="button">Записаться</button>`;sticky.querySelector('button').onclick=book}
@@ -525,7 +1458,7 @@ document.head.appendChild(style);
 
 const about=document.createElement('section');
 about.id='tn38About';
-about.innerHTML=`<div class="tn42-about"><p class="tn42-kicker">О нас</p><div class="tn42-card"><div class="tn42-photo"><img src="galery00005.webp" alt="Интерьер BOSHKI PROJECT" loading="lazy"><div class="tn42-rating"><span class="tn42-rating-star">★</span><strong>${B.rating}</strong><span>рейтинг салона</span></div></div><div class="tn42-body"><p class="tn42-lead">BOSHKI PROJECT — салон красоты.</p><p class="tn42-copy">BOSHKI PROJECT — пространство, в котором встречаются стрижки, сложное окрашивание, маникюр, макияж, пирсинг и татуировка. Авторские работы, индустриальная эстетика и собственный характер.</p><div class="tn42-facts"><div class="tn42-fact">Мастера разных направлений</div><div class="tn42-fact">Комфортная атмосфера</div><div class="tn42-fact">Индивидуальный подход</div></div></div></div></div>`;
+about.innerHTML=`<div class="tn42-about"><p class="tn42-kicker">О нас</p><div class="tn42-card"><div class="tn42-photo"><img src="galery1.webp" alt="BOSHKI PROJECT" loading="lazy"><div class="tn42-rating"><span class="tn42-rating-star">★</span><strong>5.0</strong><span>рейтинг салона</span></div></div><div class="tn42-body"><p class="tn42-lead">BOSHKI PROJECT — салон красоты.</p><p class="tn42-copy">BOSHKI PROJECT — пространство, в котором встречаются стрижки, сложное окрашивание, маникюр, макияж, пирсинг и татуировка. Авторские работы, индустриальная эстетика и собственный характер.</p><div class="tn42-facts"><div class="tn42-fact">Мастера разных направлений</div><div class="tn42-fact">Комфортная атмосфера</div><div class="tn42-fact">Индивидуальный подход</div></div></div></div></div>`;
 services.insertAdjacentElement('afterend',about);
 })();
 
@@ -664,7 +1597,7 @@ services.insertAdjacentElement('afterend',about);
     }
     const aboutCopy=document.querySelector('#salon-mobile #tn38About .tn42-copy');
     if(aboutCopy){
-      aboutCopy.textContent=window.BOSHKI_DATA.about.ru;
+      aboutCopy.textContent='BOSHKI PROJECT — пространство, в котором встречаются стрижки, сложное окрашивание, маникюр, макияж, пирсинг и татуировка. Авторские работы, индустриальная эстетика и собственный характер.';
     }
 
     /* Client migration compatibility removed in the clean template. */
@@ -672,15 +1605,15 @@ services.insertAdjacentElement('afterend',about);
     /* Rebuild only reviews: 3 stacked cards per slide, centered with neighbor edges visible. */
     const reviewsRoot=document.querySelector('#salon-mobile #tn13Reviews');
     if(reviewsRoot){
-      const REVIEW_URL=window.BOSHKI_DATA.reviewsUrl;
-      const reviewData=window.BOSHKI_DATA.reviews;
+      const REVIEW_URL="https://yandex.com/maps/org/boshki_project/35082945166/reviews/";
+      const reviewData=[["Клиент 1","Текст отзыва клиента будет добавлен при заполнении шаблона."],["Клиент 2","Текст отзыва клиента будет добавлен при заполнении шаблона."],["Клиент 3","Текст отзыва клиента будет добавлен при заполнении шаблона."],["Клиент 4","Текст отзыва клиента будет добавлен при заполнении шаблона."],["Клиент 5","Текст отзыва клиента будет добавлен при заполнении шаблона."],["Клиент 6","Текст отзыва клиента будет добавлен при заполнении шаблона."],["Клиент 7","Текст отзыва клиента будет добавлен при заполнении шаблона."],["Клиент 8","Текст отзыва клиента будет добавлен при заполнении шаблона."],["Клиент 9","Текст отзыва клиента будет добавлен при заполнении шаблона."]];
       const initial=name=>([...String(name).trim()][0]||'B').toUpperCase();
-      const card=r=>`<a class="br-review-card" href="${REVIEW_URL}" target="_blank" rel="noopener"><div class="br-review-head"><span class="br-review-avatar">${initial(r[0])}</span><span><strong class="br-review-name">${r[0]}</strong><span class="br-review-meta"><span>Яндекс Карты</span><span class="br-review-meta-stars">★★★★★</span></span></span></div><p>${r[1]}</p><span class="br-review-open">Подробнее →</span></a>`;
+      const card=r=>`<a class="br-review-card" href="${REVIEW_URL}" target="_blank" rel="noopener"><div class="br-review-head"><span class="br-review-avatar">${initial(r[0])}</span><span><strong class="br-review-name">${r[0]}</strong><span class="br-review-meta"><span>Яндекс Карты</span><span class="br-review-meta-stars">☆☆☆☆☆</span></span></span></div><p>${r[1]}</p><span class="br-review-open">Подробнее →</span></a>`;
       const groups=[];
       for(let i=0;i<reviewData.length;i+=3) groups.push(reviewData.slice(i,i+3));
       const page=g=>`<div class="br-review-page">${g.map(card).join('')}</div>`;
       const loop=[groups[groups.length-1],...groups,groups[0]];
-      reviewsRoot.innerHTML=`<div class="br-reviews"><p class="tn22-kicker">Отзывы</p><h2>Что говорят о нас</h2><div class="br-score"><strong>${window.BOSHKI_DATA.rating}</strong><div class="br-stars">★★★★★</div><div class="br-count">${window.BOSHKI_DATA.reviewsCount} отзывов · Яндекс Карты</div></div><div class="br-review-viewport"><div class="br-review-track">${loop.map(page).join('')}</div></div><a class="br-review-all" href="${REVIEW_URL}" target="_blank" rel="noopener">Смотреть все отзывы →</a></div>`;
+      reviewsRoot.innerHTML=`<div class="br-reviews"><p class="tn22-kicker">Отзывы</p><h2>Что говорят о нас</h2><div class="br-score"><strong>—</strong><div class="br-stars">☆☆☆☆☆</div><div class="br-count">0 отзывов · Яндекс Карты</div></div><div class="br-review-viewport"><div class="br-review-track">${loop.map(page).join('')}</div></div><a class="br-review-all" href="${REVIEW_URL}" target="_blank" rel="noopener">Смотреть все отзывы →</a></div>`;
 
       const viewport=reviewsRoot.querySelector('.br-review-viewport');
       const track=reviewsRoot.querySelector('.br-review-track');
@@ -825,7 +1758,7 @@ services.insertAdjacentElement('afterend',about);
   'use strict';
   if(!window.matchMedia || !window.matchMedia('(max-width:1023px)').matches || window.matchMedia('(min-width:768px) and (hover:hover) and (pointer:fine)').matches) return;
 
-  const VIBER_URL=window.BOSHKI_DATA.whatsapp;
+  const VIBER_URL="https://t.me/Boshki_projectt";
 
   function ensureStyle(){
     if(document.getElementById('salon-mobile-booking-style')) return;
@@ -1051,7 +1984,7 @@ services.insertAdjacentElement('afterend',about);
   if(!window.matchMedia || !window.matchMedia('(max-width:1023px)').matches || window.matchMedia('(min-width:768px) and (hover:hover) and (pointer:fine)').matches) return;
 
   const BRAND_SRC='logo.webp';
-  const ABOUT_SRC='galery00005.webp';
+  const ABOUT_SRC='master.webp';
   const VIDEO_SRC='';
 
   function ensureStyle(){
@@ -1141,7 +2074,7 @@ services.insertAdjacentElement('afterend',about);
     media.dataset.brVideoReady='1';
     media.classList.add('br-video-media');
     media.setAttribute('aria-label','Видео BOSHKI PROJECT');
-    media.innerHTML=VIDEO_SRC?'<video class="br-hero-video" muted autoplay loop playsinline webkit-playsinline preload="metadata" poster="galery1.webp" src="'+VIDEO_SRC+'"></video>':'<img class="br-hero-video" src="galery1.webp" alt="Интерьер BOSHKI PROJECT">';
+    media.innerHTML=VIDEO_SRC?'<video class="br-hero-video" muted autoplay loop playsinline webkit-playsinline preload="metadata" poster="galery1.webp" src="'+VIDEO_SRC+'"></video>':'<img class="br-hero-video" src="galery1.webp" alt="Фото салона">';
     const video=media.querySelector('video');
     if(video){
       video.muted=true;
@@ -1214,34 +2147,102 @@ services.insertAdjacentElement('afterend',about);
   'use strict';
   if(!window.matchMedia || !window.matchMedia('(max-width:1023px)').matches || window.matchMedia('(min-width:768px) and (hover:hover) and (pointer:fine)').matches) return;
 
-  var STORAGE_KEY='boshki-project-language';
+  var STORAGE_KEY='salon-template-language';
   var currentLang='hy';
   var root=null;
 
   var meta={
-    ru:{
-      title:'BOSHKI PROJECT — Ереван',
-      description:'BOSHKI PROJECT — салон красоты в Ереване: волосы, ногти, макияж, пирсинг и татуировка.'
-    },
-    hy:{
-      title:'BOSHKI PROJECT — Երևան',
-      description:'BOSHKI PROJECT գեղեցկության սրահ Երևանում՝ մազեր, մատնահարդարում, դիմահարդարում, պիրսինգ և դաջվածք։'
-    },
-    en:{
-      title:'BOSHKI PROJECT — Yerevan',
-      description:'BOSHKI PROJECT beauty salon in Yerevan: hair, nails, makeup, piercing and tattoo.'
-    }
+    ru:{title:'BOSHKI PROJECT — Ереван',description:"BOSHKI PROJECT — пространство, в котором встречаются стрижки, сложное окрашивание, маникюр, макияж, пирсинг и татуировка. Авторские работы, индустриальная эстетика и собственный характер."},
+    hy:{title:'BOSHKI PROJECT — Երևան',description:"BOSHKI PROJECT-ը մեկ վայրում միավորում է սանրվածքը, ստեղծագործական ներկումը, մատնահարդարումը, դիմահարդարումը, պիրսինգը և դաջվածքը։"},
+    en:{title:'BOSHKI PROJECT — Yerevan',description:"BOSHKI PROJECT brings haircuts, creative color, nail art, makeup, piercing and tattoos together in one distinctive space."}
   };
 
   var rows=[
+    ["Ереван,","Երևան,","Yerevan,"],
+    ["ул. Аргишти, 7/10","Արգիշտի փողոց 7/10","Argishti Street 7/10"],
+    ["ул. Аргишти, 7/10, Ереван","Արգիշտի փողոց 7/10, Երևան","Argishti Street 7/10, Yerevan"],
+    ["BOSHKI PROJECT — пространство, в котором встречаются стрижки, сложное окрашивание, маникюр, макияж, пирсинг и татуировка. Авторские работы, индустриальная эстетика и собственный характер.","BOSHKI PROJECT-ը մեկ վայրում միավորում է սանրվածքը, ստեղծագործական ներկումը, մատնահարդարումը, դիմահարդարումը, պիրսինգը և դաջվածքը։","BOSHKI PROJECT brings haircuts, creative color, nail art, makeup, piercing and tattoos together in one distinctive space."],
+    ["10:00–21:00","10:00–21:00","10:00–21:00"],
+    ["Яндекс Карты","Yandex Maps","Yandex Maps"],
+    ["Окрашивание волос","Մազերի ներկում","Hair coloring"],
+    ["Пирсинг","Պիրսինգ","Piercing"],
+    ["Макияж","Դիմահարդարում","Makeup"],
+    ["Стрижки","Սանրվածքներ","Haircuts"],
+    ["Коррекция бровей","Հոնքերի ձևավորում","Brow shaping"],
+    ["Маникюр","Մատնահարդարում","Manicure"],
+    ["Уход за волосами","Մազերի խնամք","Hair care"],
+    ["Биозавивка","Բիոգանգրացում","Bioperm"],
+    ["Мужской маникюр","Տղամարդու մատնահարդարում","Men's manicure"],
+    ["Педикюр","Պեդիկյուր","Pedicure"],
+    ["Татуировка","Դաջվածք","Tattoo"],
+    ["Причёски","Վարսահարդարում","Hairstyling"],
+    ["Ламинирование ресниц","Թարթիչների լամինացիա","Lash lamination"],
+    ["Мужской педикюр","Տղամարդու պեդիկյուր","Men's pedicure"],
+    ["Окрашивание","Ներկում","Coloring"],
+    ["Салон","Սրահ","Salon"],
+    ["Тотал блонд","Ամբողջական բլոնդ","Total Blonde"],
+    ["Осветление корней + тонирование","Արմատների բացեցում և տոնավորում","Root Lightening + Toning"],
+    ["Выход из цвета (деколоризация)","Գույնի հեռացում (դեկոլորացիա)","Color Out (Decolorization)"],
+    ["Аиртач + мелирование","AirTouch և մելիավորում","Air Touch and Highlights"],
+    ["Контуринг + тонирование","Կոնտուրինգ և տոնավորում","Contouring + Toning"],
+    ["Однотонное окрашивание","Միագույն ներկում","All-Over Color"],
+    ["Консультация по креативному окрашиванию","Կրեատիվ ներկման խորհրդատվություն","Creative coloring consultation"],
+    ["Консультация по окрашиванию (бесплатно)","Ներկման անվճար խորհրդատվություն","Coloring consultation (free)"],
+    ["Пирсинг","Պիրսինգ","Piercing"],
+    ["Консультация по пирсингу (бесплатно)","Պիրսինգի անվճար խորհրդատվություն","Piercing consultation (free)"],
+    ["Микродермал","Միկրոդերմալ","Microdermal"],
+    ["Восстановление прокола","Պիրսինգի անցքի վերականգնում","Puncture repair"],
+    ["Процедура по уходу","Խնամքի պրոցեդուրա","Care procedure"],
+    ["Тоннели","Թունելներ","Tunnels"],
+    ["Интимный пирсинг","Ինտիմ պիրսինգ","Intimate piercing"],
+    ["Индастриал","Ինդաստրիալ","Industrial"],
+    ["Макияж","Դիմահարդարում","Makeup"],
+    ["Свадебный образ","Հարսանեկան կերպար","Wedding look"],
+    ["Репетиция свадебного образа","Հարսանեկան կերպարի փորձարկում","Wedding look trial"],
+    ["Обучение макияжу для себя","Ինքնուրույն դիմահարդարման դասընթաց","Makeup lessons for personal use"],
+    ["Креативный макияж","Կրեատիվ դիմահարդարում","Creative makeup"],
+    ["Полный образ: макияж + укладка","Ամբողջական կերպար՝ դիմահարդարում և վարսահարդարում","Full look: makeup + styling"],
+    ["Вечерний макияж","Երեկոյան դիմահարդարում","Evening makeup"],
+    ["Стрижка чёлки","Ճակատային մազափնջի կտրում","Bangs / Fringe cut"],
+    ["Женская стрижка — 1,5 ч","Կանացի սանրվածք (1.5 ժ)","Women's haircut (1.5 h)"],
+    ["Мужская стрижка — 1,5 ч","Տղամարդու սանրվածք (1.5 ժ)","Men's haircut (1.5 h)"],
+    ["Мужская стрижка — 2 ч","Տղամարդու սանրվածք (2 ժ)","Men's haircut (2 h)"],
+    ["Женская стрижка — 2 ч","Կանացի սանրվածք (2 ժ)","Women's haircut (2 h)"],
+    ["Консультация по стрижке (бесплатно)","Սանրվածքի անվճար խորհրդատվություն","Haircut consultation (free)"],
+    ["Осветление бровей","Հոնքերի բացեցում","Eyebrow lightening"],
+    ["Коррекция бровей","Հոնքերի ձևավորում","Eyebrow shaping"],
+    ["Skinny-брови","Բարակ հոնքեր","Skinny brows"],
+    ["Долговременная укладка бровей","Հոնքերի երկարատև հարդարում","Long-lasting brow styling"],
+    ["Консультация по бровям (бесплатно)","Հոնքերի անվճար խորհրդատվություն","Brow consultation (free)"],
+    ["Маникюр без покрытия","Մատնահարդարում առանց ծածկույթի","Manicure without coating"],
+    ["Маникюр с дизайном","Մատնահարդարում դիզայնով","Manicure with nail art"],
+    ["Когти (Claws)","Երկար սրածայր եղունգներ","Claws"],
+    ["Наращивание с однотонным покрытием","Եղունգների երկարացում միագույն ծածկույթով","Nail extensions with solid color"],
+    ["Наращивание с дизайном","Եղունգների երկարացում դիզայնով","Nail extensions with design"],
+    ["Уход OI Davines","OI Davines մազերի խնամք","OI Davines treatment"],
+    ["Уход K18","K18 մազերի խնամք","K18 treatment"],
+    ["Уход Londa Lightplex","Londa Lightplex մազերի խնամք","Londa Lightplex treatment"],
+    ["Davines Nourishing Keratin Wonder","Davines Nourishing Keratin Wonder","Davines Nourishing Keratin Wonder"],
+    ["Биозавивка","Բիոգանգրացում","Bioperm"],
+    ["Консультация по биозавивке (бесплатно)","Բիոգանգրացման անվճար խորհրդատվություն","Bioperm consultation (free)"],
+    ["Мужской маникюр без покрытия","Տղամարդու մատնահարդարում առանց ծածկույթի","Men's manicure without coating"],
+    ["Мужской маникюр с покрытием","Տղամարդու մատնահարդարում ծածկույթով","Men's manicure with polish"],
+    ["Педикюр","Պեդիկյուր","Pedicure"],
+    ["Педикюр с покрытием гель-лак","Պեդիկյուր գել-լաքով","Pedicure with gel polish"],
+    ["Татуировка","Դաջվածք","Tattoo"],
+    ["Консультация по тату (бесплатно)","Դաջվածքի անվճար խորհրդատվություն","Tattoo consultation (free)"],
+    ["Укладка по кудрявому методу","Գանգուր մազերի հարդարում","Curly method styling"],
+    ["Укладка локонами","Լոկոններով հարդարում","Blow Dry / Waving"],
+    ["Ламинирование и окрашивание ресниц","Թարթիչների լամինացիա և ներկում","Lash lamination and tint"],
+    ["Мужской педикюр","Տղամարդու պեդիկյուր","Men's pedicure"],
     ['Меню','Մենյու','Menu'],
     ['Открыть меню','Բացել մենյուն','Open menu'],
     ['Салон красоты','Գեղեցկության սրահ','Beauty salon'],
-    ['BOSHKI PROJECT — пространство, в котором встречаются стрижки, сложное окрашивание, маникюр, макияж, пирсинг и татуировка. Авторские работы, индустриальная эстетика и собственный характер.','BOSHKI PROJECT-ը մեկ վայրում միավորում է սանրվածքը, ստեղծագործական ներկումը, մատնահարդարումը, դիմահարդարումը, պիրսինգը և դաջվածքը։','BOSHKI PROJECT brings haircuts, creative color, nail art, makeup, piercing and tattoos together in one distinctive space.'],
+    ['BOSHKI PROJECT — пространство, в котором встречаются стрижки, сложное окрашивание, маникюр, макияж, пирсинг и татуировка. Авторские работы, индустриальная эстетика и собственный характер.','Գեղեցկության սրահ Քաղաքի սրտում։','A beauty salon in the heart of City.'],
     ['Проверяем','Ստուգում ենք','Checking'],
     ['режим работы','աշխատանքային ժամերը','opening hours'],
-    ['Ереван,','Երևան,','Yerevan,'],
-    ['ул. Аргишти, 7/10, Ереван','Արգիշտի փողոց 7/10, Երևան','Argishti Street 7/10, Yerevan'],
+    ['Ереван,','Քաղաք,','City,'],
+    ['ул. Аргишти, 7/10','Սրահի հասցե','ул. Аргишти, 7/10'],
     ['Записаться','Ամրագրել','Book now'],
     ['Записаться →','Ամրագրել →','Book now →'],
     ['Записаться онлайн','Ամրագրել առցանց','Book online'],
@@ -1291,12 +2292,12 @@ services.insertAdjacentElement('afterend',about);
     ['Подробнее →','Ավելին →','Read more →'],
     ['Смотреть все отзывы →','Դիտել բոլոր կարծիքները →','View all reviews →'],
     ['Ждём вас','Սպասում ենք ձեզ','We look forward to seeing you'],
-    ['ул. Аргишти, 7/10, Ереван','Քաղաք, Սրահի հասցե','City, ул. Аргишти, 7/10, Ереван'],
+    ['ул. Аргишти, 7/10, Ереван','Քաղաք, Սրահի հասցե','City, ул. Аргишти, 7/10'],
     ['Открыть в Яндекс Карты','Բացել Яндекс Карты-ում','Open in Яндекс Карты'],
     ['Нажмите, чтобы позвонить','Սեղմեք զանգահարելու համար','Tap to call'],
     ['Написать в салон','Գրել սրահին','Message the salon'],
     ['График работы','Աշխատանքային ժամեր','Opening hours'],
-    ['Уточняется','Կավելացվի','To be added'],
+    ['10:00–21:00','Կավելացվի','To be added'],
     ['Загружаем карту…','Քարտեզը բեռնվում է…','Loading map…'],
     ['Позвонить','Զանգահարել','Call'],
     ['Построить маршрут','Ստանալ երթուղին','Get directions'],
@@ -1305,8 +2306,8 @@ services.insertAdjacentElement('afterend',about);
     ['График работы','Աշխատանքային ժամեր','Opening hours'],
     ['Открыто','Բաց է','Open'],
     ['Закрыто','Փակ է','Closed'],
-    ['Уточняется','Կավելացվի','To be added'],
-    ['Уточняется','Կավելացվի','To be added'],
+    ['10:00–21:00','Կավելացվի','To be added'],
+    ['10:00–21:00','Կավելացվի','To be added'],
     ['О нас','Մեր մասին','About us'],
     ['Салон красоты в городе','Գեղեցկության սրահ Քաղաքում','Beauty salon in City'],
     ['BOSHKI PROJECT — салон красоты.','BOSHKI PROJECT — գեղեցկության սրահ Քաղաքում։','BOSHKI PROJECT — a beauty salon in City.'],
@@ -1355,7 +2356,6 @@ services.insertAdjacentElement('afterend',about);
     ['Наращивание ресниц','Թարթիչների երկարացում','Eyelash extensions']
   ];
 
-  rows.push(...window.BOSHKI_DATA.services.map(x=>[x.ru,x.hy,x.en]),...[["Окрашивание волос","Մազերի ներկում","Hair coloring"],["Пирсинг","Պիրսինգ","Piercing"],["Макияж","Դիմահարդարում","Makeup"],["Стрижки","Սանրվածքներ","Haircuts"],["Коррекция бровей","Հոնքերի ձևավորում","Eyebrows"],["Маникюр","Մատնահարդարում","Manicure"],["Уход за волосами","Մազերի խնամք","Hair care"],["Биозавивка","Բիոգանգրացում","Bioperm"],["Мужской маникюр","Տղամարդու մատնահարդարում","Men's manicure"],["Педикюр","Պեդիկյուր","Pedicure"],["Татуировка","Դաջվածք","Tattoo"],["Причёски","Մազերի հարդարում","Styling"],["Ламинирование ресниц","Թարթիչների լամինացիա","Lash lamination"],["Мужской педикюр","Տղամարդու պեդիկյուր","Men's pedicure"],["BOSHKI PROJECT — пространство, в котором встречаются стрижки, сложное окрашивание, маникюр, макияж, пирсинг и татуировка. Авторские работы, индустриальная эстетика и собственный характер.","BOSHKI PROJECT-ը մեկ վայրում միավորում է սանրվածքը, ստեղծագործական ներկումը, մատնահարդարումը, դիմահարդարումը, պիրսինգը և դաջվածքը։","BOSHKI PROJECT brings haircuts, creative color, nail art, makeup, piercing and tattoos together in one distinctive space."],["Ереван","Երևան","Yerevan"],["Ежедневно 10:00–21:00","Ամեն օր 10:00–21:00","Daily 10:00–21:00"],["Яндекс Карты","Յանդեքս Քարտեզներ","Yandex Maps"],["Открыто до 21:00","Բաց է մինչև 21:00","Open until 21:00"],["Закрыто до 10:00","Փակ է մինչև 10:00","Closed until 10:00"]]);
   var direct={};
   rows.forEach(function(row){ direct[row[0]]=row; });
 
