@@ -11,7 +11,7 @@
   const ROUTE=YANDEX_RU;
   const WHATSAPP_URL=B.whatsapp;
   const YANDEX_REVIEWS=B.reviewsUrl;
-  const DESKTOP_REAL_REVIEWS=B.reviews.length?Array.from({length:9},(_,i)=>B.reviews[i%B.reviews.length]):[];
+  const DESKTOP_REAL_REVIEWS=B.reviews.slice(0,9);
   const PORTFOLIO=B.portfolio;
   const DESKTOP_GALLERY_GROUPS=B.imageGroups;
   const DESKTOP_GALLERY=Object.values(DESKTOP_GALLERY_GROUPS).flat().map(x=>x.src);
