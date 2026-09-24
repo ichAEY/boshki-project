@@ -6,11 +6,11 @@
 
   const PHONE="+37477116819";
   const ADDRESS="ул. Аргишти, 7/10, Ереван";
-  const YANDEX_RU="https://yandex.ru/maps/org/boshki_prodzhekt/35082945166/";
-  const ROUTE="https://yandex.ru/maps/org/boshki_prodzhekt/35082945166/";
+  const YANDEX_RU="https://www.google.com/maps/search/?api=1&query=Argishti%207%2F10%2C%20Yerevan%2C%20Armenia";
+  const ROUTE="https://www.google.com/maps/search/?api=1&query=Argishti%207%2F10%2C%20Yerevan%2C%20Armenia";
   const WHATSAPP_URL="https://wa.me/37477116819?text=%D0%9E%D0%B1%D1%80%D0%B0%D1%89%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%B8%D0%B7%20%D0%AF%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%20%D0%9A%D0%B0%D1%80%D1%82%0A%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9C%D0%B5%D0%BD%D1%8F%20%D0%B7%D0%B0%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D0%BE%D0%B2%D0%B0%D0%BB%D0%BE%20%D0%B2%D0%B0%D1%88%D0%B5%20%D0%BF%D1%80%D0%B5%D0%B4%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5";
   const YANDEX_REVIEWS="https://yandex.com/maps/org/boshki_project/35082945166/reviews/";
-  const DESKTOP_REAL_REVIEWS=[["Hartman Alpenfeld","highly recommend! good value for money."],["Артем Ш.","Incredible place with amazing people!"],["Nina B.","The best hair salon in all of Yerevan"]];
+  const DESKTOP_REAL_REVIEWS=window.BOSHKI_REVIEWS.map(r=>[r.name,r.text,r.date]);
   const PORTFOLIO=[
   {
     "src": "galery00009.webp",
@@ -594,7 +594,7 @@
   ]
 };
   const SERVICE_CATEGORIES=Object.keys(SERVICE_DATA);
-  const TEAM_MASTERS=[];
+  const TEAM_MASTERS=[{"id":"pending-01","name":"Мастер 01","role":"Сведения уточняются","about":"Информация о мастере появится после подтверждения салоном.","cats":[],"reviewNames":[],"work":[]},{"id":"pending-02","name":"Мастер 02","role":"Сведения уточняются","about":"Информация о мастере появится после подтверждения салоном.","cats":[],"reviewNames":[],"work":[]},{"id":"pending-03","name":"Мастер 03","role":"Сведения уточняются","about":"Информация о мастере появится после подтверждения салоном.","cats":[],"reviewNames":[],"work":[]}];
   const TEAM_AVATAR='<svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="23" r="11" fill="currentColor"></circle><path d="M12 56c2.7-11.4 10-17 20-17s17.3 5.6 20 17" fill="currentColor"></path></svg>';
 
   const font=document.createElement('link');
@@ -3594,7 +3594,7 @@
     pointer-events:none!important;
   }
   .std-hero-copy:after{
-    content:"Красота — это уверенность\Aв себе каждый день."!important;
+    content:"YOUR LOOK.\AYOUR RULES."!important;
     white-space:pre!important;
     position:absolute!important;
     left:78px!important;
@@ -7612,7 +7612,7 @@ html,body,#salon-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:none
     <header class="std-header">
       <a class="std-header-brand" href="#salonDesktopTop" aria-label="BOSHKI PROJECT">
         <span class="std-header-brand-main">BOSHKI PROJECT</span>
-        <span class="std-header-brand-sub">BEAUTY STUDIO</span>
+        
       </a>
       <div class="std-lang-switch std-lang-switch-under-brand" role="group" aria-label="Language"><button type="button" data-desktop-lang="ru">RU</button><span class="sep">|</span><button type="button" data-desktop-lang="en">EN</button><span class="sep">|</span><button type="button" data-desktop-lang="hy">HY</button></div>
       <nav class="std-nav" aria-label="Основная навигация">
@@ -7638,7 +7638,7 @@ html,body,#salon-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:none
           <div class="std-copy-inner">
           <p class="std-hero-kicker">Салон красоты</p>
           <h1 class="std-logo">BOSHKI PROJECT</h1>
-          <div class="std-logo-sub">BEAUTY STUDIO</div>
+          
 
           <p class="std-tagline">Стрижки, окрашивание, маникюр, макияж, пирсинг и татуировка.</p>
 
@@ -7652,7 +7652,7 @@ html,body,#salon-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:none
 
             <span class="std-meta-divider" aria-hidden="true"></span>
 
-            <a class="std-meta-item" href="https://yandex.ru/maps/org/boshki_prodzhekt/35082945166/" target="_blank" rel="noopener">
+            <a class="std-meta-item" href="https://www.google.com/maps/search/?api=1&query=Argishti%207%2F10%2C%20Yerevan%2C%20Armenia" target="_blank" rel="noopener">
               <span class="std-meta-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24"><path d="M12 21s6-5.2 6-11a6 6 0 1 0-12 0c0 5.8 6 11 6 11Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="12" cy="10" r="2.1" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
               </span>
@@ -7710,7 +7710,7 @@ html,body,#salon-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:none
                   <small id="stdStickyServiceStatusSub">10:00–21:00</small>
                 </span>
               </div>
-              <a class="dct-service-sticky-row dct-service-sticky-route" href="https://yandex.ru/maps/org/boshki_prodzhekt/35082945166/" target="_blank" rel="noopener" aria-label="Построить маршрут в Яндекс Карты">
+              <a class="dct-service-sticky-row dct-service-sticky-route" href="https://www.google.com/maps/search/?api=1&query=Argishti%207%2F10%2C%20Yerevan%2C%20Armenia" target="_blank" rel="noopener" aria-label="Построить маршрут в Яндекс Карты">
                 <span class="dct-service-sticky-icon" aria-hidden="true">
                   <svg viewBox="0 0 24 24"><path d="M19 10c0 5.2-7 10-7 10s-7-4.8-7-10a7 7 0 1 1 14 0Z"></path><circle cx="12" cy="10" r="2.2"></circle></svg>
                 </span>
@@ -7802,7 +7802,7 @@ html,body,#salon-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:none
         <div class="std-reviews-score">
           <strong>5.0</strong>
           <div class="std-reviews-stars" aria-label="5 звёзд">★★★★★</div>
-          <div class="std-reviews-count">159 отзывов · Яндекс Карты</div>
+          <div class="std-reviews-count">${window.BOSHKI_REVIEWS.length} отзывов на сайте · Яндекс Карты</div>
         </div>
       </div>
 
@@ -7815,7 +7815,7 @@ html,body,#salon-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:none
                   <span class="std-review-avatar">${([...(String(r[0]).trim())][0]||'S').toUpperCase()}</span>
                   <span>
                     <strong class="std-review-name">${r[0]}</strong>
-                    <span class="std-review-meta">Яндекс Карты</span>
+                    <span class="std-review-meta">Яндекс Карты${r[2]?" · "+r[2]:""}</span>
                     <span class="std-review-stars">★★★★★</span>
                   </span>
                 </div>
@@ -7831,7 +7831,7 @@ html,body,#salon-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:none
                   <span class="std-review-avatar">${([...(String(r[0]).trim())][0]||'S').toUpperCase()}</span>
                   <span>
                     <strong class="std-review-name">${r[0]}</strong>
-                    <span class="std-review-meta">Яндекс Карты</span>
+                    <span class="std-review-meta">Яндекс Карты${r[2]?" · "+r[2]:""}</span>
                     <span class="std-review-stars">★★★★★</span>
                   </span>
                 </div>
@@ -7893,7 +7893,7 @@ html,body,#salon-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:none
           </div>
 
           <div class="std-contact-right">
-            <div class="std-contact-map"><iframe title="Карта салона" loading="eager" src="https://yandex.com/map-widget/v1/?mode=search&oid=35082945166&ol=biz"></iframe></div>
+            <div class="std-contact-map"><iframe title="Карта салона" loading="eager" src="https://www.google.com/maps?q=Argishti%207%2F10%2C%20Yerevan%2C%20Armenia&output=embed"></iframe></div>
             <div class="std-contact-actions">
               <a class="std-contact-action-btn std-contact-call" href="tel:+37477116819">Позвонить</a>
               <a class="std-contact-action-btn std-contact-route" href="${ROUTE}" target="_blank" rel="noopener">Построить маршрут</a>
@@ -7929,7 +7929,7 @@ html,body,#salon-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:none
         <div class="std-book-options">
           <a href="tel:+37477116819"><span>Телефон</span><span>+374 77 116819 →</span></a>
           <a href="https://t.me/Boshki_projectt" target="_blank" rel="noopener"><span>Telegram</span><span>Открыть →</span></a>
-          <a href="${YANDEX_RU}" target="_blank" rel="noopener"><span>Яндекс Карты</span><span>Открыть →</span></a>
+          <a href="${YANDEX_RU}" target="_blank" rel="noopener"><span>Google Maps</span><span>Открыть →</span></a>
         </div>
       </div>
     </div>
@@ -8082,8 +8082,8 @@ html,body,#salon-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:none
       openDesktopViewer(items,Number(btn.dataset.galleryItem)||0,'gallery');
     });
   }
-  function openDesktopGalleryBrowser(cat='Ногти'){
-    galleryCategory=Object.prototype.hasOwnProperty.call(DESKTOP_GALLERY_GROUPS,cat)?cat:'Ногти';
+  function openDesktopGalleryBrowser(cat='Салон'){
+    galleryCategory=Object.prototype.hasOwnProperty.call(DESKTOP_GALLERY_GROUPS,cat)?cat:'Салон';
     renderDesktopGalleryBrowser();
     galleryBrowser.classList.add('open');
     galleryBrowser.scrollTop=0;
@@ -8214,7 +8214,8 @@ html,body,#salon-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:none
   function templateServiceCard(item){
     const title=item[0];
     const price=item[1]||'';
-    const description=item[2]||item[4]||'';
+    const duration=item[2]||'';
+    const description=item[4]||'';
     const variants=item[3]||[];
     const hasVariants=variants.length>0;
     const action=price||'Записаться';
@@ -8222,7 +8223,7 @@ html,body,#salon-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:none
     if(hasVariants){
       return '<button class="dct-service-card has-variants'+(description?' has-description':'')+'" type="button" data-service-book>'+
         '<span class="dct-service-card-body">'+
-          '<strong class="dct-service-card-title">'+title+'</strong>'+
+          '<strong class="dct-service-card-title">'+title+'</strong>'+(duration?'<span class="dct-service-duration">◷ '+duration+'</span>':'')+
           '<div class="dct-service-card-description '+(description?'has-copy':'is-empty')+'">'+(description?'<p>'+description+'</p>':'')+'</div>'+
           '<div class="dct-service-card-variants">'+variants.map(v=>
             '<div class="dct-service-card-variant"><span>'+v[0]+'</span><span class="dct-service-card-variant-meta">'+(v[1]?'<small>'+v[1]+'</small>':'')+'<b>'+(v[2]||action)+'</b></span></div>'
@@ -8233,7 +8234,7 @@ html,body,#salon-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:none
 
     return '<button class="dct-service-card'+(description?' has-description':'')+'" type="button" data-service-book>'+
       '<span class="dct-service-card-body">'+
-        '<strong class="dct-service-card-title">'+title+'</strong>'+
+        '<strong class="dct-service-card-title">'+title+'</strong>'+(duration?'<span class="dct-service-duration">◷ '+duration+'</span>':'')+
         '<div class="dct-service-card-description '+(description?'has-copy':'is-empty')+'">'+(description?'<p>'+description+'</p>':'')+'</div>'+
         '<div class="dct-service-card-meta"><b>'+action+'</b></div>'+
       '</span>'+
@@ -8299,18 +8300,23 @@ html,body,#salon-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:none
 
   serviceMore.onclick=()=>{
     const beforeTop=serviceMore.getBoundingClientRect().top;
+    const priorBehavior=document.documentElement.style.scrollBehavior;
+    document.documentElement.style.scrollBehavior='auto';
+    serviceList.style.overflowAnchor='none';
     const beforeScroll=window.scrollY;
     const opening=!desktopServicesExpanded;
     desktopServicesExpanded=opening;
     renderDesktopServices();
     requestAnimationFrame(()=>{
       if(opening){
-        window.scrollTo(0,beforeScroll);
+        window.scrollTo({top:beforeScroll,behavior:'instant'});
+        requestAnimationFrame(()=>{document.documentElement.style.scrollBehavior=priorBehavior;serviceList.style.overflowAnchor=''});
         return;
       }
       const afterTop=serviceMore.getBoundingClientRect().top;
       const delta=afterTop-beforeTop;
-      window.scrollTo(0,Math.max(0,beforeScroll+(Number.isFinite(delta)?delta:0)));
+      window.scrollTo({top:Math.max(0,beforeScroll+(Number.isFinite(delta)?delta:0)),behavior:'instant'});
+      requestAnimationFrame(()=>{document.documentElement.style.scrollBehavior=priorBehavior;serviceList.style.overflowAnchor=''});
     });
   };
   renderDesktopServices();
@@ -8361,7 +8367,7 @@ html,body,#salon-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:none
       reviewLast=now;
       const hoverBlocked=reviewHoverPause&&Date.now()>=reviewIgnoreHoverUntil;
       if(!document.hidden&&!reviewDragging&&Date.now()>=reviewPauseUntil&&!hoverBlocked&&reviewCycle>0){
-        reviewX-=reviewCycle/105000*dt;
+        reviewX-=52*dt/1000;
         if(reviewX<=-reviewCycle)reviewX+=reviewCycle;
         paintDesktopReviews();
       }
@@ -8811,4 +8817,4 @@ html,body,#salon-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:none
 })();
 
 /* boshki-desktop-cold-neutral-20260924 */
-(function(){if(document.getElementById('boshki-desktop-cold-neutral-20260924'))return;const style=document.createElement('style');style.id='boshki-desktop-cold-neutral-20260924';style.textContent="\n@media(min-width:1024px){\n#salon-desktop-v1{--purple:#181818!important;--purple2:#303030!important;background:#fafaf9!important;color:#181818!important}\n#salon-desktop-v1 .std-header{background:#f5f5f3!important;border-bottom:1px solid rgba(24,24,24,.06)!important}\n#salon-desktop-v1 .std-header-book,#salon-desktop-v1 .std-btn-primary,#salon-desktop-v1 .dct-service-sticky-book{background:#181818!important;border-color:#181818!important;color:#fff!important;box-shadow:none!important}\n#salon-desktop-v1 .std-btn:not(.std-btn-primary){background:#e8e8e6!important;border-color:#d2d2cf!important;color:#181818!important}\n#salon-desktop-v1 .std-sparkles{color:#454545!important}\n#salon-desktop-v1 .std-status-main.open{color:#2f7d46!important}#salon-desktop-v1 .std-status-main.closed{color:#c54b55!important}\n#salonDesktopPortfolio{background:#fafaf9!important;color:#181818!important}\n#salon-desktop-v1 .std-gallery-browser,#salon-desktop-v1 .std-gallery-browser-shell{background:#f2f2f0!important;color:#181818!important}\n#salon-desktop-v1 .std-gallery-browser-tab.active{background:#181818!important;border-color:#181818!important;color:#fff!important}\n#salonDesktopReviews{background:#f2f2f0!important;color:#181818!important}\n#salonDesktopReviews .std-review-card{background:#fafafa!important;border-color:rgba(24,24,24,.12)!important}\n#salonDesktopReviews .std-review-avatar{background:#dededc!important;color:#404040!important}\n#salonDesktopReviews .std-reviews-stars,#salonDesktopReviews .std-review-stars{color:#444!important}\n#salonDesktopServices.mct-prices,#salonDesktopContacts.std-contact{background:#242424!important;color:#f7f7f6!important}\n#salonDesktopServices .mct-tab.is-active{background:#f3f3f1!important;border-color:#f3f3f1!important;color:#181818!important}\n#salonDesktopServices .dct-service-sticky-card{background:#2d2d2d!important;border-color:rgba(255,255,255,.10)!important}\n#salonDesktopServices .dct-service-sticky-work{border-color:rgba(255,255,255,.18)!important;background:#333!important;color:#f2f2f0!important}\n#salonDesktopContacts .std-contact-card{background:rgba(255,255,255,.06)!important;border-color:rgba(255,255,255,.13)!important}\n#salonDesktopContacts .std-contact-status.open{background:#203b2a!important;border-color:#315b40!important;color:#8fd0a1!important}\n#salonDesktopContacts .std-contact-status.closed{background:#46292e!important;border-color:#63383f!important;color:#ef9ea7!important}\n#salonDesktopContacts .std-contact-map{background:#333!important;border-color:rgba(255,255,255,.10)!important}\n#salonDesktopContacts .std-contact-brand{background:#181818!important}\n#salonDesktopAbout .mct-about-card{box-shadow:0 26px 58px rgba(0,0,0,.10)!important}\nbody[data-br-lang=\"en\"] #salon-desktop-v1 .std-nav{width:min(46vw,690px)!important;justify-content:space-between!important;gap:0!important}\n}";document.head.appendChild(style);})();
+(function(){if(document.getElementById('boshki-desktop-cold-neutral-20260924'))return;const style=document.createElement('style');style.id='boshki-desktop-cold-neutral-20260924';style.textContent="\n@media(min-width:1024px){\n#salon-desktop-v1{--purple:#181818!important;--purple2:#303030!important;background:#fafaf9!important;color:#181818!important}\n#salon-desktop-v1 .std-header{background:#f5f5f3!important;border-bottom:1px solid rgba(24,24,24,.06)!important}\n#salon-desktop-v1 .std-header-book,#salon-desktop-v1 .std-btn-primary,#salon-desktop-v1 .dct-service-sticky-book{background:#181818!important;border-color:#181818!important;color:#fff!important;box-shadow:none!important}\n#salon-desktop-v1 .std-btn:not(.std-btn-primary){background:#e8e8e6!important;border-color:#d2d2cf!important;color:#181818!important}\n#salon-desktop-v1 .std-sparkles{color:#454545!important}\n#salon-desktop-v1 .std-status-main.open{color:#2f7d46!important}#salon-desktop-v1 .std-status-main.closed{color:#c54b55!important}\n#salonDesktopPortfolio{background:#fafaf9!important;color:#181818!important}\n#salon-desktop-v1 .std-gallery-browser,#salon-desktop-v1 .std-gallery-browser-shell{background:#f2f2f0!important;color:#181818!important}\n#salon-desktop-v1 .std-gallery-browser-tab.active{background:#181818!important;border-color:#181818!important;color:#fff!important}\n#salonDesktopReviews{background:#f2f2f0!important;color:#181818!important}\n#salonDesktopReviews .std-review-card{background:#fafafa!important;border-color:rgba(24,24,24,.12)!important}\n#salonDesktopReviews .std-review-avatar{background:#dededc!important;color:#404040!important}\n#salonDesktopReviews .std-reviews-stars,#salonDesktopReviews .std-review-stars{color:#444!important}\n#salonDesktopServices.mct-prices,#salonDesktopContacts.std-contact{background:#242424!important;color:#f7f7f6!important}\n#salonDesktopServices .mct-tab.is-active{background:#f3f3f1!important;border-color:#f3f3f1!important;color:#181818!important}\n#salonDesktopServices .dct-service-sticky-card{background:#2d2d2d!important;border-color:rgba(255,255,255,.10)!important}\n#salonDesktopServices .dct-service-sticky-work{border-color:rgba(255,255,255,.18)!important;background:#333!important;color:#f2f2f0!important}\n#salonDesktopContacts .std-contact-card{background:rgba(255,255,255,.06)!important;border-color:rgba(255,255,255,.13)!important}\n#salonDesktopContacts .std-contact-status.open{background:#203b2a!important;border-color:#315b40!important;color:#8fd0a1!important}\n#salonDesktopContacts .std-contact-status.closed{background:#46292e!important;border-color:#63383f!important;color:#ef9ea7!important}\n#salonDesktopContacts .std-contact-map{background:#333!important;border-color:rgba(255,255,255,.10)!important}\n#salonDesktopContacts .std-contact-brand{background:#181818!important}\n#salonDesktopAbout .mct-about-card{box-shadow:0 26px 58px rgba(0,0,0,.10)!important}\nbody[data-br-lang=\"en\"] #salon-desktop-v1 .std-nav{width:min(46vw,690px)!important;justify-content:space-between!important;gap:0!important}\n\n/* Approved BOSHKI desktop synchronisation inside the existing neutral theme. */\n#salonDesktopTop.std-hero{background:#fafaf9!important}\n#salonDesktopTop .std-hero-copy{background:#fafaf9!important}\n#salonDesktopTop .std-hero-frame:before,#salonDesktopTop .std-hero-frame:after{border-color:rgba(24,24,24,.12)!important}\n#salonDesktopTop .std-tagline{color:#575757!important}\n#salonDesktopTop .std-meta-icon{background:rgba(24,24,24,.035)!important;border-color:rgba(24,24,24,.12)!important}\n#salonDesktopTop .std-btn-primary:hover,#salonDesktopServices .dct-service-sticky-book:hover{background:#393939!important;border-color:#393939!important;color:#fff!important}\n#salonDesktopTop .std-btn:not(.std-btn-primary):hover,#salonDesktopServices .dct-service-sticky-work:hover,#salonDesktopPortfolio .std-portfolio-more:hover{background:#dadad7!important;color:#181818!important;border-color:#bdbdbb!important}\n#salonDesktopPortfolio.std-portfolio{background:#fafaf9!important}\n#salonDesktopPortfolio.std-portfolio:before,#salonDesktopPortfolio.std-portfolio:after{border-color:rgba(24,24,24,.06)!important}\n#salon-desktop-v1 .std-gallery-browser-tabs{background:#f2f2f0!important}\n#salon-desktop-v1 .std-gallery-browser-tab{color:#565656!important}\n#salon-desktop-v1 .std-gallery-browser-tab.active{background:#181818!important;border-color:#181818!important;color:#fff!important}\n#salonDesktopServices .dct-service-sticky-card{background:#fafaf9!important;border-color:rgba(24,24,24,.12)!important;color:#181818!important;box-shadow:0 18px 45px rgba(0,0,0,.12)!important}\n#salonDesktopServices .dct-service-sticky-card>strong,#salonDesktopServices .dct-service-sticky-card p,#salonDesktopServices .dct-service-sticky-card span:not(.std-status-main):not(.std-status-sub){color:#181818!important}\n#salonDesktopServices .dct-service-sticky-book{background:#181818!important;color:#fff!important}\n#salonDesktopServices .dct-service-sticky-book span{color:#fff!important}\n#salonDesktopServices .dct-service-sticky-work{background:#e8e8e6!important;color:#181818!important;border-color:rgba(24,24,24,.15)!important}\n#salonDesktopServices .dct-service-card-meta{justify-content:center!important;text-align:center!important}\n#salonDesktopServices .dct-service-card-meta>b{display:block!important;width:100%!important;text-align:center!important;color:#fafaf9!important}\n#salonDesktopServices .dct-service-duration{display:inline-flex!important;align-items:center!important;min-height:29px!important;margin-top:12px!important;padding:0 11px!important;gap:7px!important;border-radius:999px!important;background:rgba(255,255,255,.13)!important;border:1px solid rgba(255,255,255,.1)!important;color:#e6e6e6!important;font:600 10px/1 Manrope,Arial,sans-serif!important;align-self:flex-start!important}\n#salonDesktopReviews{background:#fafaf9!important}\n#salonDesktopReviews .std-review-card{background:#fff!important}\n#salonDesktopAbout .mct-about-portrait{overflow:hidden!important}\n#salonDesktopAbout .mct-about-portrait img{height:calc(100% + 1cm)!important;max-height:none!important;transform:translateY(-1cm)!important;object-position:center 38%!important}\n\n}";document.head.appendChild(style);})();
