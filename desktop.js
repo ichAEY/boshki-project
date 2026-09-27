@@ -356,38 +356,16 @@
     ],
     [
       "Женская стрижка",
+      "от 15 000 ֏",
       "",
-      "",
-      [
-        [
-          "1,5 ч",
-          "",
-          "15 000 ֏"
-        ],
-        [
-          "2 ч",
-          "",
-          "20 000 ֏"
-        ]
-      ],
+      [],
       ""
     ],
     [
       "Мужская стрижка",
+      "от 15 000 ֏",
       "",
-      "",
-      [
-        [
-          "1,5 ч",
-          "",
-          "15 000 ֏"
-        ],
-        [
-          "2 ч",
-          "",
-          "20 000 ֏"
-        ]
-      ],
+      [],
       ""
     ],
     [
@@ -7583,16 +7561,6 @@ html,body,#salon-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:none
   width:100%!important;max-width:920px!important;min-height:0!important;height:auto!important;flex:1 1 auto!important
 }
 
-@media(min-width:768px){
- #salonDesktopServices .dct-service-card.has-variants .dct-service-card-body{display:block!important}
- #salonDesktopServices .dct-service-card.has-variants .dct-service-card-title{display:block;color:#f7f3f0;font:500 clamp(24px,1.8vw,30px)/1.1 "Cormorant Garamond",Georgia,serif}
- #salonDesktopServices .dct-service-card-variants{display:grid;gap:10px;margin-top:16px}
- #salonDesktopServices .dct-service-card-variant{display:flex;align-items:center;justify-content:space-between;gap:12px}
- #salonDesktopServices .dct-service-card-variant-meta{display:flex;align-items:center;gap:10px}
- #salonDesktopServices .dct-service-card-variant .dct-service-duration{margin:0!important;font-size:12px!important}
- body[data-br-lang="hy"] #salon-desktop-v1 :is(h1,h2,h3,p,a,button,span,strong,small){font-weight:400!important}
- body[data-br-lang="hy"] #salonDesktopServices .dct-service-card-title{font-weight:400!important}
-}
 `;
   document.head.appendChild(desktopStyle);
   
@@ -8608,6 +8576,7 @@ html,body,#salon-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:none
     ["Женская стрижка","Կանացի սանրվածք","Women's haircut"],
     ["Мужская стрижка","Տղամարդու սանրվածք","Men's haircut"],
     ["Бесплатно","Անվճար","Free"],
+    ["от 15 000 ֏","սկսած 15 000 ֏","from 15,000 ֏"],
     ["Консультация по стрижке","Սանրվածքի խորհրդատվություն","Haircut consultation"],
     ["Осветление бровей","Հոնքերի բացեցում","Eyebrow lightening"],
     ["Коррекция бровей","Հոնքերի ձևավորում","Eyebrow shaping"],
