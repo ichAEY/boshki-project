@@ -8533,7 +8533,7 @@ width:100%!important;max-width:920px!important;min-height:0!important;height:aut
     const copy=lang==='ru'?{open:'Открыто',closed:'Закрыто',until:'до 21:00',opens:'откроется в 10:00'}:lang==='hy'?{open:'Բաց է',closed:'Փակ է',until:'մինչև 21:00',opens:'բացվում է 10:00'}:{open:'Open',closed:'Closed',until:'until 21:00',opens:'opens 10:00'};
     const now=new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Yerevan',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).format(new Date());
     const open=now>='10:00'&&now<'21:00';
-    const primary=open?copy.open:copy.closed,detail=open?copy.until:copy.opens,heroDetail=open?copy.until:'';
+    const primary=open?copy.open:copy.closed,detail=open?copy.until:copy.opens,heroDetail=open?copy.until:(lang==='ru'?'до 10:00':lang==='hy'?'մինչև 10:00':'until 10:00');
     const main=document.getElementById('stdStatusMain'),sub=document.getElementById('stdStatusSub');
     if(main){main.textContent=primary;main.className='std-status-main '+(open?'open':'closed');main.style.color=''}
     if(sub)sub.textContent=heroDetail;
