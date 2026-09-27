@@ -7919,7 +7919,7 @@ width:100%!important;max-width:920px!important;min-height:0!important;height:aut
 
   function desktopDurationValue(raw){const m=String(raw||'').match(/\d+(?:[.,]\d+)?/);return m?m[0]:''}
   function activeDesktopServiceLang(){const raw=(document.body.dataset.brLang||document.documentElement.lang||'en').toLowerCase();return raw.startsWith('ru')?'ru':raw.startsWith('hy')?'hy':'en'}
-  function desktopDurationLabel(raw,lang=activeDesktopServiceLang()){let v=desktopDurationValue(raw);if(!v)return '';v=lang==='ru'?v.replace('.',','):v.replace(',','.');const minutes=/\b(?:мин|minute|min)\b/i.test(String(raw||''));return v+(minutes?(lang==='hy'?' րոպե':lang==='en'?' min':' мин'):(lang==='hy'?' ժ.':lang==='en'?' h':' ч'))}
+  function desktopDurationLabel(raw,lang=activeDesktopServiceLang()){let v=desktopDurationValue(raw);if(!v)return '';v=lang==='ru'?v.replace('.',','):v.replace(',','.');const minutes=/(?:мин|minutes?|mins?)/i.test(String(raw||''));return v+(minutes?(lang==='hy'?' րոպե':lang==='en'?' min':' мин'):(lang==='hy'?' ժ.':lang==='en'?' h':' ч'))}
   function updateDesktopServiceDurations(lang=activeDesktopServiceLang()){document.querySelectorAll('#salonDesktopServices .dct-service-duration[data-duration]').forEach(el=>{el.textContent=desktopDurationLabel(el.dataset.duration,lang)})}
   window.addEventListener('boshki:languagechange',e=>updateDesktopServiceDurations(e.detail&&e.detail.lang));
 
