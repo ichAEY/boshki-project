@@ -629,7 +629,7 @@
 
     <footer class="tn13-footer"><div class="tn13-shell"><strong>BOSHKI PROJECT</strong>Цифровой офис TANEM.RU</div></footer>
 
-    <div class="tn13-sticky" id="tn13Sticky"><span>Доступно <strong>${services.length} услуг</strong></span><button type="button" data-book>Записаться</button></div>
+    <div class="tn13-sticky" id="tn13Sticky"><span>Доступно <strong>${services.length} услуги</strong></span><button type="button" data-book>Записаться</button></div>
 
     <div class="tn13-overlay" id="tn13Gallery"><div class="tn13-gallery-head"><button class="tn13-back" id="tn13GalleryClose" type="button">←</button><div class="tn13-gallery-title">Галерея BOSHKI PROJECT</div><div class="tn13-gallery-sub">Салон · ногти · волосы · макияж</div></div><div class="tn13-gallery-tabs" id="tn13GalleryTabs"></div><div class="tn13-gallery-list" id="tn13GalleryList"></div></div>
 
@@ -1431,7 +1431,7 @@ const map=visit.querySelector('.tn22-mapwrap'),iframe=map.querySelector('iframe'
 function status(){const lang=(document.body.dataset.brLang||document.documentElement.lang||'en').toLowerCase();const copy=lang==='ru'?{open:'Открыто',closed:'Закрыто',until:'до 21:00',opens:'откроется в 10:00'}:lang==='hy'?{open:'Բաց է',closed:'Փակ է',until:'մինչև 21:00',opens:'բացվում է 10:00'}:{open:'Open',closed:'Closed',until:'until 21:00',opens:'opens 10:00'};const now=new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Yerevan',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).format(new Date());const open=now>='10:00'&&now<'21:00';const primary=open?copy.open:copy.closed,detail=open?copy.until:copy.opens,heroDetail=open?copy.until:'';const el=visit.querySelector('#tn22Status'),txt=el&&el.querySelector('.tn22-status-text');if(txt)txt.textContent=primary+' · '+detail;if(el)el.className='tn22-status '+(open?'open':'closed');const hs=hero.querySelector('.tn50-hero-status');if(hs){const main=hs.querySelector('.tn50-hero-status-main'),sub=hs.querySelector('.tn50-hero-status-sub');if(main)main.textContent=primary;if(sub)sub.textContent=heroDetail;hs.classList.toggle('open',open);hs.classList.toggle('closed',!open)}const contactHours=visit.querySelector('#tn22ContactHours');if(contactHours)contactHours.textContent=detail}status();window.setInterval(status,60000);window.addEventListener('boshki:languagechange',status);
 
 // STICKY
-const sticky=$('#tn13Sticky');if(sticky){sticky.innerHTML=`<strong>Доступно ${SERVICES.length} услуг</strong><button type="button">Записаться</button>`;sticky.querySelector('button').onclick=book}
+const sticky=$('#tn13Sticky');if(sticky){sticky.innerHTML=`<strong>Доступно ${SERVICES.length} ${serviceWord(SERVICES.length)}</strong><button type="button">Записаться</button>`;sticky.querySelector('button').onclick=book}
 
 const oldMaster=$('#tn13MasterSheet');if(oldMaster)oldMaster.style.display='none';document.addEventListener('keydown',e=>{if(e.key!=='Escape')return;if(viewer.classList.contains('open'))closeViewer();else if(masterPage.classList.contains('open'))closeMaster();else if(teamSheet.classList.contains('open'))teamSheet.classList.remove('open');else if(gallery.classList.contains('open'))closeGallery()});
 })();
@@ -2398,7 +2398,7 @@ services.insertAdjacentElement('afterend',about);
     var m;
     m=source.match(/^Показать ещё (\d+) (?:услугу|услуги|услуг)$/);
     if(m) return lang==='hy'?'Ցույց տալ ևս '+m[1]+' ծառայություն':lang==='en'?'Show '+m[1]+' more services':source;
-    m=source.match(/^Доступно (\d+) услуг$/);
+    m=source.match(/^Доступно (\d+) (?:услуг|услуги|услугу)$/);
     if(m) return lang==='hy'?'Հասանելի է '+m[1]+' ծառայություն':lang==='en'?m[1]+' services available':source;
     if(source==='Сведения уточняются') return lang==='hy'?'Տվյալները շուտով':lang==='en'?'Details coming soon':source;
     if(source==='Информация о мастере появится после подтверждения салоном.') return lang==='hy'?'Մասնագետի տվյալները կհրապարակվեն հաստատումից հետո։':lang==='en'?'The master profile will be published after confirmation.':source;
