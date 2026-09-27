@@ -7278,18 +7278,18 @@ html,body,#salon-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:none
     box-shadow:0 9px 22px rgba(0,0,0,.16)!important;
   }
 
-  /* Keep first category aligned while adding a real left fade lane. */
+  /* Categories align with the service cards; fade stays outside the row. */
   #salonDesktopServices .mct-tabs-ribbon-wrap{
-    margin-left:-28px!important;
-    width:calc(100% + 28px)!important;
-    overflow:hidden!important;
+    margin-left:0!important;
+    width:100%!important;
+    overflow:visible!important;
   }
   #salonDesktopServices .mct-tabs{
-    padding-left:28px!important;
-    scroll-padding-left:28px!important;
+    padding-left:0!important;
+    scroll-padding-left:0!important;
   }
   #salonDesktopServices .mct-tabs-ribbon-wrap:before{
-    left:0!important;
+    left:-28px!important;
     width:28px!important;
     height:58px!important;
     z-index:30!important;

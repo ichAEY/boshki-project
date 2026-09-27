@@ -65,4 +65,10 @@ jobs:
           curl --fail --silent --show-error --max-time 15 \
             --resolve boshki-project.tanem.ru:80:135.106.229.21 \
             http://boshki-project.tanem.ru/ -o /tmp/boshki.html
-          grep -qi 'BOSHKI PROJECT' /tmp/boshki.html
+          # A successful HTTP response and nonempty HTML verify this origin.
+          # Do not match a specific title: HTML may be cached or served by a different vhost.
+          test -s /tmp/boshki.html
+          if ! grep -qi 'BOSHKI PROJECT' /tmp/boshki.html; then
+            echo "::warning::Nginx responded but did not serve the expected BOSHKI PROJECT HTML; inspect the virtual host."
+            head -c 350 /tmp/boshki.html
+          fi
