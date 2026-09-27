@@ -202,7 +202,7 @@
       ""
     ],
     [
-      "Аиртач + мелирование",
+      "AirTouch + мелирование",
       "60 000 ֏",
       "5 ч",
       [],
@@ -230,8 +230,8 @@
       ""
     ],
     [
-      "Консультация по окрашиванию (бесплатно)",
-      "10 ֏",
+      "Консультация по окрашиванию",
+      "Бесплатно",
       "",
       [],
       ""
@@ -246,8 +246,8 @@
       ""
     ],
     [
-      "Консультация по пирсингу (бесплатно)",
-      "10 ֏",
+      "Консультация по пирсингу",
+      "Бесплатно",
       "",
       [],
       ""
@@ -355,36 +355,44 @@
       ""
     ],
     [
-      "Женская стрижка — 1,5 ч",
-      "15 000 ֏",
-      "1,5 ч",
-      [],
+      "Женская стрижка",
+      "",
+      "",
+      [
+        [
+          "1,5 ч",
+          "",
+          "15 000 ֏"
+        ],
+        [
+          "2 ч",
+          "",
+          "20 000 ֏"
+        ]
+      ],
       ""
     ],
     [
-      "Мужская стрижка — 1,5 ч",
-      "15 000 ֏",
-      "1,5 ч",
-      [],
+      "Мужская стрижка",
+      "",
+      "",
+      [
+        [
+          "1,5 ч",
+          "",
+          "15 000 ֏"
+        ],
+        [
+          "2 ч",
+          "",
+          "20 000 ֏"
+        ]
+      ],
       ""
     ],
     [
-      "Мужская стрижка — 2 ч",
-      "20 000 ֏",
-      "2 ч",
-      [],
-      ""
-    ],
-    [
-      "Женская стрижка — 2 ч",
-      "20 000 ֏",
-      "2 ч",
-      [],
-      ""
-    ],
-    [
-      "Консультация по стрижке (бесплатно)",
-      "10 ֏",
+      "Консультация по стрижке",
+      "Бесплатно",
       "",
       [],
       ""
@@ -420,8 +428,8 @@
       ""
     ],
     [
-      "Консультация по бровям (бесплатно)",
-      "10 ֏",
+      "Консультация по бровям",
+      "Бесплатно",
       "",
       [],
       ""
@@ -503,8 +511,8 @@
       ""
     ],
     [
-      "Консультация по биозавивке (бесплатно)",
-      "10 ֏",
+      "Консультация по биозавивке",
+      "Бесплатно",
       "1 ч",
       [],
       ""
@@ -535,7 +543,7 @@
       ""
     ],
     [
-      "Педикюр с покрытием гель-лак",
+      "Педикюр с покрытием гель-лаком",
       "18 000 ֏",
       "",
       [],
@@ -551,8 +559,8 @@
       ""
     ],
     [
-      "Консультация по тату (бесплатно)",
-      "10 ֏",
+      "Консультация по татуировке",
+      "Бесплатно",
       "1 ч",
       [],
       ""
@@ -7574,6 +7582,17 @@ html,body,#salon-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:none
 #salon-desktop-v1[data-empty-team="1"] #salonDesktopAbout .br-about-column{
   width:100%!important;max-width:920px!important;min-height:0!important;height:auto!important;flex:1 1 auto!important
 }
+
+@media(min-width:768px){
+ #salonDesktopServices .dct-service-card.has-variants .dct-service-card-body{display:block!important}
+ #salonDesktopServices .dct-service-card.has-variants .dct-service-card-title{display:block;color:#f7f3f0;font:500 clamp(24px,1.8vw,30px)/1.1 "Cormorant Garamond",Georgia,serif}
+ #salonDesktopServices .dct-service-card-variants{display:grid;gap:10px;margin-top:16px}
+ #salonDesktopServices .dct-service-card-variant{display:flex;align-items:center;justify-content:space-between;gap:12px}
+ #salonDesktopServices .dct-service-card-variant-meta{display:flex;align-items:center;gap:10px}
+ #salonDesktopServices .dct-service-card-variant .dct-service-duration{margin:0!important;font-size:12px!important}
+ body[data-br-lang="hy"] #salon-desktop-v1 :is(h1,h2,h3,p,a,button,span,strong,small){font-weight:400!important}
+ body[data-br-lang="hy"] #salonDesktopServices .dct-service-card-title{font-weight:400!important}
+}
 `;
   document.head.appendChild(desktopStyle);
   
@@ -8236,7 +8255,7 @@ html,body,#salon-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:none
           '<div class="dct-service-card-variants">'+variants.map(v=>{
             const variantAction=v[2]||action;
             const variantClass=variantAction==='Записаться'?'is-book':'is-price';
-            return '<div class="dct-service-card-variant"><span>'+v[0]+'</span><span class="dct-service-card-variant-meta">'+(v[1]?'<small>'+v[1]+'</small>':'')+'<b class="'+variantClass+'">'+variantAction+'</b></span></div>';
+            return '<div class="dct-service-card-variant"><span class="dct-service-duration" data-duration="'+v[0]+'">'+desktopDurationLabel(v[0])+'</span><span class="dct-service-card-variant-meta">'+(v[1]?'<small>'+v[1]+'</small>':'')+'<b class="'+variantClass+'">'+variantAction+'</b></span></div>';
           }).join('')+'</div>'+
         '</span>'+
       '</button>';
@@ -8565,13 +8584,13 @@ html,body,#salon-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:none
     ["Тотал блонд","Ամբողջական բլոնդ","Total Blonde"],
     ["Осветление корней + тонирование","Արմատների բացեցում և տոնավորում","Root Lightening + Toning"],
     ["Выход из цвета (деколоризация)","Գույնի հեռացում (դեկոլորացիա)","Color Out (Decolorization)"],
-    ["Аиртач + мелирование","AirTouch և մելիավորում","Air Touch and Highlights"],
+    ["AirTouch + мелирование","AirTouch և մելիավորում","AirTouch and highlights"],
     ["Контуринг + тонирование","Կոնտուրինգ և տոնավորում","Contouring + Toning"],
     ["Однотонное окрашивание","Միագույն ներկում","All-Over Color"],
     ["Консультация по креативному окрашиванию","Կրեատիվ ներկման խորհրդատվություն","Creative coloring consultation"],
-    ["Консультация по окрашиванию (бесплатно)","Ներկման անվճար խորհրդատվություն","Coloring consultation (free)"],
+    ["Консультация по окрашиванию","Ներկման խորհրդատվություն","Coloring consultation"],
     ["Пирсинг","Պիրսինգ","Piercing"],
-    ["Консультация по пирсингу (бесплатно)","Պիրսինգի անվճար խորհրդատվություն","Piercing consultation (free)"],
+    ["Консультация по пирсингу","Պիրսինգի խորհրդատվություն","Piercing consultation"],
     ["Микродермал","Միկրոդերմալ","Microdermal"],
     ["Восстановление прокола","Պիրսինգի անցքի վերականգնում","Puncture repair"],
     ["Процедура по уходу","Խնամքի պրոցեդուրա","Care procedure"],
@@ -8586,16 +8605,15 @@ html,body,#salon-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:none
     ["Полный образ: макияж + укладка","Ամբողջական կերպար՝ դիմահարդարում և վարսահարդարում","Full look: makeup + styling"],
     ["Вечерний макияж","Երեկոյան դիմահարդարում","Evening makeup"],
     ["Стрижка чёлки","Ճակատային մազափնջի կտրում","Bangs / Fringe cut"],
-    ["Женская стрижка — 1,5 ч","Կանացի սանրվածք (1.5 ժ)","Women's haircut (1.5 h)"],
-    ["Мужская стрижка — 1,5 ч","Տղամարդու սանրվածք (1.5 ժ)","Men's haircut (1.5 h)"],
-    ["Мужская стрижка — 2 ч","Տղամարդու սանրվածք (2 ժ)","Men's haircut (2 h)"],
-    ["Женская стрижка — 2 ч","Կանացի սանրվածք (2 ժ)","Women's haircut (2 h)"],
-    ["Консультация по стрижке (бесплатно)","Սանրվածքի անվճար խորհրդատվություն","Haircut consultation (free)"],
+    ["Женская стрижка","Կանացի սանրվածք","Women's haircut"],
+    ["Мужская стрижка","Տղամարդու սանրվածք","Men's haircut"],
+    ["Бесплатно","Անվճար","Free"],
+    ["Консультация по стрижке","Սանրվածքի խորհրդատվություն","Haircut consultation"],
     ["Осветление бровей","Հոնքերի բացեցում","Eyebrow lightening"],
     ["Коррекция бровей","Հոնքերի ձևավորում","Eyebrow shaping"],
     ["Skinny-брови","Բարակ հոնքեր","Skinny brows"],
     ["Долговременная укладка бровей","Հոնքերի երկարատև հարդարում","Long-lasting brow styling"],
-    ["Консультация по бровям (бесплатно)","Հոնքերի անվճար խորհրդատվություն","Brow consultation (free)"],
+    ["Консультация по бровям","Հոնքերի խորհրդատվություն","Brow consultation"],
     ["Маникюр без покрытия","Մատնահարդարում առանց ծածկույթի","Manicure without coating"],
     ["Маникюр с дизайном","Մատնահարդարում դիզայնով","Manicure with nail art"],
     ["Когти (Claws)","Երկար սրածայր եղունգներ","Claws"],
@@ -8606,13 +8624,13 @@ html,body,#salon-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:none
     ["Уход Londa Lightplex","Londa Lightplex մազերի խնամք","Londa Lightplex treatment"],
     ["Davines Nourishing Keratin Wonder","Davines Nourishing Keratin Wonder","Davines Nourishing Keratin Wonder"],
     ["Биозавивка","Բիոգանգրացում","Bioperm"],
-    ["Консультация по биозавивке (бесплатно)","Բիոգանգրացման անվճար խորհրդատվություն","Bioperm consultation (free)"],
+    ["Консультация по биозавивке","Բիոգանգրացման խորհրդատվություն","Bioperm consultation"],
     ["Мужской маникюр без покрытия","Տղամարդու մատնահարդարում առանց ծածկույթի","Men's manicure without coating"],
     ["Мужской маникюр с покрытием","Տղամարդու մատնահարդարում ծածկույթով","Men's manicure with polish"],
     ["Педикюр","Պեդիկյուր","Pedicure"],
-    ["Педикюр с покрытием гель-лак","Պեդիկյուր գել-լաքով","Pedicure with gel polish"],
+    ["Педикюр с покрытием гель-лаком","Պեդիկյուր գել-լաքով","Pedicure with gel polish"],
     ["Татуировка","Դաջվածք","Tattoo"],
-    ["Консультация по тату (бесплатно)","Դաջվածքի անվճար խորհրդատվություն","Tattoo consultation (free)"],
+    ["Консультация по татуировке","Դաջվածքի խորհրդատվություն","Tattoo consultation"],
     ["Укладка по кудрявому методу","Գանգուր մազերի հարդարում","Curly method styling"],
     ["Укладка локонами","Լոկոններով հարդարում","Blow Dry / Waving"],
     ["Ламинирование и окрашивание ресниц","Թարթիչների լամինացիա և ներկում","Lash lamination and tint"],
