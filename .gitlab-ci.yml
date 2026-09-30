@@ -1,0 +1,23 @@
+# TANEM: GitLab Pages pilot. GitHub remains the source of truth.
+# This file runs only after the repo is imported/mirrored to GitLab.
+stages:
+  - deploy
+
+deploy_pages:
+  stage: deploy
+  image: alpine:3.20
+  script:
+    - mkdir -p public
+    - |
+      find . -mindepth 1 -maxdepth 1 \
+        ! -name .git \
+        ! -name .github \
+        ! -name .gitlab-ci.yml \
+        ! -name CNAME \
+        ! -name public \
+        -exec cp -a {} public/ \;
+    - test -s public/index.html
+  pages:
+    publish: public
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "main"'
